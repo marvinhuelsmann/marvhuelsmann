@@ -14,7 +14,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 const resources = [
     {
         name: 'Hilfe Center',
-        description: 'Kriege alle deine Fragen auf einer Seite beantwortet.',
+        description: 'Erhalte alle deine Fragen auf einer Seite beantwortet.',
         href: '#',
         icon: SupportIcon,
     },
