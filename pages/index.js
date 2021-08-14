@@ -1,89 +1,48 @@
 import Head from 'next/head'
-import { Popover, Transition } from '@headlessui/react'
-
-import {
-  MenuIcon,
-} from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import Navbar from '../components/navbar'
+import Popover from "../components/popover";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Marvin Hülsmann</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+        <div className="min-h-screen py-2">
+            <Head>
+                <title>Marvin Hülsmann</title>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+            <Navbar/>
 
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Marvin Hülsmann
-          </a>
-        </h1>
+            <main className="bg-gray-900 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+                <div className="mt-60 mb-60">
+                    <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                        <div className="flex space-x-4">
+                            <div className="rounded-full animate-pulse bg-blue-400 h-12 w-12"/>
+                            <div className="flex-1 py-1">
+                                <p className="text-white shadow pb-2">In naher <code>Zukunft</code> verfügbar!</p>
+                                <div className="space-y-2 animate-pulse">
+                                    <div className="h-4 bg-blue-400 rounded"/>
+                                    <div className="h-4 bg-blue-400 rounded w-5/6"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <Popover/>
+                </div>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
+            </main>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            <footer className="flex bg-white items-center justify-center w-full h-24 border-t">
+                <a
+                    className="flex items-center justify-center"
+                    href="https://marvin.monster"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src="/LogoSmall.svg" alt="Vercel Logo" className="h-14 ml-2"/>
+                </a>
+            </footer>
         </div>
-      </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
-  )
+    )
 }
+
