@@ -1,18 +1,25 @@
 import Head from 'next/head'
+import { Popover, Transition } from '@headlessui/react'
+
+import {
+  MenuIcon,
+} from '@heroicons/react/outline'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Marvin Hülsmann</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
           <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
+            Marvin Hülsmann
           </a>
         </h1>
 
