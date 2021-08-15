@@ -12,7 +12,7 @@ export default function Home() {
 
             <Navbar/>
 
-            <main className="bg-gray-900 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+            <main className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
                 <div className="mt-60 mb-60">
                         <h2 className="text-white drop-shadow-2xl font-bold text-9xl text-strong">Bald Verfügbar</h2>
