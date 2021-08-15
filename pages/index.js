@@ -15,7 +15,7 @@ export default function Home() {
             <main className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
                 <div className="mt-60 mb-60">
-                        <h2 className="text-white drop-shadow-2xl font-bold text-9xl text-strong">Bald Verfügbar</h2>
+                        <h2 className="text-white drop-shadow-2xl opacity-80 font-bold xl:text-9xl md:text-8xl text-5xl text-strong">Bald Verfügbar</h2>
                     <Popover/>
                 </div>
             </main>
