@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Navbar from '../components/navbar'
-import Popover from "../components/popover";
+import Navbar from '../components/Navbar'
+import Popover from "../components/Popover";
 
 export default function Home() {
     return (
@@ -15,21 +15,9 @@ export default function Home() {
             <main className="bg-gray-900 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
                 <div className="mt-60 mb-60">
-                    <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-                        <div className="flex space-x-4">
-                            <div className="rounded-full animate-pulse bg-blue-400 h-12 w-12"/>
-                            <div className="flex-1 py-1">
-                                <p className="text-white shadow pb-2">In naher <code>Zukunft</code> verfügbar!</p>
-                                <div className="space-y-2 animate-pulse">
-                                    <div className="h-4 bg-blue-400 rounded"/>
-                                    <div className="h-4 bg-blue-400 rounded w-5/6"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <h2 className="text-white drop-shadow-2xl font-bold text-9xl text-strong">Bald Verfügbar</h2>
                     <Popover/>
                 </div>
-
             </main>
 
             <footer className="flex bg-white items-center justify-center w-full h-24 border-t">
