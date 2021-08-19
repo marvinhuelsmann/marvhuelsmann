@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css'
 
-function MyApp({ Component, pageProps }) {
+function marvinhuelsmann({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 
-export default MyApp
+export default marvinhuelsmann

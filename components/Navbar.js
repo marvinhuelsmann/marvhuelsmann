@@ -57,10 +57,10 @@ export default function Navbar() {
                     </div>
                     <Popover.Group as="nav" className="hidden md:flex space-x-10">
 
-                        <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                        <a href="/contact" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             Kontakt
                         </a>
-                        <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                        <a href="/documentation" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             Dokumentation
                         </a>
 

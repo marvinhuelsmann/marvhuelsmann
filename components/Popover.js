@@ -16,7 +16,7 @@ export default function Popover() {
         <>
             <div className="pt-3">
                 <a href='#' onClick={openModal} className="text-white">
-                    Bezahle um die Seite in <strong>Express</strong> Zeit eher zu sehen &rarr;
+                    Momentan ist nur die Landing Page fertig entwickelt. Bezahle um die anderen Seite in <strong>Express</strong> Zeit eher zu sehen &rarr;
                 </a>
             </div>
 
@@ -65,7 +65,7 @@ export default function Popover() {
                                 </Dialog.Title>
                                 <div className="mt-2">
                                     <p className="text-sm text-gray-500">
-                                        Deine Zahlung wurde erfolgreich durchgeführt. Dennoch wird die Seite nicht schneller entwickelt...
+                                        Deine Zahlung wurde erfolgreich durchgeführt. Dennoch werden die anderen Seite nicht schneller entwickelt...
                                     </p>
                                 </div>
 

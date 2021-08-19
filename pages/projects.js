@@ -13,9 +13,9 @@ export default function Imprint() { return (
         <main className="bg-black flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
             <div className="mt-64 mb-64">
-            <h1 className="text-7xl text-white">
-                Impressum
-            </h1>
+                <h1 className="text-7xl text-white">
+                    Projekte
+                </h1>
             </div>
 
         </main>

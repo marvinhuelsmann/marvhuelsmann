@@ -1,0 +1,33 @@
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        zoom: 100%;
+    }
+    1% {
+        filter: blur(4px);
+    }
+    70% {
+        filter: blur(3px);
+    }
+    100% {
+        opacity: 1;
+        zoom: 103%;
+        filter: none;
+    }
+}
+.animate-fadeIn {
+    -webkit-animation: fadeIn 0.4s ease-in forwards;
+    animation: fadeIn 0.6s ease-in forwards;
+}
+.animate-fadeInLong {
+    -webkit-animation: fadeIn 1.2s ease-in forwards;
+    animation: fadeIn 1.35s ease-in forwards;
+}
