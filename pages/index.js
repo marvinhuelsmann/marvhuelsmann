@@ -8,7 +8,7 @@ import IpadImage from '../public/IpadSelf.png'
 
 export function getHelloWord() {
     const helloWords =
-        ["Bonjour¹", "Hej¹", "Ciao¹", "Tach¹", "Hăo¹", "Moinsen¹", "こんにちは¹", "Hello¹", "Salut¹", "Olá¹", "Merhaba¹"]
+        ["Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba"]
 
     return helloWords[Math.floor(Math.random() * helloWords.length)];
 }
@@ -37,7 +37,7 @@ export default function Home() {
             callbackAnimation(entries, true)
         };
 
-        const observerSmall = new IntersectionObserver(callbackSmall);
+        const observerSmall = new IntersectionObserver(callbackSmall)
         const observerLong = new IntersectionObserver(callbackLong)
 
         const targetsSmall = document.querySelectorAll(".show-on-scroll");
@@ -66,18 +66,19 @@ export default function Home() {
                     className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
                     <div className="xl:mt-60 mt-32 xl:mb-60 mb-32">
                         <h2 className="text-white drop-shadow-2xl opacity-90 font-bold xl:text-9xl md:text-8xl text-5xl">
-                            {getHelloWord()}, ich bin Marvin
+                            {getHelloWord()}¹, ich bin Marvin
                         </h2>
                         <Popover/>
                     </div>
                 </div>
 
-                <div className="xl:mt-36 xl:mb-36 mt-24 mb-24 show-on-scroll">
+                <div className="xl:mt-52 xl:mb-36 md:mt-36 mt-24 mb-24 show-on-scroll">
                     <div className="bg-white">
                         <h2 className="text-dark mb-3 text-center items-center flex flex-col justify-center drop-shadow-2xl opacity-90 font-bold xl:text-9xl md:text-8xl text-5xl">
                             und das bin ich
                         </h2>
-                        <Image className="show-on-scroll-long items-center flex flex-col justify-center" src={IpadImage} alt="Ipad image from Marvin"/>
+                        <Image className="show-on-scroll-long items-center flex flex-col justify-center" src={IpadImage}
+                               alt="Ipad image from Marvin"/>
                         <h1 className="text-dark items-center mt-10 flex flex-col justify-center drop-shadow-2xl font-normal xl:text-8xl md:text-7xl text-4xl">
                             🤯
                         </h1>
@@ -85,7 +86,8 @@ export default function Home() {
                             ja, das bin ich!!!
                         </h2>
                         <h4 className="text-dark items-center mt-3 flex flex-col justify-center drop-shadow-2xl opacity-40 font-normal xl:text-4xl md:text-3xl text-2xl">
-                            Du glaubst mir noch nicht? <a className="text-blue-900" href="/documentation">dann erfahre hier
+                            Du glaubst mir noch nicht? <a className="text-blue-900" href="/documentation">dann erfahre
+                            hier
                             mehr...</a>
                         </h4>
                     </div>
@@ -107,7 +109,8 @@ export default function Home() {
                         ...und für Developer 🚀
                     </h3>
                     <h4 className="text-dark items-center flex flex-col justify-center mb-6 font-normal xl:text-6xl md:text-5xl text-3xl">
-                        gibt es hier mein <a className="text-blue-500" target={"_blank"} href="https://github.com/marvinhuelsmann">GitHub Profil</a>
+                        gibt es hier mein <a className="text-blue-500" target={"_blank"}
+                                             href="https://github.com/marvinhuelsmann">GitHub Profil</a>
                     </h4>
                 </div>
 
@@ -115,7 +118,8 @@ export default function Home() {
 
             <div className={"text-center items-center flex flex-col justify-center bg-gray-200"}>
                 <p className={"text-gray-600 pb-4 mb-2 pt-5 text-center items-center flex-col justify-center"}>
-                    <strong>◊</strong> Diese Seite befasst sich über mich (Marvin Hülsmann), bitte beachte das dieser Stand der Seite nur eine Beta ist. Fehler oder unbearbeiteten Seiten können existieren.
+                    <strong>◊</strong> Diese Seite befasst sich über mich (Marvin Hülsmann), bitte beachte das dieser
+                    Stand der Seite nur eine Beta ist. Fehler oder unbearbeiteten Seiten können existieren.
                     <br/>
                     <strong>1.</strong> Begrüßungswort auf einer fremden und oder Muttersprache.
                 </p>
