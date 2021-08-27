@@ -86,9 +86,8 @@ export default function Home() {
                             ja, das bin ich!!!
                         </h2>
                         <h4 className="text-dark items-center mt-3 flex flex-col justify-center drop-shadow-2xl opacity-40 font-normal xl:text-4xl md:text-3xl text-2xl">
-                            Du glaubst mir noch nicht? <a className="text-blue-900" href="/documentation">dann erfahre
-                            hier
-                            mehr...</a>
+                            Du glaubst mir noch nicht? <a className="text-blue-900 pt" href="/documentation">dann erfahre
+                            hier mehr...</a>
                         </h4>
                     </div>
                 </div>
