@@ -8,7 +8,7 @@ const productivity = [
 
 const development = [
     {name: "PhpStorm", description: "Lieblings  Entwicklungsumgebenheit", link: "https://www.jetbrains.com/de-de/phpstorm/"},
-    {name: "Apple Music", description: "Um Musik zu hören 🎶", link: "https:/music.apple.com"},
+    {name: "Apple Music", description: "Um Musik zu hören 🎶", link: "https://music.apple.com"},
     {name: "Figma", description: "Für Designs", link: "https://figma.com"},
     {name: "Vercel", description: "", link: "https://vercel.com"},
     {name: "Firebase", description: "", link: "https://firebase.google.com"},
