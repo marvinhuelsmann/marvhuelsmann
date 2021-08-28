@@ -15,13 +15,13 @@ const resources = [
     {
         name: 'Hilfe Center',
         description: 'Erhalte alle deine Fragen auf einer Seite beantwortet.',
-        href: '#',
+        href: '/help-center',
         icon: SupportIcon,
     },
     {
         name: 'Projekte',
         description: 'Sehe dir ein paar meiner bereits entwickelten Projekte an.',
-        href: '#',
+        href: '/projects',
         icon: BookmarkAltIcon,
     },
     { name: 'Rechtliches', description: 'Verstehe wie ich deine Privatsphäre ernst nehme!', href: '/imprint', icon: ShieldCheckIcon },
@@ -177,11 +177,11 @@ export default function Navbar() {
                         </div>
                         <div className="py-6 px-5 space-y-6">
                             <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <a href="/contact" className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Kontakt
                                 </a>
 
-                                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <a href="/documentation" className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Dokumentation
                                 </a>
                                 {resources.map((item) => (
