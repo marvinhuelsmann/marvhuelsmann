@@ -12,7 +12,6 @@ const development = [
     {name: "Figma", link: "https://figma.com"},
     {name: "Vercel", link: "https://vercel.com"},
     {name: "Firebase", link: "https://firebase.google.com"},
-    {name: "Amazon Web Services", link: "https://aws.amazon.com/de/"},
 ]
 
 const hardware = [
@@ -56,7 +55,7 @@ export default function Imprint() {
                 <div className={"text-center flex flex-col justify-center font-normal xl:text-2xl md:text-1xl text-xl"}>
                     <div className={"mt-12"}>
                         <h2 className={"text-dark text-center xl:text-7xl text-5xl"}>
-                            <strong><span className={"bg-indigo-200 bg-opacity-20"}>Tools und Gadgets</span> mit den ich jeden Tag zusammenarbeite!</strong>
+                            <strong><span className={"bg-indigo-200 bg-opacity-20"}>Tools und Gadgets</span> mit den ich jeden Tag arbeite!</strong>
                         </h2>
                         <div className={"mt-12"} id={"productivity"}>
                             <div className={"flex justify-center"}>
