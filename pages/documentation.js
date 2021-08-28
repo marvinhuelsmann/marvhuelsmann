@@ -2,22 +2,22 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar'
 
 const productivity = [
-    {name: "Apple Erinnerungen", description: "Für Erinnerungen", link: "https://apps.apple.com/de/app/erinnerungen/id1108187841"},
-    {name: "Apple Notizen", description: "Für Notizen jeglicher Art", link: "https://apps.apple.com/de/app/notizen/id1110145109"},
-    {name: "Apple Music", description: "Um Musik zu hören 🎶", link: "https://music.apple.com"},
+    {name: "Apple Erinnerungen", link: "https://apps.apple.com/de/app/erinnerungen/id1108187841"},
+    {name: "Apple Notizen", link: "https://apps.apple.com/de/app/notizen/id1110145109"},
+    {name: "Apple Music", link: "https://music.apple.com"},
 ]
 
 const development = [
-    {name: "PhpStorm", description: "Lieblings  Entwicklungsumgebenheit", link: "https://www.jetbrains.com/de-de/phpstorm/"},
-    {name: "Figma", description: "Für Designs", link: "https://figma.com"},
-    {name: "Vercel", description: "", link: "https://vercel.com"},
-    {name: "Firebase", description: "", link: "https://firebase.google.com"},
-    {name: "Amazon Web Services", description: "", link: "https://aws.amazon.com/de/"},
+    {name: "PhpStorm", link: "https://www.jetbrains.com/de-de/phpstorm/"},
+    {name: "Figma", link: "https://figma.com"},
+    {name: "Vercel", link: "https://vercel.com"},
+    {name: "Firebase", link: "https://firebase.google.com"},
+    {name: "Amazon Web Services", link: "https://aws.amazon.com/de/"},
 ]
 
 const hardware = [
-    {name: "Apple MacBook Pro (2020, M1, 13″)", description: "💻", link: "https://www.apple.com/macbook-pro-13/"},
-    {name: "Apple AirPods Pro", description: "", link: "https://www.apple.com/airpods-pro/"},
+    {name: "Apple MacBook Pro (2020, M1, 13″)", link: "https://www.apple.com/macbook-pro-13/"},
+    {name: "Apple AirPods Pro", link: "https://www.apple.com/airpods-pro/"},
 ]
 
 export default function Imprint() {
@@ -26,6 +26,8 @@ export default function Imprint() {
             <Head>
                 <title>Marvin Hülsmann</title>
                 <link rel="icon" href="/public/LogoExtraBig.svg"/>
+                <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
+                      rel="stylesheet"/>
             </Head>
 
             <Navbar/>
@@ -54,77 +56,70 @@ export default function Imprint() {
                 <div className={"text-center flex flex-col justify-center font-normal xl:text-2xl md:text-1xl text-xl"}>
                     <div className={"mt-12"}>
                         <h2 className={"text-dark text-center xl:text-7xl text-5xl"}>
-                            <strong>Tools die ich nutze.</strong>
+                            <strong><span className={"bg-indigo-200 bg-opacity-20"}>Tools und Gadgets</span> mit den ich jeden Tag zusammenarbeite!</strong>
                         </h2>
-                        <div id={"productivity"}>
-                            <div className={"flex mt-10 xl:pl-7 pl-2"}>
+                        <div className={"mt-12"} id={"productivity"}>
+                            <div className={"flex justify-center"}>
                                 <h2 className={"text-dark italic xl:text-5xl text-3xl"}>
-                                    <strong>Produktivität:</strong>
+                                    <strong>Für die Produktivität:</strong>
                                 </h2>
                             </div>
-                            <div className={"justify-center mt-5"}>
+                            <div className={"justify-center flex text-center mt-3"}>
                                 {productivity.map((item) => (
                                     <a
                                         key={item.name}
                                         href={item.link}
                                         target={"_blank"}
-                                        className="p-3 flex rounded-lg hover:bg-gray-50"
+                                        className="p-2 flex text-center rounded-lg hover:bg-gray-100"
                                     >
                                         <div
-                                            className={"text-gray-500 text-normal pr-1"}>{item.name}</div>  {item.description}
+                                            className={"text-gray-500 text-normal"}>{item.name}</div>
                                     </a>)
                                 )}
                             </div>
                         </div>
                         <div id={"development"}>
-                            <div className={"flex mt-10 xl:pl-7 pl-2"}>
-                                <h2 className={"text-dar justify-center flex italic xl:text-5xl text-3xl"}>
-                                    <strong>Entwicklung/Software:</strong>
+                            <div className={"flex justify-center mt-16"}>
+                                <h2 className={"text-dark flex text-center justify-center italic xl:text-5xl text-3xl"}>
+                                    <strong>Für die Entwicklung/Software:</strong>
                                 </h2>
                             </div>
-                            <div className={"justify-center mt-5"}>
+                            <div className={"flex justify-center mt-3"}>
                                 {development.map((item) => (
                                     <a
                                         key={item.name}
                                         href={item.link}
                                         target={"_blank"}
-                                        className="p-3 flex rounded-lg hover:bg-gray-50"
+                                        className="p-2 flex rounded-lg hover:bg-gray-100"
                                     >
                                         <div
-                                            className={"text-gray-500 text-normal pr-1"}>{item.name}</div><div className={"xl:visible md:visible invisible"}> {item.description}</div>
+                                            className={"text-gray-500 text-normal"}>{item.name}</div>
+                                        <div className={"xl:visible md:visible invisible"}> {item.description}</div>
                                     </a>)
                                 )}
                             </div>
                         </div>
                         <div id={"hardware"}>
-                            <div className={"flex mt-10 xl:pl-7 pl-2"}>
+                            <div className={"flex justify-center mt-16 xl:pl-7 pl-2"}>
                                 <h2 className={"text-dark italic xl:text-5xl text-3xl"}>
-                                    <strong>Hardware:</strong>
+                                    <strong>Meine Hardware:</strong>
                                 </h2>
                             </div>
-                            <div className={"justify-center mt-5"}>
+                            <div className={"flex text-center justify-center mt-3"}>
                                 {hardware.map((item) => (
                                     <a
                                         key={item.name}
                                         href={item.link}
                                         target={"_blank"}
-                                        className="p-3 flex rounded-lg hover:bg-gray-50"
+                                        className="p-2 flex rounded-lg hover:bg-gray-100"
                                     >
                                         <div
-                                            className={"text-gray-500 text-normal pr-1"}>{item.name}</div> {item.description}
+                                            className={"text-gray-500 text-normal"}>{item.name}</div>
+                                        {item.description}
                                     </a>)
                                 )}
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className={"text-center flex flex-col justify-center font-normal xl:text-2xl md:text-1xl text-xl"}>
-                    <div className={"mt-12"}>
-                        <h2 className={"text-dark text-center xl:text-7xl text-5xl"}>
-                            <strong>Du willst mehr solcher Sachen?</strong>
-                        </h2>
-                        <p className={"justify-center pt-3 text-center pl-1 pr-1 font-normal xl:text-2xl md:text-1xl text-xl text-gray-800"}>
-                            Dann folge mir auf <a href={"https://twitter.com/marvhuelsmann"} target={"_blank"} className={"text-blue-400"}>Twitter</a> oder besuche diese Seite häufig erneut, denn bei mir gibt es immer etwas zu entdecken.</p>
                     </div>
                 </div>
 

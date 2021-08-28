@@ -7,6 +7,8 @@ export default function Imprint() {
             <Head>
                 <title>Marvin Hülsmann</title>
                 <link rel="icon" href="/favicon.ico"/>
+                <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
+                      rel="stylesheet"/>
             </Head>
 
             <Navbar/>

@@ -57,6 +57,9 @@ export default function Home() {
             <Head>
                 <title>Marvin Hülsmann</title>
                 <link rel="icon" href="/LogoExtraBig.svg"/>
+
+                <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap" rel="stylesheet"/>
+
             </Head>
 
             <Navbar/>
