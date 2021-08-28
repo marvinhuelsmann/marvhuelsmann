@@ -23,9 +23,28 @@
         filter: none;
     }
 }
+@keyframes fadeInWithOutZoom {
+    0% {
+        opacity: 0;
+    }
+    1% {
+        filter: blur(2px);
+    }
+    70% {
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 1;
+        filter: none;
+    }
+}
 .animate-fadeIn {
     -webkit-animation: fadeIn 0.4s ease-in forwards;
     animation: fadeIn 0.6s ease-in forwards;
+}
+.animate-fadeIn-withOutZoom {
+    -webkit-animation: fadeInWithOutZoom 0.4s ease-in forwards;
+    animation: fadeInWithOutZoom 0.6s ease-in forwards;
 }
 .animate-fadeInLong {
     -webkit-animation: fadeIn 1.2s ease-in forwards;

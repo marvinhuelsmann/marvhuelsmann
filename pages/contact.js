@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 
-export default function Imprint() {
+export default function Contact() {
     return (
         <div className="min-h-screen py-2">
             <Head>

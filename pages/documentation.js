@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import {useEffect} from "react";
 
 const productivity = [
     {name: "Apple Erinnerungen", link: "https://apps.apple.com/de/app/erinnerungen/id1108187841"},
@@ -19,7 +20,29 @@ const hardware = [
     {name: "Apple AirPods Pro", link: "https://www.apple.com/airpods-pro/"},
 ]
 
-export default function Imprint() {
+export function callbackAnimation(entries) {
+    entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fadeIn-withOutZoom");
+        }
+    });
+}
+
+export default function Documentation() {
+    useEffect(() => {
+        const callbackSmall = function (entries) {
+            callbackAnimation(entries, false)
+        };
+
+        const observerSmall = new IntersectionObserver(callbackSmall)
+
+        const targetsSmall = document.querySelectorAll(".show-on-scroll");
+        targetsSmall.forEach(function (targetsSmall) {
+            targetsSmall.classList.add("opacity-0");
+            observerSmall.observe(targetsSmall);
+        });
+    })
     return (
         <div className="min-h-screen py-2">
             <Head>
@@ -57,7 +80,7 @@ export default function Imprint() {
                         <h2 className={"text-dark text-center xl:text-7xl text-5xl"}>
                             <strong><span className={"bg-indigo-200 bg-opacity-20"}>Tools und Gadgets</span> mit den ich jeden Tag arbeite!</strong>
                         </h2>
-                        <div className={"mt-12"} id={"productivity"}>
+                        <div className={"mt-12 show-on-scroll"} id={"productivity"}>
                             <div className={"flex justify-center"}>
                                 <h2 className={"text-dark italic xl:text-5xl text-3xl"}>
                                     <strong>Für die Produktivität:</strong>
@@ -77,7 +100,7 @@ export default function Imprint() {
                                 )}
                             </div>
                         </div>
-                        <div id={"development"}>
+                        <div id={"development"} className={"show-on-scroll"}>
                             <div className={"flex justify-center mt-16"}>
                                 <h2 className={"text-dark flex text-center justify-center italic xl:text-5xl text-3xl"}>
                                     <strong>Für die Entwicklung/Software:</strong>
@@ -98,7 +121,7 @@ export default function Imprint() {
                                 )}
                             </div>
                         </div>
-                        <div id={"hardware"}>
+                        <div id={"hardware"} className={"show-on-scroll"}>
                             <div className={"flex justify-center mt-16 xl:pl-7 pl-2"}>
                                 <h2 className={"text-dark italic xl:text-5xl text-3xl"}>
                                     <strong>Meine Hardware:</strong>

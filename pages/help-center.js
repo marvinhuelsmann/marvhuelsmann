@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 
-export default function Imprint() { return (
+export default function HelpCenter() { return (
     <div className="min-h-screen py-2">
         <Head>
             <title>Marvin Hülsmann</title>
