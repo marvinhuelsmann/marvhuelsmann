@@ -4,11 +4,11 @@ import Navbar from '../components/Navbar'
 const productivity = [
     {name: "Apple Erinnerungen", description: "Für Erinnerungen", link: "https://apps.apple.com/de/app/erinnerungen/id1108187841"},
     {name: "Apple Notizen", description: "Für Notizen jeglicher Art", link: "https://apps.apple.com/de/app/notizen/id1110145109"},
+    {name: "Apple Music", description: "Um Musik zu hören 🎶", link: "https://music.apple.com"},
 ]
 
 const development = [
     {name: "PhpStorm", description: "Lieblings  Entwicklungsumgebenheit", link: "https://www.jetbrains.com/de-de/phpstorm/"},
-    {name: "Apple Music", description: "Um Musik zu hören 🎶", link: "https://music.apple.com"},
     {name: "Figma", description: "Für Designs", link: "https://figma.com"},
     {name: "Vercel", description: "", link: "https://vercel.com"},
     {name: "Firebase", description: "", link: "https://firebase.google.com"},
