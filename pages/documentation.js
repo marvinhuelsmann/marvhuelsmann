@@ -25,7 +25,7 @@ export function callbackAnimation(entries) {
 
         if (entry.isIntersecting) {
             entry.target.classList.add("animate-fadeIn-withOutZoom");
-        }
+        } else entry.target.classList.remove("animate-fadeIn-withOutZoom");
     });
 }
 

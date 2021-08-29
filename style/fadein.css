@@ -23,6 +23,14 @@
         filter: none;
     }
 }
+@-webkit-keyframes fadeInWithOutZoom {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 @keyframes fadeInWithOutZoom {
     0% {
         opacity: 0;
