@@ -12,7 +12,7 @@ export default function HelpCenter() { return (
 
         <Navbar/>
 
-        <main className="bg-black flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+        <main className="bg-gradient-to-r from-purple-300 via-indigo-500 to-green-800 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
 
             <div className="mt-64 mb-64">
                 <h1 className="text-7xl text-white">

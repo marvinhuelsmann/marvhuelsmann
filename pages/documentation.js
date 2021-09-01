@@ -55,10 +55,13 @@ export default function Documentation() {
             <Navbar/>
 
             <main>
-                <div className={"bg-black flex flex-col items-center justify-center w-full flex-1 px-20 text-center"}>
+                <div className={"bg-gradient-to-r from-purple-300 via-indigo-500 to-green-800  flex flex-col items-center justify-center w-full flex-1 px-20 text-center"}>
                     <div className="mt-64 mb-64">
                         <h1 className="xl:text-7xl text-shadow md:text-6xl text-4xl text-white">
                             <strong>Meine Dokumentation</strong>
+                        </h1>
+                        <h1 className="xl:text-4xl md:text-4xl text-3xl opacity-90 text-white">
+                            Du willst wissen mit welchen Tools ich arbeite und mag, das alles und mehr erfährst du hier...
                         </h1>
                     </div>
                 </div>

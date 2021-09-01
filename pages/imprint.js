@@ -12,17 +12,50 @@ export default function Imprint() { return (
 
         <Navbar/>
 
-        <main className="bg-black flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-
-            <div className="mt-64 mb-64">
-            <h1 className="text-7xl text-white">
-                Impressum
-            </h1>
+        <main>
+            <div className={"bg-gradient-to-r from-purple-300 via-indigo-500 to-green-800  flex flex-col items-center justify-center w-full flex-1 px-20 text-center"}>
+                <div className="mt-64 mb-64">
+                    <h1 className="xl:text-7xl text-shadow md:text-6xl text-4xl text-white">
+                        <strong>Impressum</strong>
+                    </h1>
+                </div>
             </div>
-
+            <div className={"mt-10"}>
+                <div className={"flex xl:pl-7 pl-2"}>
+                    <h2 className={"text-dark xl:text-5xl text-3xl"}>
+                        <strong>Inhaber</strong>
+                    </h2>
+                </div>
+                <div className={"justify-center text-center"}>
+                    <h2 className="xl:text-2xl md:text-xl text-md opacity-80 text-black">
+                        Marvin Hülsmann
+                    </h2>
+                    <h2 className="xl:text-2xl md:text-xl text-md opacity-70 text-black">
+                        Nelkenstraße 17, 59073 Hamm
+                    </h2>
+                    for marvhuelsmann.de, marvhuelsmann.com, labyhelp.de, marv.link,
+                    <br/>
+                    directly.click, yourweb.monster, marvin.monster, ron.monster, joni.monster, homy.fun, geosights.eu
+                </div>
+            </div>
+            <div className={"mt-10"}>
+                <div className={"flex mb-1 text-center justify-center"}>
+                    <h2 className={"text-dark xl:text-5xl text-3xl"}>
+                        <strong>Kontakt</strong>
+                    </h2>
+                </div>
+                <div className={"justify-center text-center"}>
+                    <h2 className="xl:text-2xl md:text-xl text-md opacity-70 text-black">
+                        mail@marvhuelsmann.com
+                    </h2>
+                    <h2 className="xl:text-2xl md:text-xl text-md opacity-70 text-black">
+                        +49 0172 824459
+                    </h2>
+                </div>
+            </div>
         </main>
 
-        <footer className="flex bg-white items-center justify-center w-full h-24 border-t">
+        <footer className="flex mt-10 bg-white items-center justify-center w-full h-24">
             <a
                 className="flex items-center justify-center"
                 href="https://marvin.monster"
