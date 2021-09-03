@@ -5,7 +5,7 @@ export default function Imprint() { return (
     <div className="min-h-screen py-2">
         <Head>
             <title>Marvin Hülsmann</title>
-            <link rel="icon" href="/favicon.ico"/>
+            <link rel="icon" href="/public/LogoExtraBig.svg"/>
             <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
                   rel="stylesheet"/>
         </Head>
@@ -33,23 +33,25 @@ export default function Imprint() { return (
                     <h2 className="xl:text-2xl md:text-xl text-md opacity-70 text-black">
                         Nelkenstraße 17, 59073 Hamm
                     </h2>
+                    <h2 className="xl:text-2xl md:text-xl text-md opacity-70 text-black">
+                        mail@marvhuelsmann.com
+                    </h2>
+                    <p className={"text-xs"}>
                     for marvhuelsmann.de, marvhuelsmann.com, labyhelp.de, marv.link,
                     <br/>
                     directly.click, yourweb.monster, marvin.monster, ron.monster, joni.monster, homy.fun, geosights.eu
+                    </p>
                 </div>
             </div>
             <div className={"mt-10"}>
                 <div className={"flex mb-1 text-center justify-center"}>
                     <h2 className={"text-dark xl:text-5xl text-3xl"}>
-                        <strong>Kontakt</strong>
+                        <strong>Hinweis gemäß Online-Streitbeilegungs-Verordnung</strong>
                     </h2>
                 </div>
                 <div className={"justify-center text-center"}>
-                    <h2 className="xl:text-2xl md:text-xl text-md opacity-70 text-black">
-                        mail@marvhuelsmann.com
-                    </h2>
-                    <h2 className="xl:text-2xl md:text-xl text-md opacity-70 text-black">
-                        +49 0172 824459
+                    <h2 className="xl:text-xl md:text-md text-sm opacity-70 text-black">
+                        Die Europäische Kommission stellt eine Plattform für die außergerichtliche Online-Streitbeilegung (OS-Plattform) bereit, aufrufbar unter <a target={"_blank"} className={"text-gray-600"} href={"https://ec.europa.eu/odr"}>https://ec.europa.eu/odr</a>.
                     </h2>
                 </div>
             </div>

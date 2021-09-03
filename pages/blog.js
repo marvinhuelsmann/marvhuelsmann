@@ -5,7 +5,7 @@ export default function Blog() { return (
     <div className="min-h-screen py-2">
         <Head>
             <title>Marvin Hülsmann</title>
-            <link rel="icon" href="/favicon.ico"/>
+            <link rel="icon" href="/public/LogoExtraBig.svg"/>
             <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
                   rel="stylesheet"/>
         </Head>

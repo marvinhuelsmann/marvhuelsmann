@@ -80,7 +80,7 @@ export default function Home() {
                         <h2 className="text-dark mb-3 text-center items-center flex flex-col justify-center drop-shadow-2xl opacity-90 font-bold xl:text-9xl md:text-8xl text-5xl">
                             und das bin ich
                         </h2>
-                        <Image className="show-on-scroll-long items-center flex flex-col justify-center" src={IpadImage}
+                        <Image className="show-on-scroll-long  items-center object-cover flex flex-col justify-center" src={IpadImage}
                                alt="Ipad image from Marvin"/>
                         <h1 className="text-dark items-center mt-10 flex flex-col justify-center drop-shadow-2xl font-normal xl:text-8xl md:text-7xl text-4xl">
                             🤯
