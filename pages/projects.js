@@ -29,7 +29,7 @@ export default function Projects() { return (
             </div>
         </main>
 
-        <footer className="flex bg-white items-center justify-center w-full h-24 border-t">
+        <footer className="flex bg-white items-center justify-center w-full h-24">
             <a
                 className="flex items-center justify-center"
                 href="https://marhuelsmann.com"

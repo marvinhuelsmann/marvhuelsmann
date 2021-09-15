@@ -13,7 +13,7 @@ export default function Imprint() { return (
         <Navbar/>
 
         <main>
-            <div className={"bg-gradient-to-r from-purple-300 via-indigo-500 to-green-800  flex flex-col items-center justify-center w-full flex-1 px-20 text-center"}>
+            <div className={"bg-gradient-to-r from-purple-400 via-indigo-700 to-green-600  flex flex-col items-center justify-center w-full flex-1 px-20 text-center"}>
                 <div className="mt-64 mb-64">
                     <h1 className="xl:text-7xl text-shadow md:text-6xl text-4xl text-white">
                         <strong>Impressum</strong>

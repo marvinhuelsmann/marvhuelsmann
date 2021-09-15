@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import ContactForm from "../components/ContactForm";
 
 export default function HelpCenter() { return (
     <div className="min-h-screen py-2">
@@ -12,17 +13,23 @@ export default function HelpCenter() { return (
 
         <Navbar/>
 
-        <main className="bg-gradient-to-r from-purple-300 via-indigo-500 to-green-800 flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-
-            <div className="mt-64 mb-64">
-                <h1 className="text-7xl text-white">
-                    Hilfe Center
-                </h1>
+        <main>
+            <div className={"bg-gradient-to-r from-purple-200 via-indigo-600 to-green-700  flex flex-col items-center justify-center w-full flex-1 px-20 text-center"}>
+                <div className="mt-64 mb-64">
+                    <h1 className="xl:text-7xl text-shadow md:text-6xl text-4xl text-white">
+                        <strong>Hilfe Center</strong>
+                    </h1>
+                </div>
             </div>
-
+            <div className={"mt-10"}>
+                <h2 className={"text-dark ml-4 xl:text-5xl text-3xl"}>
+                    <strong>Alle Fragen an einem Ort</strong>
+                </h2>
+            </div>
         </main>
 
-        <footer className="flex bg-white items-center justify-center w-full h-24 border-t">
+
+        <footer className="flex bg-white items-center justify-center w-full h-24 ">
             <a
                 className="flex items-center justify-center"
                 href="https://marhuelsmann.com"
