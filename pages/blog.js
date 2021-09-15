@@ -25,7 +25,7 @@ export default function Blog() { return (
         <footer className="flex bg-white items-center justify-center w-full h-24 border-t">
             <a
                 className="flex items-center justify-center"
-                href="https://marvin.monster"
+                href="https://marhuelsmann.com"
                 target="_blank"
                 rel="noopener noreferrer"
             >

@@ -83,7 +83,7 @@ export default function Home() {
                         <Image className="show-on-scroll-long  items-center object-cover flex flex-col justify-center" src={IpadImage}
                                alt="Ipad image from Marvin"/>
                         <h1 className="text-dark items-center mt-10 flex flex-col justify-center drop-shadow-2xl font-normal xl:text-8xl md:text-7xl text-4xl">
-                            🤯
+                            <img  src={"https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/60/apple/285/exploding-head_1f92f.png"}/>
                         </h1>
                         <h2 className="text-dark items-center mt-2 flex flex-col justify-center drop-shadow-2xl opacity-20 font-normal xl:text-8xl md:text-7xl text-4xl">
                             ja, das bin ich!!!
@@ -106,10 +106,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="mb-24 xl:pt-6 md:pt-6 pt-4 items-center flex flex-col justify-center show-on-scroll">
+                <div className="mb-24 xl:pt-3 md:pt-4 pt-2 items-center flex flex-col justify-center show-on-scroll">
+                    <img className={"relative mb-6"} src={"https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/60/apple/285/rocket_1f680.png"}/>
                     <h3 className="text-dark items-center flex flex-col justify-center mb-3 drop-shadow-2xl opacity-90 font-bold xl:text-8xl md:text-7xl text-center text-5xl">
-                        ...und für Developer 🚀
-                    </h3>
+                        ...und für Developer </h3>
                     <h4 className="text-dark items-center flex flex-col justify-center mb-6 font-normal xl:text-6xl md:text-5xl text-3xl">
                         gibt es hier mein <a className="text-blue-500" target={"_blank"}
                                              href="https://github.com/marvinhuelsmann">GitHub Profil</a>

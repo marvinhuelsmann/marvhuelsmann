@@ -60,7 +60,7 @@ export default function Imprint() { return (
         <footer className="flex mt-10 bg-white items-center justify-center w-full h-24">
             <a
                 className="flex items-center justify-center"
-                href="https://marvin.monster"
+                href="https://marhuelsmann.com"
                 target="_blank"
                 rel="noopener noreferrer"
             >

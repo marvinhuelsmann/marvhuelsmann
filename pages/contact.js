@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import ContactForm from "../components/ContactForm";
 
 export default function Contact() {
     return (
@@ -22,18 +23,14 @@ export default function Contact() {
                     </div>
                 </div>
                 <div className={"mt-10"}>
-                    <div className={"flex xl:pl-7 pl-2"}>
-                        <h2 className={"text-dark xl:text-5xl text-3xl"}>
-                            <strong>Bald verfügbar</strong>
-                        </h2>
-                    </div>
+                        <ContactForm/>
                 </div>
             </main>
 
-            <footer className="flex bg-white items-center justify-center w-full h-24 border-t">
+            <footer className="flex bg-white items-center justify-center w-full h-24">
                 <a
                     className="flex items-center justify-center"
-                    href="https://marvin.monster"
+                    href="https://marvhuelsmann.com"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
