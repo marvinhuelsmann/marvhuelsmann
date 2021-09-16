@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import ContactForm from "../components/ContactForm";
+import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
 
 export default function HelpCenter() { return (
     <div className="min-h-screen py-2">
@@ -21,10 +22,8 @@ export default function HelpCenter() { return (
                     </h1>
                 </div>
             </div>
-            <div className={"mt-10"}>
-                <h2 className={"text-dark ml-4 xl:text-5xl text-3xl"}>
-                    <strong>Alle Fragen an einem Ort</strong>
-                </h2>
+            <div className={""}>
+                <FrequentlyAskedQuestions/>
             </div>
         </main>
 

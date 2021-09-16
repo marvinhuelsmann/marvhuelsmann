@@ -37,11 +37,11 @@ export default function ContactForm() {
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                         Deine Nachricht
                     </label>
-                    <div className="mt-1 relative w-64 rounded-md shadow-sm">
+                    <div className="mt-1 rounded-md shadow-sm sm:flex sm:justify-center sm:items-center">
                     <textarea
                         name="message"
                         id="message"
-                        className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-10 pl-2 sm:text-sm border-gray-300 rounded-md"
+                        className="focus:ring-indigo-500 flex w-full items-center justify-center focus:border-indigo-500 block w-full h-10 pl-2 sm:text-sm border-gray-300 rounded-md"
                         placeholder="Hey, Marvin Hülsmann..."
                     />
                     </div>
