@@ -8,14 +8,9 @@ const faqs = [
             "Mein Lieblingsessen ist eindeutig eine Pizza Salami!",
     },
     {
-        question: "Wann wurde diese Website entwickelt?",
+        question: "Wie und waann wurde diese Website entwickelt?",
         answer:
-            "Ich habe mit der Entwicklung der neuen Website Anfang September 2021 angefangen.",
-    },
-    {
-        question: "Wie wurde diese Website entwickelt?",
-        answer:
-            "Die Website wurde mit den Frameworks: Next.js und TailwindCSS entwickelt.",
+            "Die Website wurde mit den Frameworks: Next.js und TailwindCSS entwickelt. Mit der Entwicklung der neuen Website habe ich Anfang September 2021 angefangen.",
     },
     {
         question: "Was ist dein Lieblingsunternehmen?",
