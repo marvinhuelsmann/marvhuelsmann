@@ -31,7 +31,7 @@ export default function HelpCenter() { return (
         <footer className="flex bg-white items-center justify-center w-full h-24 ">
             <a
                 className="flex items-center justify-center"
-                href="https://marhuelsmann.com"
+                href="https://marvhuelsmann.com"
                 target="_blank"
                 rel="noopener noreferrer"
             >

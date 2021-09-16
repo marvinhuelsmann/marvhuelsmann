@@ -153,7 +153,7 @@ export default function Documentation() {
             <footer className="flex bg-white mt-10 items-center justify-center w-full h-24">
                 <a
                     className="flex items-center justify-center"
-                    href="https://marhuelsmann.com"
+                    href="https://marvhuelsmann.com"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
