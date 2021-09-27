@@ -32,7 +32,6 @@ export default function HelpCenter() { return (
             <a
                 className="flex items-center justify-center"
                 href="https://marvhuelsmann.com"
-                target="_blank"
                 rel="noopener noreferrer"
             >
                 <img src="/LogoSmall.svg" alt="MH Logo" className="h-14 ml-2"/>
