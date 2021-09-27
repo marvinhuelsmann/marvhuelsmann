@@ -1,10 +1,19 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import ContactForm from "../components/ContactForm";
+import {useEffect} from "react";
 
 export default function Contact() {
+    useEffect(() => {
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    })
     return (
-        <div className="min-h-screen py-2">
+        <div className="min-h-screen py-2 dark:bg-black">
             <Head>
                 <title>Marvin Hülsmann</title>
                 <link rel="icon" href="/public/LogoExtraBig.svg"/>

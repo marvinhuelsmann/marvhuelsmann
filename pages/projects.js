@@ -1,8 +1,18 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import {useEffect} from "react";
 
-export default function Projects() { return (
-    <div className="min-h-screen py-2">
+export default function Projects() {
+    useEffect(() => {
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    })
+    return (
+    <div className="min-h-screen py-2 dark:bg-black">
         <Head>
             <title>Marvin Hülsmann</title>
             <link rel="icon" href="/public/LogoExtraBig.svg"/>
@@ -22,14 +32,14 @@ export default function Projects() { return (
             </div>
             <div className={"mt-10"}>
                 <div className={"flex xl:pl-7 pl-2"}>
-                    <h2 className={"text-dark xl:text-5xl text-3xl"}>
+                    <h2 className={"text-dark dark:text-white xl:text-5xl text-3xl"}>
                         <strong>Bald verfügbar</strong>
                     </h2>
                 </div>
             </div>
         </main>
 
-        <footer className="flex bg-white items-center justify-center w-full h-24">
+        <footer className="flex mt-12 bg-white items-center justify-center w-full h-24">
             <a
                 className="flex items-center justify-center"
                 href="https://marvhuelsmann.com"

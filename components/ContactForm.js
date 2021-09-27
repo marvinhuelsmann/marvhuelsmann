@@ -4,7 +4,7 @@ export default function ContactForm() {
             <div className={"md:flex xl:flex justify-center items-center text-center items-col"}>
                 <div className={"contact flex flex-row mr-4"}>
                     <div id={"name"} className={"mr-5 ml-5"}>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Name
                         </label>
                         <div className="mt-1 fixed relative rounded-md shadow-sm">
@@ -18,7 +18,7 @@ export default function ContactForm() {
                         </div>
                     </div>
                     <div id={"email"} className={"relative"}>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Email Adresse
                         </label>
                         <div className="mt-1 fixed relative rounded-md shadow-sm">
@@ -34,7 +34,7 @@ export default function ContactForm() {
                 </div>
                 <br/>
                 <div id={"text"}>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                         Deine Nachricht
                     </label>
                     <div className="mt-1 rounded-md shadow-sm sm:flex sm:justify-center sm:items-center">
@@ -59,14 +59,14 @@ export default function ContactForm() {
                     </div>
                 </div>
             </div>
-            <p className={"text-gray-400 text-md pb-4 mb-2 text-center items-center flex-col justify-center"}>
+            <p className={"text-gray-400 dark:text-gray-300 text-md pb-4 mb-2 text-center items-center flex-col justify-center"}>
                 Bis jetzt kannst du mich über dieses Kontaktformular noch nicht erreichen!
             </p>
             <div className={"right"}>
-                <h1 className="text-black text-center mt-10 font-bold xl:text-5xl md:text-4xl text-2xl">
+                <h1 className="text-black dark:text-white text-center mt-10 font-bold xl:text-5xl md:text-4xl text-2xl">
                     Nachricht
                 </h1>
-                <p className={"text-gray-600 text-xl pb-4 mb-2 text-center items-center flex-col justify-center"}>
+                <p className={"text-gray-600 dark:text-gray-300 text-xl pb-4 mb-2 text-center items-center flex-col justify-center"}>
                     Falls du mir etwas wichtiges mitteilen möchtest oder ein gutes und cooles<br/> Projekt im Sinn hast ist dies der perfekte Weg.
                 </p>
             </div>
