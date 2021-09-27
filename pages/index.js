@@ -108,8 +108,8 @@ export default function Home() {
 
                 <div className="mb-24 xl:pt-3 md:pt-4 pt-2 items-center flex flex-col justify-center show-on-scroll">
                     <img className={"relative mb-6"} src={"https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/60/apple/285/rocket_1f680.png"}/>
-                    <h3 className="text-dark items-center flex flex-col justify-center mb-3 drop-shadow-2xl opacity-90 font-bold xl:text-8xl md:text-7xl text-center text-5xl">
-                        ...und für Developer </h3>
+                    <h3 className="text-dark items-center flex flex-col justify-center mb-3 drop-shadow-2xl opacity-90 font-bold xl:text-8xl md:text-7xl text-center text-4xl">
+                        ...und für Developer:innen </h3>
                     <h4 className="text-dark items-center flex flex-col justify-center mb-6 font-normal xl:text-6xl md:text-5xl text-3xl">
                         gibt es hier mein <a className="text-blue-500" target={"_blank"}
                                              href="https://github.com/marvinhuelsmann">GitHub Profil</a>
