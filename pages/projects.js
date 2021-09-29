@@ -78,10 +78,7 @@ export function GitHubProjects() {
                     <h2 className="text-3xl mt-5 font-extrabold tracking-tight text-gray-900 dark:text-gray-400 sm:text-4xl">GitHub
                         Repositories</h2>
                     <p className="mt-4 text-gray-500 dark:text-gray-300">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                        Lorem ipsum dolor sit amet.
+                     Hier siehst du meine öffentlichen GitHub Projekte, diese kannst du hier einsehen und auf GitHub bei Bedarf bearbeiten, neue Features mit einbringen oder ein Fehler melden. Diese Seite wird ständig aktualisiert und die Daten werden von GitHub bereitgestellt.
                     </p>
 
                     <dl className="mt-12 xl:pr-7 pr-2 grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
