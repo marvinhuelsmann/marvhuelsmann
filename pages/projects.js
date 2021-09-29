@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import {useEffect} from "react";
 import {
-    ExternalLinkIcon, SunIcon
+    ExternalLinkIcon, ArchiveIcon
 } from '@heroicons/react/outline'
 import useSWR from 'swr'
 
@@ -13,29 +13,85 @@ async function fetcher(url) {
     return await res.json();
 }
 
-function GitHubProjects() {
+function ArchievedBadge({isArchived}) {
+    if (isArchived) {
+        return (
+            <div className={"text-yellow-600 font-normal pl-2 hover:text-yellow-400 dark:hover:text-yellow-300"}>
+                (Archiviert)
+            </div>
+        )
+    }
+    return (
+        <></>
+    )
+}
+
+function ProjectLanguage({language}) {
+    if (language !== "" && language !== null) {
+        return (
+            <div>
+                <div className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
+                    {language}
+                </div>
+            </div>
+        )
+    } else return (
+        <div>
+            <div className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
+                Text
+            </div>
+        </div>
+    )
+}
+
+function WebsiteLink({link}) {
+    if (link !== "") {
+        return (
+            <a target={"_blank"} href={link}><ExternalLinkIcon
+                className="h-5 w-5 dark:text-gray-700 text-gray-300 hover:text-gray-500 dark:hover:text-gray-500"
+                aria-hidden="true"/></a>
+        )
+    } else return (
+        <></>
+    )
+}
+
+export function callbackAnimation(entries) {
+    entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fadeIn-withOutZoom");
+        } else entry.target.classList.remove("animate-fadeIn-withOutZoom");
+    });
+}
+
+export function GitHubProjects() {
     const {data, error} = useSWR(API_URL, fetcher);
 
-    if (error) return <div>failed to load</div>;
-    if (!data) return <div>loading...</div>;
-
-    console.log(data)
+    if (error) return <div className={"dark:text-white"}>failed to load</div>;
+    if (!data) return <div className={"dark:text-white"}>loading...</div>;
 
     return (
         <div className="mt-4">
-            <div className=" mx-auto grid items-center flex justify-center">
+            <div className="mx-auto grid items-center flex justify-center">
                 <div>
-                    <h2 className="text-3xl mt-5 font-extrabold tracking-tight text-gray-900 dark:text-gray-400 sm:text-4xl">GitHub Repositories</h2>
+                    <h2 className="text-3xl mt-5 font-extrabold tracking-tight text-gray-900 dark:text-gray-400 sm:text-4xl">GitHub
+                        Repositories</h2>
                     <p className="mt-4 text-gray-500 dark:text-gray-300">
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+                        Lorem ipsum dolor sit amet.
                     </p>
 
-                    <dl className="mt-16 grid grid-cols-1 gap-x-2 gap-y-5 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-4">
+                    <dl className="mt-12 xl:pr-7 pr-2 grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
                         {data.map((project) => (
                             <div key={project.name} className="border-t border-gray-200 pt-3">
-                                <dt className="font-bold text-gray-900 dark:text-gray-400 flex">{project.name} <a href={project.html_url}><ExternalLinkIcon className="h-6 w-6 dark:text-gray-700 text-gray-300 hover:text-gray-500 dark:hover:text-gray-500" aria-hidden="true"/></a></dt>
+                                <dt className="font-bold text-gray-900 dark:text-gray-400 flex">{project.name}
+                                    <ArchievedBadge isArchived={project.archived}/> <WebsiteLink
+                                        link={project.homepage}/></dt>
                                 <dd className="pt-1 font-medium text-gray-500 dark:text-gray-300">{project.description} </dd>
+                                <ProjectLanguage language={project.language}/>
                             </div>
                         ))}
                     </dl>
@@ -47,6 +103,19 @@ function GitHubProjects() {
 
 export default function Projects() {
     useEffect(() => {
+
+        // On page scroll animations
+        const callbackSmall = function (entries) {
+            callbackAnimation(entries, false)
+        };
+
+        const observerSmall = new IntersectionObserver(callbackSmall)
+
+        const targetsSmall = document.querySelectorAll(".show-on-scroll");
+        targetsSmall.forEach(function (targetsSmall) {
+            targetsSmall.classList.add("opacity-0");
+            observerSmall.observe(targetsSmall);
+        });
 
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -76,7 +145,7 @@ export default function Projects() {
                     </div>
                 </div>
                 <div className={"mt-7"}>
-                    <div className={"flex xl:pl-7 pl-2"}>
+                    <div className={"flex show-on-scroll xl:pl-7 pl-2"}>
                         <GitHubProjects/>
                     </div>
                 </div>
