@@ -15,7 +15,7 @@ export default function Imprint() {
         <div className="min-h-screen py-2 dark:bg-black">
             <Head>
                 <title>Marvin Hülsmann</title>
-                <link rel="icon" href="/public/LogoExtraBig.svg"/>
+                <link rel="icon" href="https://i.ibb.co/FV5xHPz/Logo-Extra-Big.png"/>
                 <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
                       rel="stylesheet"/>
             </Head>
