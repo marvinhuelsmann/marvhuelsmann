@@ -16,7 +16,7 @@ export default function Popover() {
         <>
             <div className="pt-3">
                 <a href='#' onClick={openModal} className="text-white">
-                    Momentan ist nur die Landing Page fertig entwickelt. Bezahle um die anderen Seite in <strong>Express</strong> Zeit eher zu sehen &rarr;
+                    Erfahre hier mehr über den neuen <strong>Look</strong> der Marvin Hülsmann Seite... &rarr;
                 </a>
             </div>
 
@@ -61,12 +61,12 @@ export default function Popover() {
                                     as="h3"
                                     className="text-lg font-medium leading-6 text-gray-900"
                                 >
-                                    99€ Google Pay Zahlung erfolgreich!
+                                    Alles neu.
                                 </Dialog.Title>
                                 <div className="mt-2">
                                     <p className="text-sm text-gray-500">
-                                        Deine Zahlung wurde erfolgreich durchgeführt. Dennoch werden die anderen Seite nicht schneller entwickelt...
-                                    </p>
+                                        Die Seite wurde überarbeitet und mit coolen neuen Animationen, Effekten und Informationen ausgestattet.
+                                          </p>
                                 </div>
 
                                 <div className="mt-4">
