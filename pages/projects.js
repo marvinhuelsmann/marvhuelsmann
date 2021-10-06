@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import {useEffect} from "react";
 import {
-    ExternalLinkIcon, ArchiveIcon
+    ExternalLinkIcon,
 } from '@heroicons/react/outline'
 import useSWR from 'swr'
 
@@ -13,7 +13,7 @@ async function fetcher(url) {
     return await res.json();
 }
 
-function ArchievedBadge({isArchived}) {
+function AchievedBadge({isArchived}) {
     if (isArchived) {
         return (
             <div className={"text-yellow-600 font-normal pl-2 hover:text-yellow-400 dark:hover:text-yellow-300"}>
@@ -30,14 +30,16 @@ function ProjectLanguage({language}) {
     if (language !== "" && language !== null) {
         return (
             <div>
-                <div className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
+                <div
+                    className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
                     {language}
                 </div>
             </div>
         )
     } else return (
         <div>
-            <div className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
+            <div
+                className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
                 Text
             </div>
         </div>
@@ -78,20 +80,38 @@ export function GitHubProjects() {
                     <h2 className="text-3xl mt-5 font-extrabold tracking-tight text-gray-900 dark:text-gray-400 sm:text-4xl">GitHub
                         Repositories</h2>
                     <p className="mt-4 text-gray-500 dark:text-gray-300">
-                     Hier siehst du meine öffentlichen GitHub Projekte, diese kannst du hier einsehen und auf GitHub bei Bedarf bearbeiten, neue Features mit einbringen oder ein Fehler melden. Diese Seite wird ständig aktualisiert und die Daten werden von GitHub bereitgestellt.
+                        Hier siehst du meine öffentlichen GitHub Projekte, diese kannst du hier einsehen und auf GitHub
+                        bei Bedarf bearbeiten, neue Features mit einbringen oder ein Fehler melden. Diese Seite wird
+                        ständig aktualisiert und die Daten werden von GitHub bereitgestellt.
                     </p>
 
-                    <dl className="mt-12 xl:pr-7 pr-2 grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
+                    <dl className="mt-12 grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
                         {data.map((project) => (
                             <div key={project.name} className="border-t border-gray-200 pt-3">
                                 <dt className="font-bold text-gray-900 dark:text-gray-400 flex">{project.name}
-                                    <ArchievedBadge isArchived={project.archived}/> <WebsiteLink
+                                    <AchievedBadge isArchived={project.archived}/> <WebsiteLink
                                         link={project.homepage}/></dt>
                                 <dd className="pt-1 font-medium text-gray-500 dark:text-gray-300">{project.description} </dd>
                                 <ProjectLanguage language={project.language}/>
                             </div>
                         ))}
                     </dl>
+                </div>
+                <div className={"text-black pl-0 mt-4 dark:text-white"}>
+                    <hr className={"pl-2"}/>
+                    <div className={"mt-3"}>
+                <span className="relative inline-flex h-2 w-2 mr-2 mt-0.5">
+                    <span
+                        className="
+                        animate-ping absolute inline-flex
+                         h-full w-full rounded-full
+                         bg-green-300 dark:bg-green-300"/>
+                  <span className="
+                  relative inline-flex rounded-full h-2 w-2
+                   bg-green-300 dark:bg-green-300"/>
+               </span>
+                        Live-Daten von der <strong>GitHub API</strong>.
+                    </div>
                 </div>
             </div>
         </div>
@@ -142,21 +162,25 @@ export default function Projects() {
                     </div>
                 </div>
                 <div className={"mt-7"}>
-                    <div className={"flex show-on-scroll xl:pl-7 pl-2"}>
+                    <div className={"flex show-on-scroll xl:pl-7 pl-2 xl:pr-7 pr-2"}>
                         <GitHubProjects/>
                     </div>
                 </div>
             </main>
 
-            <footer className="flex mt-12 bg-white items-center justify-center w-full h-24">
+            <div className={"text-center mt-10 items-center flex flex-col justify-center bg-gray-200"}>
+                <p className={"text-gray-600 pb-4 mb-2 pt-5 text-center items-center flex-col justify-center"}>
+                    <strong>◊</strong> Die GitHub Repositories Beschreibungen sind aufgrund das alle meine Referenzen auf GitHub in Englisch verfasst worden sind, und dies nur eine Kopie davon ist, in Englisch.
+                </p>
+
                 <a
-                    className="flex items-center justify-center"
-                    href="https://marvhuelsmann.com"
+                    className="flex items-center justify-center mb-2"
+                    href="https://marvin.monster"
                     rel="noopener noreferrer"
                 >
-                    <img src="/LogoSmall.svg" alt="MH Logo" className="h-14 ml-2"/>
+                    <img src="/LogoSmall.svg" alt="MH Logo" className="h-14"/>
                 </a>
-            </footer>
+            </div>
         </div>
     )
 }
