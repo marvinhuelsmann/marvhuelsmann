@@ -175,7 +175,7 @@ export default function Projects() {
 
                 <a
                     className="flex items-center justify-center mb-2"
-                    href="https://marvin.monster"
+                    href="https://marvhuelsmann.com"
                     rel="noopener noreferrer"
                 >
                     <img src="/LogoSmall.svg" alt="MH Logo" className="h-14"/>
