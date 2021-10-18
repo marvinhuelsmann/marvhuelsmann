@@ -10,6 +10,7 @@ const productivity = [
 
 const development = [
     {name: "PhpStorm", link: "https://www.jetbrains.com/de-de/phpstorm/"},
+    {name: "IntelliJ ", link: "https://www.jetbrains.com/de-de/idea/"},
     {name: "Figma", link: "https://figma.com"},
     {name: "Vercel", link: "https://vercel.com"},
     {name: "Firebase", link: "https://firebase.google.com"},
