@@ -29,10 +29,10 @@ function classNames(...classes) {
 
 export default function FrequentlyAskedQuestions() {
     return (
-        <div className="bg-gray-50">
+        <div className="bg-gray-50 dark:bg-black">
             <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
-                    <h2 className="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">Die antworten für die häufigst gestellten Fragen an einem Ort.</h2>
+                    <h2 className="text-center text-3xl font-extrabold text-gray-900 dark:text-gray-300 sm:text-4xl">Die antworten für die häufigst gestellten Fragen an einem Ort.</h2>
                     <dl className="mt-6 space-y-6 divide-y divide-gray-200">
                         {faqs.map((faq) => (
                             <Disclosure as="div" key={faq.question} className="pt-6">
@@ -40,7 +40,7 @@ export default function FrequentlyAskedQuestions() {
                                     <>
                                         <dt className="text-lg">
                                             <Disclosure.Button className="text-left w-full flex justify-between items-start text-gray-400">
-                                                <span className="font-medium text-gray-900">{faq.question}</span>
+                                                <span className="font-medium text-gray-900 dark:text-gray-200">{faq.question}</span>
                                                 <span className="ml-6 h-7 flex items-center">
                           <ChevronDownIcon
                               className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform')}
@@ -50,7 +50,7 @@ export default function FrequentlyAskedQuestions() {
                                             </Disclosure.Button>
                                         </dt>
                                         <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                                            <p className="text-base text-gray-500">{faq.answer}</p>
+                                            <p className="text-base text-gray-500 dark:text-gray-400">{faq.answer}</p>
                                         </Disclosure.Panel>
                                     </>
                                 )}

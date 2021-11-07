@@ -10,6 +10,7 @@ const productivity = [
 
 const development = [
     {name: "PhpStorm", link: "https://www.jetbrains.com/de-de/phpstorm/"},
+    {name: "IntelliJ ", link: "https://www.jetbrains.com/de-de/idea/"},
     {name: "Figma", link: "https://figma.com"},
     {name: "Vercel", link: "https://vercel.com"},
     {name: "Firebase", link: "https://firebase.google.com"},
@@ -42,12 +43,19 @@ export default function Documentation() {
             targetsSmall.classList.add("opacity-0");
             observerSmall.observe(targetsSmall);
         });
+
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
     })
     return (
-        <div className="min-h-screen py-2">
+        <div className="min-h-screen py-2 dark:bg-black">
             <Head>
                 <title>Marvin Hülsmann</title>
-                <link rel="icon" href="/public/LogoExtraBig.svg"/>
+                <link rel="icon" href="https://i.ibb.co/FV5xHPz/Logo-Extra-Big.png"/>
                 <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
                       rel="stylesheet"/>
             </Head>
@@ -67,25 +75,25 @@ export default function Documentation() {
                 </div>
                 <div className={"mt-10"}>
                     <div className={"flex xl:pl-7 pl-2"}>
-                        <h2 className={"text-dark xl:text-5xl text-3xl"}>
+                        <h2 className={"text-dark dark:text-white xl:text-5xl text-3xl"}>
                             <strong>Wie geht es mir?</strong>
                         </h2>
                     </div>
                     <div className={"text-center pt-3"}>
                         <p className={"text-gray-800 justify-center text-left font-normal xl:text-2xl md:text-1xl text-xl pl-4 max-w-7xl"}>
-                            Hey, mir geht es gut, wie geht es dir? Dies ist mein neues Portfolio und auf dieser
+                            Hey, mir geht es gut, wie geht es dir? Dies ist meine neues Portfolio und auf dieser
                             Dokumentationsseite lernst
                             du alle wichtigen Sachen über mich kennen.</p>
                     </div>
                 </div>
                 <div className={"text-center flex flex-col justify-center font-normal xl:text-2xl md:text-1xl text-xl"}>
                     <div className={"mt-12"}>
-                        <h2 className={"text-dark text-center xl:text-7xl text-5xl"}>
-                            <strong><span className={"bg-indigo-200 bg-opacity-20"}>Tools und Gadgets</span> mit den ich jeden Tag arbeite!</strong>
+                        <h2 className={"text-dark dark:text-white text-center xl:text-7xl text-5xl"}>
+                            <strong><span className={"bg-indigo-200 dark:bg-indigo-400 bg-opacity-20 dark:bg-opacity-50"}>Tools und Gadgets</span> mit den ich jeden Tag arbeite!</strong>
                         </h2>
                         <div className={"mt-12 show-on-scroll"} id={"productivity"}>
                             <div className={"flex justify-center"}>
-                                <h2 className={"text-dark italic xl:text-5xl text-3xl"}>
+                                <h2 className={"text-dark dark:text-white italic xl:text-5xl text-3xl"}>
                                     <strong>Für die Produktivität:</strong>
                                 </h2>
                             </div>
@@ -105,7 +113,7 @@ export default function Documentation() {
                         </div>
                         <div id={"development"} className={"show-on-scroll"}>
                             <div className={"flex justify-center mt-16"}>
-                                <h2 className={"text-dark flex text-center justify-center italic xl:text-5xl text-3xl"}>
+                                <h2 className={"text-dark dark:text-white flex text-center justify-center italic xl:text-5xl text-3xl"}>
                                     <strong>Für die Entwicklung/Software:</strong>
                                 </h2>
                             </div>
@@ -126,7 +134,7 @@ export default function Documentation() {
                         </div>
                         <div id={"hardware"} className={"show-on-scroll"}>
                             <div className={"flex justify-center mt-16 xl:pl-7 pl-2"}>
-                                <h2 className={"text-dark italic xl:text-5xl text-3xl"}>
+                                <h2 className={"text-dark dark:text-white italic xl:text-5xl text-3xl"}>
                                     <strong>Meine Hardware:</strong>
                                 </h2>
                             </div>

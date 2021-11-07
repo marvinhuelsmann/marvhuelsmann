@@ -2,12 +2,22 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import ContactForm from "../components/ContactForm";
 import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
+import {useEffect} from "react";
 
-export default function HelpCenter() { return (
-    <div className="min-h-screen py-2">
+export default function HelpCenter() {
+    useEffect(() => {
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    })
+    return (
+    <div className="min-h-screen py-2 dark:bg-black">
         <Head>
             <title>Marvin Hülsmann</title>
-            <link rel="icon" href="/public/LogoExtraBig.svg"/>
+            <link rel="icon" href="https://i.ibb.co/FV5xHPz/Logo-Extra-Big.png"/>
             <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
                   rel="stylesheet"/>
         </Head>
@@ -32,7 +42,6 @@ export default function HelpCenter() { return (
             <a
                 className="flex items-center justify-center"
                 href="https://marvhuelsmann.com"
-                target="_blank"
                 rel="noopener noreferrer"
             >
                 <img src="/LogoSmall.svg" alt="MH Logo" className="h-14 ml-2"/>

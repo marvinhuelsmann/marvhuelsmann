@@ -5,7 +5,7 @@ export default function Blog() { return (
     <div className="min-h-screen py-2">
         <Head>
             <title>Marvin Hülsmann</title>
-            <link rel="icon" href="/public/LogoExtraBig.svg"/>
+            <link rel="icon" href="https://i.ibb.co/FV5xHPz/Logo-Extra-Big.png"/>
             <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
                   rel="stylesheet"/>
         </Head>
@@ -26,7 +26,6 @@ export default function Blog() { return (
             <a
                 className="flex items-center justify-center"
                 href="https://marvhuelsmann.com"
-                target="_blank"
                 rel="noopener noreferrer"
             >
                 <img src="/LogoSmall.svg" alt="MH Logo" className="h-14 ml-2"/>
