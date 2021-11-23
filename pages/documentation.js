@@ -80,7 +80,7 @@ export default function Documentation() {
                         </h2>
                     </div>
                     <div className={"text-center pt-3"}>
-                        <p className={"text-gray-800 justify-center text-left font-normal xl:text-2xl md:text-1xl text-xl pl-4 max-w-7xl"}>
+                        <p className={"text-gray-800 dark:text-white justify-center text-left font-normal xl:text-2xl md:text-1xl text-xl pl-4 max-w-7xl"}>
                             Hey, mir geht es gut, wie geht es dir? Dies ist mein neues Portfolio und auf dieser
                             Dokumentationsseite lernst
                             du alle wichtigen Sachen über mich kennen.</p>

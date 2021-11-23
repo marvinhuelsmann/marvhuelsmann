@@ -60,7 +60,7 @@ export default function ContactForm() {
                 </div>
             </div>
             <p className={"text-gray-400 dark:text-gray-300 text-md pb-4 mb-2 text-center items-center flex-col justify-center"}>
-                Bis jetzt kannst du mich über dieses Kontaktformular noch nicht erreichen, wenn du mich <br/>troztdem kontaktieren willst
+                Bis jetzt kannst du mich über dieses Kontaktformular noch nicht erreichen, wenn du mich <br/>trotzdem kontaktieren willst
                 schreibe eine E-Mail an <a className={"text-blue-400 hover:text-blue-500"} href={"mailto:kontakt@marvhuelsmann.com"}>kontakt@marvhuelsmann.com</a>!
             </p>
             <div className={"right"}>
