@@ -32,7 +32,7 @@ export default function FrequentlyAskedQuestions() {
         <div className="bg-gray-50 dark:bg-black">
             <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
-                    <h2 className="text-center text-3xl font-extrabold text-gray-900 dark:text-gray-300 sm:text-4xl">Die antworten für die häufigst gestellten Fragen an einem Ort.</h2>
+                    <h2 className="text-center text-3xl font-extrabold text-gray-900 dark:text-gray-300 sm:text-4xl">Die Antworten für die häufigst gestellten Fragen an einem Ort.</h2>
                     <dl className="mt-6 space-y-6 divide-y divide-gray-200">
                         {faqs.map((faq) => (
                             <Disclosure as="div" key={faq.question} className="pt-6">
