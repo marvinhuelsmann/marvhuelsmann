@@ -1,67 +1,13 @@
 export default function ContactForm() {
     return (
         <div className={"contact-form mb-10"}>
-            <div className={"md:flex xl:flex justify-center items-center text-center items-col"}>
-                <div className={"contact flex flex-row mr-4"}>
-                    <div id={"name"} className={"mr-5 ml-5"}>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                            Name
-                        </label>
-                        <div className="mt-1 fixed relative rounded-md shadow-sm">
-                            <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-2 sm:text-sm border-gray-300 rounded-md"
-                                placeholder="Marvin Hülsmann"
-                            />
-                        </div>
-                    </div>
-                    <div id={"email"} className={"relative"}>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                            Email Adresse
-                        </label>
-                        <div className="mt-1 fixed relative rounded-md shadow-sm">
-                            <input
-                                type="email"
-                                name="Email"
-                                id="email"
-                                className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-2 sm:text-sm border-gray-300 rounded-md"
-                                placeholder="deine@email.de"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div id={"text"}>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                        Deine Nachricht
-                    </label>
-                    <div className="mt-1 rounded-md shadow-sm sm:flex sm:justify-center sm:items-center">
-                    <textarea
-                        name="message"
-                        id="message"
-                        className="focus:ring-indigo-500 flex w-full items-center justify-center focus:border-indigo-500 block w-full h-10 pl-2 sm:text-sm border-gray-300 rounded-md"
-                        placeholder="Hey, Marvin Hülsmann..."
-                    />
-                    </div>
-                </div>
-                <div id={"submit"} className={"mt-4"}>
-                    <div className="sm:flex sm:justify-center lg:justify-start">
-                        <div className="sm:mt-0 sm:ml-3">
-                            <a
-                                href="#"
-                                className="w-full flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:text-lg md:px-5"
-                            >
-                                Absenden
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div className={"items-center mb-3 flex flex-col justify-center"}>
+                <img className={"relative w-16"} src={"https://emojis.wiki/emoji-pics/apple/pensive-face-apple.png"} alt={"Mad Smiley"}/>
             </div>
-            <p className={"text-gray-400 dark:text-gray-300 text-md pb-4 mb-2 text-center items-center flex-col justify-center"}>
-                Bis jetzt kannst du mich über dieses Kontaktformular noch nicht erreichen, wenn du mich <br/>trotzdem kontaktieren willst
-                schreibe eine E-Mail an <a className={"text-blue-400 hover:text-blue-500"} href={"mailto:kontakt@marvhuelsmann.com"}>kontakt@marvhuelsmann.com</a>!
+            <p className={"text-gray-400 dark:text-gray-300 text-md pb-4 mb-2 text-center items-center flex-col justify-center text-2xl"}>
+                Bis jetzt kannst du mich noch nicht über ein Kontaktformular erreichen,<br/>
+                schreibe mir bis dahin eine E-Mail an <a className={"text-blue-400 hover:text-blue-500"}
+                                                         href={"mailto:kontakt@marvhuelsmann.com"}>kontakt@marvhuelsmann.com</a>!
             </p>
             <div className={"right"}>
                 <h1 className="text-black dark:text-white text-center mt-10 font-bold xl:text-5xl md:text-4xl text-2xl">
