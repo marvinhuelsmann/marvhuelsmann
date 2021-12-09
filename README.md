@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/bcyrcXP.png">
 </a></p>
 
-# 🤟 Marvin Hülsmann´s `Portofolio`
+# 🤟 Marvin Hülsmann´s `Portfolio`
 
 🤲 [marvhuelsmann.com](https://marvhuelsmann.com)
 
