@@ -14,8 +14,8 @@ export default function ContactForm() {
                     Nachricht
                 </h1>
                 <p className={"text-gray-600 dark:text-gray-300 text-xl pb-4 mb-2 text-center items-center flex-col justify-center"}>
-                    Falls du mir etwas wichtiges mitteilen möchtest oder ein gutes und cooles<br/> Projekt im Sinn hast
-                    ist dies der perfekte Weg.
+                    Falls du mir etwas Wichtiges mitteilen möchtest oder ein gutes und cooles <br/>
+                    Projekt im Sinn hast, ist dies der perfekte Weg.
                 </p>
             </div>
         </div>

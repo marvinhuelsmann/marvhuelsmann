@@ -68,7 +68,7 @@ export default function Documentation() {
                             <strong>Meine Dokumentation</strong>
                         </h1>
                         <h1 className="xl:text-4xl md:text-4xl text-3xl opacity-90 text-white">
-                            Du willst wissen mit welchen Tools ich arbeite und mag, das alles und mehr erfährst du hier...
+                            Du willst wissen, mit welchen Tools ich arbeite und mag, das alles und mehr erfährst du hier...
                         </h1>
                     </div>
                 </div>
