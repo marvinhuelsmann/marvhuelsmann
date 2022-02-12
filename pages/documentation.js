@@ -9,8 +9,7 @@ const productivity = [
 ]
 
 const development = [
-    {name: "PhpStorm", link: "https://www.jetbrains.com/de-de/phpstorm/"},
-    {name: "IntelliJ ", link: "https://www.jetbrains.com/de-de/idea/"},
+    {name: "Jetbrains", link: "https://www.jetbrains.com/de-de/"},
     {name: "Figma", link: "https://figma.com"},
     {name: "Vercel", link: "https://vercel.com"},
     {name: "Firebase", link: "https://firebase.google.com"},
@@ -69,7 +68,7 @@ export default function Documentation() {
                             <strong>Meine Dokumentation</strong>
                         </h1>
                         <h1 className="xl:text-4xl md:text-4xl text-3xl opacity-90 text-white">
-                            Du willst wissen mit welchen Tools ich arbeite und mag, das alles und mehr erfährst du hier...
+                            Du willst wissen, mit welchen Tools ich arbeite und mag, das alles und mehr erfährst du hier...
                         </h1>
                     </div>
                 </div>
@@ -127,7 +126,6 @@ export default function Documentation() {
                                     >
                                         <div
                                             className={"text-gray-500 text-normal"}>{item.name}</div>
-                                        <div className={"xl:visible md:visible invisible"}> {item.description}</div>
                                     </a>)
                                 )}
                             </div>
@@ -148,7 +146,6 @@ export default function Documentation() {
                                     >
                                         <div
                                             className={"text-gray-500 text-normal"}>{item.name}</div>
-                                        {item.description}
                                     </a>)
                                 )}
                             </div>

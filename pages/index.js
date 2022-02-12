@@ -131,15 +131,14 @@ export default function Home() {
 
             <div className={"text-center items-center flex flex-col justify-center bg-gray-200"}>
                 <p className={"text-gray-600 pb-4 mb-2 pt-5 text-center items-center flex-col justify-center"}>
-                    <strong>◊</strong> Diese Seite befasst sich über mich (Marvin Hülsmann), bitte beachte das dieser
-                    Stand der Seite nur eine Beta ist. Fehler oder unbearbeiteten Seiten können existieren.
+                    <strong>◊</strong> Diese Seite befasst sich über mich (Marvin Hülsmann)!
                     <br/>
                     <strong>1.</strong> Begrüßungswort auf einer fremden und oder Muttersprache.
                 </p>
 
                 <a
                     className="flex items-center justify-center mb-2"
-                    href="https://marvin.monster"
+                    href="https://joni.monster"
                     rel="noopener noreferrer"
                 >
                     <img src="/LogoSmall.svg" alt="MH Logo" className="h-14"/>

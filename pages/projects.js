@@ -170,7 +170,7 @@ export default function Projects() {
 
             <div className={"text-center mt-10 items-center flex flex-col justify-center bg-gray-200"}>
                 <p className={"text-gray-600 pb-4 mb-2 pt-5 text-center items-center flex-col justify-center"}>
-                    <strong>◊</strong> Die GitHub Repository Beschreibungen sind aufgrund das alle meine Referenzen auf GitHub in Englisch verfasst worden sind, und dies nur eine Kopie davon ist, in Englisch.
+                    <strong>◊</strong> Die GitHub Repository Beschreibungen sind aufgrund, dass alle meine Referenzen auf GitHub in Englisch verfasst worden sind, und dies nur eine Kopie davon ist, in Englisch.
                 </p>
 
                 <a
