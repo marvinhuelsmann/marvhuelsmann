@@ -138,7 +138,7 @@ export default function Home() {
 
                 <a
                     className="flex items-center justify-center mb-2"
-                    href="https://joni.monster"
+                    href="https://www.linkedin.com/in/marvin-hülsmann-9892201b5/"
                     rel="noopener noreferrer"
                 >
                     <img src="/LogoSmall.svg" alt="MH Logo" className="h-14"/>
