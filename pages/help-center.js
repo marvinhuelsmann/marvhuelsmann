@@ -32,7 +32,7 @@ export default function HelpCenter() {
                     </h1>
                 </div>
             </div>
-            <div className={""}>
+            <div>
                 <FrequentlyAskedQuestions/>
             </div>
         </main>

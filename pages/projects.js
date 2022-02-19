@@ -70,8 +70,8 @@ export function callbackAnimation(entries) {
 export function GitHubProjects() {
     const {data, error} = useSWR(API_URL, fetcher);
 
-    if (error) return <div className={"dark:text-white"}>failed to load</div>;
-    if (!data) return <div className={"dark:text-white"}>loading...</div>;
+    if (error) return <div className={"dark:text-white"}>Daten konnten nicht geladen werden.</div>;
+    if (!data) return <div className={"dark:text-white"}>Daten werden geladen...</div>;
 
     return (
         <div className="mt-4">

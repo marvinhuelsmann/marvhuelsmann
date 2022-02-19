@@ -55,21 +55,6 @@ export default function Imprint() {
                         </p>
                     </div>
                 </div>
-                <div className={"mt-10"}>
-                    <div className={"flex mb-1 text-center justify-center"}>
-                        <h2 className={"text-dark xl:text-5xl text-3xl dark:text-white"}>
-                            <strong>Hinweis gemäß Online-Streitbeilegungs-Verordnung</strong>
-                        </h2>
-                    </div>
-                    <div className={"justify-center text-center"}>
-                        <h2 className="xl:text-xl md:text-md text-sm opacity-70 text-black dark:text-white">
-                            Die Europäische Kommission stellt eine Plattform für die außergerichtliche
-                            Online-Streitbeilegung (OS-Plattform) bereit, aufrufbar unter <a target={"_blank"}
-                                                                                             className={"text-gray-600 dark:text-gray-400"}
-                                                                                             href={"https://ec.europa.eu/odr"}>https://ec.europa.eu/odr</a>.
-                        </h2>
-                    </div>
-                </div>
             </main>
 
             <footer className="flex mt-10 bg-white items-center justify-center w-full h-24">

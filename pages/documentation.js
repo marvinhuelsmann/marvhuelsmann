@@ -88,7 +88,7 @@ export default function Documentation() {
                 <div className={"text-center flex flex-col justify-center font-normal xl:text-2xl md:text-1xl text-xl"}>
                     <div className={"mt-12"}>
                         <h2 className={"text-dark dark:text-white text-center xl:text-7xl text-5xl"}>
-                            <strong><span className={"bg-indigo-200 dark:bg-indigo-400 bg-opacity-20 dark:bg-opacity-50"}>Tools und Gadgets</span> mit den ich jeden Tag arbeite!</strong>
+                            <strong><span className={"bg-indigo-200 dark:bg-indigo-400 bg-opacity-20 dark:bg-opacity-20 pl-2 pr-2"}>Tools und Gadgets</span> mit den ich jeden Tag arbeite!</strong>
                         </h2>
                         <div className={"mt-12 show-on-scroll"} id={"productivity"}>
                             <div className={"flex justify-center"}>
