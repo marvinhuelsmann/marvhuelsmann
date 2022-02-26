@@ -48,9 +48,9 @@ export default function Imprint() {
                             mail@marvhuelsmann.com
                         </h2>
                         <p className={"text-xs text-black dark:text-white"}>
-                            für marvhuelsmann.de, marvhuelsmann.com, labyhelp.de, marv.link, m1pro.info
+                            für marvhuelsmann.de, marvhuelsmann.com, labyhelp.de, m1pro.info
                             <br/>
-                            directly.click, yourweb.monster, marvin.monster, ron.monster, joni.monster, homy.fun,
+                            ukraines.live, yourweb.monster, ron.monster, joni.monster, homy.fun,
                             geosights.eu
                         </p>
                     </div>
