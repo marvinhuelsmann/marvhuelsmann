@@ -158,7 +158,7 @@ export default function Home() {
                 </p>
 
                 <a
-                    className="flex items-center justify-center mb-2"
+                    className="flex items-center justify-center"
                     href="https://www.linkedin.com/in/marvin-hülsmann-9892201b5/"
                     rel="noopener noreferrer"
                 >
