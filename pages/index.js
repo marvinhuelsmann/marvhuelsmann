@@ -145,7 +145,7 @@ export default function Home() {
                 {(arAvaible &&
                     <div className={"pt-1"}>
                         <a id={"ar-link"} rel={"ar"} href={"../ShoppingBag.usdz"} className={"text-blue-500 dark:text-blue-400"}>
-                            <img alt={"Hidden"} className={"hidden"} src={""}/>
+                            <img alt={"Hidden"} className={"hidden w-1"} src={""}/>
                             <span className={"text-xl"}>
                                 Erlebe meine Tasche in AR.
                             </span>
