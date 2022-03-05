@@ -28,6 +28,16 @@ export function callbackAnimation(entries, longAnimation) {
     });
 }
 
+let arAvaible = true
+if (typeof window === 'object') {
+    document.addEventListener("DOMContentLoaded", function () {
+        const a = document.createElement("a");
+        if (a.relList.supports("ar")) {
+            arAvaible = true
+        }
+    });
+}
+
 export default function Home() {
     useEffect(() => {
         const callbackSmall = function (entries) {
@@ -98,7 +108,8 @@ export default function Home() {
                             ja, das bin ich!!!
                         </h2>
                         <h4 className="text-dark dark:text-white items-center mt-3 flex flex-col justify-center drop-shadow-2xl opacity-40 dark:opacity-60 font-normal xl:text-4xl md:text-3xl text-2xl">
-                            Du glaubst mir noch nicht? <a className="text-blue-900 dark:text-blue-300 pt" href="/documentation">dann
+                            Du glaubst mir noch nicht? <a className="text-blue-900 dark:text-blue-300 pt"
+                                                          href="/documentation">dann
                             erfahre
                             hier mehr...</a>
                         </h4>
@@ -116,7 +127,8 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="mb-24 dark:bg-black xl:pt-3 md:pt-4 pt-2 items-center flex flex-col justify-center show-on-scroll">
+                <div
+                    className="mb-24 dark:bg-black xl:pt-3 md:pt-4 pt-2 items-center flex flex-col justify-center show-on-scroll">
                     <img className={"relative mb-6"}
                          src={"https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/60/apple/285/rocket_1f680.png"}/>
                     <h3 className="text-dark dark:text-white items-center flex flex-col justify-center mb-3 drop-shadow-2xl opacity-90 font-bold xl:text-8xl md:text-7xl text-center text-4xl">
@@ -129,8 +141,18 @@ export default function Home() {
 
             </main>
 
-            <div className={"text-center items-center flex flex-col justify-center bg-gray-200"}>
-                <p className={"text-gray-600 pb-4 mb-2 pt-5 text-center items-center flex-col justify-center"}>
+            <div className={"text-center items-center flexm pt-4 flex-col justify-center bg-gray-200"}>
+                {(arAvaible &&
+                    <div className={"pt-1"}>
+                        <a id={"ar-link"} rel={"ar"} href={"../ShoppingBag.usdz"} className={"text-blue-500 dark:text-blue-400"}>
+                            <img alt={"Hidden"} className={"hidden"} src={""}/>
+                            <span className={"text-xl"}>
+                                Erlebe meine Tasche in AR.
+                            </span>
+                        </a>
+                    </div>
+                )}
+                <p className={"text-gray-600 pb-4 mb-2 pt-1 text-center items-center flex-col justify-center"}>
                     <strong>◊</strong> Diese Seite befasst sich über mich (Marvin Hülsmann)!
                     <br/>
                     <strong>1.</strong> Begrüßungswort auf einer fremden und oder Muttersprache.
