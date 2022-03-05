@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import Popover from "../components/Popover";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 import Image from 'next/image'
 import IpadImage from '../public/IpadWithMemoji.png'
@@ -29,7 +29,7 @@ export function callbackAnimation(entries, longAnimation) {
 }
 
 export default function Home() {
-    let arAvaible = false
+        const [ar, setAR] = useState('ar')
 
     useEffect(() => {
         const callbackSmall = function (entries) {
@@ -55,7 +55,9 @@ export default function Home() {
 
         const a = document.createElement("a");
         if (a.relList.supports("ar")) {
-            arAvaible = true
+            setAR(true)
+        } else {
+            setAR(false)
         }
 
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -139,7 +141,7 @@ export default function Home() {
             </main>
 
             <div className={"text-center items-center flexm pt-4 flex-col justify-center bg-gray-200"}>
-                {(arAvaible &&
+                {(ar &&
                     <div className={"pt-1"}>
                         <a id={"ar-link"} rel={"ar"} href={"../ShoppingBag.usdz"} className={"text-blue-500 dark:text-blue-400"}>
                             <img alt={"Hidden"} className={"hidden w-1"} src={""}/>
