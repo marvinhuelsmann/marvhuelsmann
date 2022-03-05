@@ -28,7 +28,7 @@ export function callbackAnimation(entries, longAnimation) {
     });
 }
 
-let arAvaible = false
+let arAvaible = true
 if (typeof window === 'object') {
     document.addEventListener("DOMContentLoaded", function () {
         const a = document.createElement("a");
