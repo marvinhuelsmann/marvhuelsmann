@@ -28,17 +28,9 @@ export function callbackAnimation(entries, longAnimation) {
     });
 }
 
-let arAvaible = true
-if (typeof window === 'object') {
-    document.addEventListener("DOMContentLoaded", function () {
-        const a = document.createElement("a");
-        if (a.relList.supports("ar")) {
-            arAvaible = true
-        }
-    });
-}
-
 export default function Home() {
+    let arAvaible = false
+
     useEffect(() => {
         const callbackSmall = function (entries) {
             callbackAnimation(entries, false)
@@ -61,6 +53,11 @@ export default function Home() {
             observerLong.observe(targetsLong);
         });
 
+        const a = document.createElement("a");
+        if (a.relList.supports("ar")) {
+            arAvaible = true
+        }
+
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
@@ -70,7 +67,7 @@ export default function Home() {
     })
 
     return (
-        <div className="min-h-screen py-2 dark:bg-black">
+        <div className="min-h-screen dark:bg-black">
             <Head>
                 <title>Marvin Hülsmann</title>
                 <link rel="icon" href="https://i.imgur.com/duXild5.png"/>
@@ -147,7 +144,7 @@ export default function Home() {
                         <a id={"ar-link"} rel={"ar"} href={"../ShoppingBag.usdz"} className={"text-blue-500 dark:text-blue-400"}>
                             <img alt={"Hidden"} className={"hidden w-1"} src={""}/>
                             <span className={"text-xl"}>
-                                Erlebe meine Tasche in AR.
+                                Erlebe meine private Tasche in AR.
                             </span>
                         </a>
                     </div>
