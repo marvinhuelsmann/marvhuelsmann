@@ -51,7 +51,7 @@ export default function Imprint() {
                             für marvhuelsmann.de, marvhuelsmann.com, labyhelp.de, m1pro.info
                             <br/>
                             ukraines.live, yourweb.monster, ron.monster, joni.monster, homy.fun,
-                            geosights.eu
+                            geosights.eu, schoolquestions.game
                         </p>
                     </div>
                 </div>
