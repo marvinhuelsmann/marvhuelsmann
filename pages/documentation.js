@@ -51,7 +51,7 @@ export default function Documentation() {
         }
     })
     return (
-        <div className="min-h-screen py-2 dark:bg-black">
+        <div className="min-h-screen dark:bg-black">
             <Head>
                 <title>Marvin Hülsmann</title>
                 <link rel="icon" href="https://i.imgur.com/duXild5.png"/>

@@ -7,6 +7,7 @@ import {
     ShieldCheckIcon,
     SupportIcon,
     XIcon,
+    ShoppingBagIcon
 } from '@heroicons/react/outline'
 import {ChevronDownIcon} from '@heroicons/react/solid'
 import {theme} from "../tailwind.config";
@@ -44,6 +45,13 @@ const resources = [
         href: '/imprint',
         icon: ShieldCheckIcon
     },
+   /* {
+        name: 'marvhuels Premium Edition',
+        description: 'Eine Premium Edition von Marvin Hülsmann',
+        href: '/services/buy',
+        icon: ShoppingBagIcon
+    },
+    */
 ]
 const recentPosts = [
     {id: 1, name: 'Momentan sind keine Blog Beiträge vorhanden.', href: ''},
