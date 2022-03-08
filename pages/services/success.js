@@ -57,7 +57,7 @@ export default function PreviewPage() {
                                 </h2>
                             </div>
                             <div className={"justify-center text-center"}>
-                                <h2 className={"text-dark font-bold text-4xl"}>Status: {data?.payment_intent?.status === 'succeeded' ? 'Erfolgreich' : 'Fehlgeschlagen' ?? 'loading...'}</h2>
+                                <h2 className={"text-dark text-4xl"}>Status: <strong>{data?.payment_intent?.status === 'succeeded' ? 'Erfolgreich' : 'Fehlgeschlagen' ?? 'loading...'}</strong></h2>
                                 <p className={"text-xl text-black dark:text-white mt-5"}>
                                     Ihre Bestellung wurde erfolgreich abgeschlossen, <br/>da die Bestellung nur im Sandbox Modus getätigt wurde erhältst du keine digitale Ware.
                                 </p>
@@ -107,7 +107,7 @@ export default function PreviewPage() {
                     href="https://marvhuelsmann.com"
                     rel="noopener noreferrer"
                 >
-                    <img src="/LogoSmall.svg" alt="MH Logo" className="h-14 ml-2"/>
+                    <img src="/marvhuelPremium.svg" alt="MH Logo" className="h-24 ml-2"/>
                 </a>
             </footer>
         </div>

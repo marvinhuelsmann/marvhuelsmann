@@ -28,12 +28,6 @@ function changeTheme() {
 
 const resources = [
     {
-        name: 'Hilfe Center',
-        description: 'Erhalte alle deine Fragen auf einer Seite beantwortet.',
-        href: '/help-center',
-        icon: SupportIcon,
-    },
-    {
         name: 'Projekte',
         description: 'Sehe dir ein paar meiner bereits entwickelten Projekte an.',
         href: '/projects',
@@ -45,13 +39,12 @@ const resources = [
         href: '/imprint',
         icon: ShieldCheckIcon
     },
-   /* {
+    {
         name: 'marvhuels Premium Edition',
         description: 'Eine Premium Edition von Marvin Hülsmann',
-        href: '/services/buy',
+        href: '/services/premium',
         icon: ShoppingBagIcon
     },
-    */
 ]
 const recentPosts = [
     {id: 1, name: 'Momentan sind keine Blog Beiträge vorhanden.', href: ''},
