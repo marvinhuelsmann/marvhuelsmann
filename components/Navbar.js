@@ -7,6 +7,7 @@ import {
     ShieldCheckIcon,
     SupportIcon,
     XIcon,
+    ShoppingBagIcon
 } from '@heroicons/react/outline'
 import {ChevronDownIcon} from '@heroicons/react/solid'
 import {theme} from "../tailwind.config";
@@ -27,12 +28,6 @@ function changeTheme() {
 
 const resources = [
     {
-        name: 'Hilfe Center',
-        description: 'Erhalte alle deine Fragen auf einer Seite beantwortet.',
-        href: '/help-center',
-        icon: SupportIcon,
-    },
-    {
         name: 'Projekte',
         description: 'Sehe dir ein paar meiner bereits entwickelten Projekte an.',
         href: '/projects',
@@ -43,6 +38,12 @@ const resources = [
         description: 'Erfahre Rechtliche Kontaktdaten vom Inhaber dieser Website.',
         href: '/imprint',
         icon: ShieldCheckIcon
+    },
+    {
+        name: 'marvhuels Premium Edition',
+        description: 'Eine Premium Edition von Marvin Hülsmann',
+        href: '/services/premium',
+        icon: ShoppingBagIcon
     },
 ]
 const recentPosts = [

@@ -3,24 +3,26 @@ import {ChevronDownIcon} from '@heroicons/react/outline'
 
 const faqs = [
     {
-        question: "Was ist dein Lieblingsessen?",
+        question: "Was erhalte ich in der Premium Edition?",
         answer:
-            "Mein Lieblingsessen ist eindeutig eine Pizza Salami!",
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr," +
+            " sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     },
     {
-        question: "Wie und wann wurde diese Website entwickelt?",
+        question: "Wie lange erhalte ich die Premium Edition?",
         answer:
-            "Die Website wurde mit den Frameworks: Next.js und TailwindCSS entwickelt. Mit der Entwicklung der neuen Website habe ich Anfang September 2021 angefangen.",
-    },
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr," +
+            " sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.", },
     {
-        question: "Was ist dein Lieblingsunternehmen?",
+        question: "Welche Zahlungsmethoden kann ich verwenden?",
         answer:
-            "Die Firma mit dem angebissenen Apfel gefällt mir sehr gut...",
-    },
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr," +
+            " sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",    },
     {
-        question: "Woher kommst du?",
-        answer: "Ich komme aus Deutschland, um genauer zu sein, aus Nordrhein-Westfalen in der Nähe von Münster."
-    },
+        question: "Kann ich die Bestellung nach dem Kauf stornieren?",
+        answer:
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr," +
+            " sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",  }
 ]
 
 function classNames(...classes) {
@@ -32,14 +34,14 @@ export default function FrequentlyAskedQuestions() {
         <div className="bg-gray-50 dark:bg-black">
             <div className="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
-                    <h2 className="text-center text-3xl font-extrabold text-gray-900 dark:text-gray-300 sm:text-4xl">Die
+                    <h2 className="text-center text-6xl font-bold text-gray-900 dark:text-gray-300 sm:text-4xl">Die
                         Antworten für die häufigst gestellten Fragen an einem Ort.</h2>
-                    <dl className="mt-6 space-y-6 divide-y divide-gray-200">
+                    <dl className="text-5xl mt-6 space-y-6 divide-y divide-gray-200">
                         {faqs.map((faq) => (
                             <Disclosure as="div" key={faq.question} className="pt-6">
                                 {({open}) => (
                                     <>
-                                        <dt className="text-lg">
+                                        <dt className="xl:text-2xl text-lg">
                                             <Disclosure.Button
                                                 className="text-left w-full flex justify-between items-start text-gray-400">
                                                 <span
@@ -53,7 +55,7 @@ export default function FrequentlyAskedQuestions() {
                                             </Disclosure.Button>
                                         </dt>
                                         <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                                            <p className="text-base text-gray-500 dark:text-gray-400">{faq.answer}</p>
+                                            <p className="text-xl text-gray-500 dark:text-gray-400">{faq.answer}</p>
                                         </Disclosure.Panel>
                                     </>
                                 )}
