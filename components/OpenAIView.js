@@ -23,7 +23,7 @@ export default function OpenAIView() {
             const value = await openai.createCompletion("text-davinci-002", {
                 prompt: event.target.question.value,
                 temperature: 0.3,
-                max_tokens: 70,
+                max_tokens: 90,
                 top_p: 1,
                 frequency_penalty: 0,
                 presence_penalty: 0,
