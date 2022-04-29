@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 
 import Image from 'next/image'
 import IpadImage from '../public/IpadWithMemoji.png'
+import OpenAIView from "../components/OpenAIView";
 
 export function getHelloWord() {
     const helloWords =
@@ -87,7 +88,7 @@ export default function Home() {
                         <h2 className="text-white drop-shadow-2xl opacity-90 font-bold xl:text-9xl md:text-8xl text-5xl">
                             {getHelloWord()}¹, ich bin Marvin
                         </h2>
-                        <Popover/>
+                        <OpenAIView className={"mt-12 "}/>
                     </div>
                 </div>
 
