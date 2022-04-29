@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
-import Popover from "../components/Popover";
 import {useEffect, useState} from "react";
 
 import Image from 'next/image'
@@ -9,7 +8,7 @@ import OpenAIView from "../components/OpenAIView";
 
 export function getHelloWord() {
     const helloWords =
-        ["Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba"]
+        ["Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
 
     return helloWords[Math.floor(Math.random() * helloWords.length)];
 }
@@ -88,7 +87,7 @@ export default function Home() {
                         <h2 className="text-white drop-shadow-2xl opacity-90 font-bold xl:text-9xl md:text-8xl text-5xl">
                             {getHelloWord()}¹, ich bin Marvin
                         </h2>
-                        <OpenAIView className={"mt-12 "}/>
+                        <OpenAIView className={"mt-12"}/>
                     </div>
                 </div>
 
@@ -156,6 +155,8 @@ export default function Home() {
                     <strong>◊</strong> Diese Seite befasst sich über mich (Marvin Hülsmann)!
                     <br/>
                     <strong>1.</strong> Begrüßungswort auf einer fremden und oder Muttersprache.
+                    <br/>
+                    <strong>2.</strong> Eine künstliche Intelligenz von OpenAI.
                 </p>
 
                 <a

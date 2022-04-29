@@ -15,24 +15,31 @@ export default function OpenAIView() {
     let [isLoading, setLoading] = useState(false)
 
     const registerUser = async event => {
+        // Check if the user input is not null
         if (event.target.question.value !== undefined &&
             event.target.question.value !== '') {
             event.preventDefault();
+            // Set the UI spinner
             setLoading(true)
 
+
+            // Fetch the current completion
             const value = await openai.createCompletion("text-davinci-002", {
                 prompt: event.target.question.value,
                 temperature: 0.3,
-                max_tokens: 90,
+                max_tokens: 180,
                 top_p: 1,
                 frequency_penalty: 0,
                 presence_penalty: 0,
             })
 
+            // Get the current choices
             for (let i = 0; i < value.data['choices'].length; i++) {
                 if (value.data['choices'][i]["text"]) {
+                    // Put the Answer in the UI
                     setAnswer(value.data['choices'][i]['text']);
 
+                    // Open answer Modal & disable the UI spinner
                     setLoading(false)
                     openModal()
                 }
