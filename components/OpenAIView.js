@@ -4,7 +4,7 @@ import {Dialog, Transition} from "@headlessui/react";
 const {Configuration, OpenAIApi} = require("openai");
 
 const configuration = new Configuration({
-    apiKey: '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',
+    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
