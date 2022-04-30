@@ -8,7 +8,6 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-
 export default function OpenAIView() {
 
     let [answer, setAnswer] = useState()
@@ -21,7 +20,6 @@ export default function OpenAIView() {
             event.preventDefault();
             // Set the UI spinner
             setLoading(true)
-
 
             // Fetch the current completion
             const value = await openai.createCompletion("text-davinci-002", {
