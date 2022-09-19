@@ -9,7 +9,7 @@
     "@headlessui/react": "^1.4.0",
     "axios": "^0.21.4",
     "firebase": "^9.1.2",
-    "framer-motion": "^6.3.3",
+    "framer-motion": "^6.5.1",
     "mailgun-js": "^0.22.0",
     "next": "latest",
     "openai": "^2.0.5",

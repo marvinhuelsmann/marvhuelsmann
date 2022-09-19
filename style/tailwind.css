@@ -1,6 +1,9 @@
 @tailwind base;
-@import "fadein.css";
 
 @tailwind components;
 
 @tailwind utilities;
+
+html {
+    font-family: "SF Pro Display", sans-serif;
+}
