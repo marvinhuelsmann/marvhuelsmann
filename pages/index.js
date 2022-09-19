@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import {useEffect, useState} from "react";
+import Image from 'next/image'
+
+import MarvinImage from '/public/IMG_9815.jpeg'
 
 import {motion, useMotionValue, useScroll, useTransform, useViewportScroll} from "framer-motion";
-import ContactForm from "../components/ContactForm";
 
 
 export default function Home() {
@@ -57,7 +59,7 @@ export default function Home() {
                         </motion.div>
                     </div>
                 </div>
-                <div className={"flex"}>
+                <div className={"flex bg-black"}>
                     <motion.div
                         style={{scale: scale}}
                         className={"bg-black overflow-hidden xl:mb-80 md:mb-56 mb-40 pb-1 w-full h-full"}
@@ -65,8 +67,8 @@ export default function Home() {
                         <motion.div
                             initial={{opacity: 0}}
                             whileInView={{opacity: 1}}
-                            className={"xl:pt-96 md:pt-56 pt-24 flex justify-center mb-24"}>
-                            <img className={"w-7/12 h-8/12 xl:pt-32 md:pt-32 pt-12"} src={"../IMG_9815.jpeg"}/>
+                            className={"xl:pt-96 md:pt-56 flex justify-center pt-24 mb-24"}>
+                            <img className={"w-7/12 h-8/12 xl:pt-32 md:pt-32 pt-12"} src={"./IMG_9815.jpeg"}/>
                         </motion.div>
                     </motion.div>
                 </div>
@@ -74,7 +76,7 @@ export default function Home() {
                     <motion.div
                         initial={{opacity: 0}}
                         whileInView={{opacity: 1}}>
-                        <h1 className={"text-5xl flex justify-center items-center text-center text-black mb-32 mx-auto"}>
+                        <h1 className={"text-6xl flex justify-center items-center text-center text-black mb-32 mx-auto"}>
                             Schüler
                             <br/>
                             Entwickler
