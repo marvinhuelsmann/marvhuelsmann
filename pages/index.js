@@ -59,7 +59,7 @@ export default function Home() {
                         </motion.div>
                     </div>
                 </div>
-                <div className={"flex bg-black"}>
+                <div className={"flex"}>
                     <motion.div
                         style={{scale: scale}}
                         className={"bg-black overflow-hidden xl:mb-80 md:mb-56 mb-16 pb-1 w-full h-full"}
@@ -77,11 +77,11 @@ export default function Home() {
                         </motion.div>
                     </motion.div>
                 </div>
-                <div className={"xl:mt-56 md:mt-48 mt-36 justify-center mx-auto"}>
+                <div className={"xl:mt-56 md:m mt-36 justify-center mx-auto"}>
                     <motion.div
                         initial={{opacity: 0}}
                         whileInView={{opacity: 1}}>
-                        <h1 className={"text-6xl flex justify-center items-center text-center text-black mb-32 mx-auto"}>
+                        <h1 className={"text-5xl flex justify-center items-center text-center text-black mb-32 mx-auto"}>
                             Schüler
                             <br/>
                             Entwickler
