@@ -59,7 +59,7 @@ export default function Home() {
                         </motion.div>
                     </div>
                 </div>
-                <div className={"flex bg-black"}>
+                <div className={"flex overflow-hidden"}>
                     <motion.div
                         style={{scale: scale}}
                         className={"bg-black overflow-hidden xl:mb-80 md:mb-56 mb-40 pb-1 w-full h-full"}
@@ -68,7 +68,11 @@ export default function Home() {
                             initial={{opacity: 0}}
                             whileInView={{opacity: 1}}
                             className={"xl:pt-96 md:pt-56 flex justify-center pt-24 mb-24"}>
-                            <img className={"w-7/12 h-8/12 xl:pt-32 md:pt-32 pt-12"} src={"./IMG_9815.jpeg"}/>
+                            <div className={" justify-center mx-auto w-7/12 h-8/12 xl:pt-32 md:pt-32 pt-12 pb-16"}>
+                                <Image title={"Marvin Image"} placeholder="blur"
+                                       alt={"Ron"}
+                                       src={MarvinImage}/>
+                            </div>
                         </motion.div>
                     </motion.div>
                 </div>
