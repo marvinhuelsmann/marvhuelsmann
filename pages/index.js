@@ -61,15 +61,14 @@ export default function Home() {
                 </div>
                 <div className={"flex"}>
                     <motion.div
-                        style={{scale: scale}}
-                        className={"bg-black overflow-hidden xl:mb-80 md:mb-56 mb-16 pb-1 w-full h-full"}
+                        className={"w-full h-full bg-black overflow-hidden xl:mb-80 md:mb-56 mb-16 pb-1"}
                     >
                         <motion.div
                             initial={{opacity: 0}}
                             whileInView={{opacity: 1}}
                             viewport={{ once: true }}
                             className={"xl:pt-96 md:pt-56 flex justify-center pt-28 mb-24"}>
-                            <div className={" justify-center mx-auto w-7/12 h-8/12 xl:pt-32 md:pt-32 pt-12 -pb-8"}>
+                            <div className={"justify-center mx-auto w-7/12 h-8/12 xl:pt-32 md:pt-32 pt-12 -pb-8"}>
                                 <Image title={"Marvin Image"} placeholder="blur"
                                        alt={"Ron"}
                                        src={MarvinImage}/>
@@ -77,7 +76,7 @@ export default function Home() {
                         </motion.div>
                     </motion.div>
                 </div>
-                <div className={"xl:mt-56 md:m mt-36 justify-center mx-auto"}>
+                <div className={"xl:mt-32 md:mt-42 mt-36 justify-center mx-auto"}>
                     <motion.div
                         initial={{opacity: 0}}
                         whileInView={{opacity: 1}}>
@@ -89,7 +88,7 @@ export default function Home() {
                             Unternehmer
                         </h1>
                     </motion.div>
-                    <div className={"-mb-2"}>
+                    <div className={""}>
                         <p className={"flex justify-center text-center mx-auto text-gray-500"}>
                             Dies ist meine neue Portfolioseite, in der ein paar Informationen<br className={"xl:block md:block hidden"}/> über meiner Person erfahren kannst und erfährst wie du mich kontaktieren kannst.
                         </p>
