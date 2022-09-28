@@ -1,12 +1,16 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar'
 import {useEffect, useState} from "react";
-import Image from 'next/image'
 
-import MarvinImage from '/public/IMG_9815.jpeg'
 
 import {motion, useMotionValue, useScroll, useTransform, useViewportScroll} from "framer-motion";
+import WhoIAmView from "../components/home/WhoIAm";
 
+export function getHelloWord() {
+    const helloWords =
+        ["Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
+
+    return helloWords[Math.floor(Math.random() * helloWords.length)];
+}
 
 export default function Home() {
     const [ar, setAR] = useState('ar')
@@ -51,7 +55,7 @@ export default function Home() {
                             style={{scaleY: scale}}
                         >
                             <span
-                                className={"flex text-gray-400 xl:text-3xl md:text-2xl text-xl text-center justify-center"}>In eine neue Richtung mit
+                                className={"flex text-gray-400 xl:text-3xl md:text-2xl text-xl text-left justify-left"}>{getHelloWord()}, ich heiße
                             </span>
                             <h2 className="text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-400 to-red-600 flex mx-auto font-medium xl:text-9xl md:text-8xl text-5xl">
                                 Marvin Hülsmann
@@ -59,40 +63,34 @@ export default function Home() {
                         </motion.div>
                     </div>
                 </div>
-                <div className={"flex"}>
+                <WhoIAmView/>
+                <div className={"justify-center bg-white"}>
                     <motion.div
-                        className={"w-full h-full bg-black overflow-hidden xl:mb-80 md:mb-56 mb-16 pb-1"}
-                    >
+                        initial={{opacity: 0}}
+                        whileInView={{opacity: 1}}
+                        transition={{delay: 0.1, duration: 0.4}}
+                        className={"w-full h-full bg-black pb-1"}>
                         <motion.div
                             initial={{opacity: 0}}
                             whileInView={{opacity: 1}}
-                            viewport={{ once: true }}
-                            className={"xl:pt-96 md:pt-56 flex justify-center pt-28 mb-24"}>
-                            <div className={"justify-center mx-auto w-7/12 h-8/12 xl:pt-32 md:pt-32 pt-12 -pb-8"}>
-                                <Image title={"Marvin Image"} placeholder="blur"
-                                       alt={"Ron"}
-                                       src={MarvinImage}/>
-                            </div>
+                            animate={{ y: 0 }}
+                            transition={{ ease: "easeIn", duration: 0.6 }}
+                            className={"pt-10 mb-32"}>
+                            <h1 className={"text-8xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
+                                Sicher ist sicher
+                            </h1>
+                            <p className={"flex text-5xl justify-center text-center mx-auto text-gray-200"}>
+                                Dies ist meine neue Portfolioseite, in der ein paar Informationen<br
+                                className={"xl:block md:block hidden"}/> über meiner Person erfahren kannst und erfährst wie
+                                du mich kontaktieren kannst.
+                            </p>
                         </motion.div>
+                        <div className={""}>
+                            <p className={"flex justify-center text-center mx-auto text-gray-500"}>
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diaur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                            </p>
+                        </div>
                     </motion.div>
-                </div>
-                <div className={"xl:mt-32 md:mt-42 mt-36 justify-center mx-auto"}>
-                    <motion.div
-                        initial={{opacity: 0}}
-                        whileInView={{opacity: 1}}>
-                        <h1 className={"text-5xl flex justify-center items-center text-center text-black mb-32 mx-auto"}>
-                            Schüler
-                            <br/>
-                            Entwickler
-                            <br/>
-                            Unternehmer
-                        </h1>
-                    </motion.div>
-                    <div className={""}>
-                        <p className={"flex justify-center text-center mx-auto text-gray-500"}>
-                            Dies ist meine neue Portfolioseite, in der ein paar Informationen<br className={"xl:block md:block hidden"}/> über meiner Person erfahren kannst und erfährst wie du mich kontaktieren kannst.
-                        </p>
-                    </div>
                 </div>
             </main>
         </div>
