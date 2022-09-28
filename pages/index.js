@@ -77,12 +77,10 @@ export default function Home() {
                             transition={{ ease: "easeIn", duration: 0.6 }}
                             className={"pt-10 mb-32"}>
                             <h1 className={"text-8xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
-                                Sicher ist sicher
+                                Lorem Ipsum is Ipsum
                             </h1>
                             <p className={"flex text-5xl justify-center text-center mx-auto text-gray-200"}>
-                                Dies ist meine neue Portfolioseite, in der ein paar Informationen<br
-                                className={"xl:block md:block hidden"}/> über meiner Person erfahren kannst und erfährst wie
-                                du mich kontaktieren kannst.
+                               labore et dolore magna aliquyam erat, sed diaur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                             </p>
                         </motion.div>
                         <div className={""}>

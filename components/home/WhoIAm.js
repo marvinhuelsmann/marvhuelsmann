@@ -5,6 +5,7 @@ import RollerCoasterEmoji from "../../style/icons/RollerCoasterEmoji.png"
 import PizzaEmoji from "../../style/icons/PizzaEmoji.png"
 import ElephantEmoji from "../../style/icons/ElephantEmoji.png"
 import SteakEmoji from "../../style/icons/SteakEmoji.png"
+import EmailEmoji from "../../style/icons/EmailEmoji.png"
 import Image from "next/image";
 import MarvinImage from "../../public/IMG_9815.jpeg";
 import PointingToYou from "../../style/icons/PointingToYouEmoji.png";
@@ -49,10 +50,15 @@ export default function WhoIAmView() {
                         </h1>
                         <p className={"text-white xl:text-5xl md:text-5xl text-4xl"}>
                             Ich bin <span className={"font-bold"}>17 Jahre</span> alt und komme aus <a href={"#"} className={"text-indigo-300 font-bold hover:cursor-pointer"}>Hamm</a> in Nordrhein-Westfalen.
-                            Besuche die 12 Klasse eines beruflichen Gymnasium und intressiere mich für Informatik und Technik. Eines meiner Schwerpunkte liegt auf die Gestaltung und die Interaktion mit Webseiten.
+                            Ich besuche die 12 Klasse eines <span className={"font-bold"}>beruflichen Gymnasium</span> und intressiere mich für Informatik und Technik. Eines meiner Schwerpunkte liegt bei der <span className={"font-bold"}>Gestaltung und die Interaktion</span> mit Webseiten.
                         </p>
                         <div className={"pt-8"}>
-                            <a href={"mailto:kontakt@marvhuelsmann.com"} className={"text-3xl"}>E-Mail schreiben</a>
+                            <a href={"mailto:kontakt@marvhuelsmann.com"} className={"text-3xl"}>
+                            <button type="button"
+                                    className="text-white bg-black items-center hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-2xl">
+                              <img className={"inline xl:h-8 md:h-12 h-8 pr-2"} src={EmailEmoji.src} alt={"Email"}/> schreiben
+                            </button>
+                            </a>
                         </div>
                     </div>
                 </motion.div>
