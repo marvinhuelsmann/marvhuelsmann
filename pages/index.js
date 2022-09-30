@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 
 import {motion, useMotionValue, useScroll, useTransform, useViewportScroll} from "framer-motion";
 import WhoIAmView from "../components/home/WhoIAm";
+import Projects from "../components/home/Projects";
 
 export function getHelloWord() {
     const helloWords =
@@ -69,7 +70,7 @@ export default function Home() {
                         initial={{opacity: 0}}
                         whileInView={{opacity: 1}}
                         transition={{delay: 0.1, duration: 0.4}}
-                        className={"w-full h-full bg-black pb-1"}>
+                        className={"w-full h-auto bg-black"}>
                         <motion.div
                             initial={{opacity: 0}}
                             whileInView={{opacity: 1}}
@@ -77,13 +78,15 @@ export default function Home() {
                             transition={{ ease: "easeIn", duration: 0.6 }}
                             className={"pt-10 mb-32"}>
                             <h1 className={"text-8xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
-                                Lorem Ipsum is Ipsum
+                                Meine Projekte
                             </h1>
                             <p className={"flex text-5xl justify-center text-center mx-auto text-gray-200"}>
                                labore et dolore magna aliquyam erat, sed diaur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                             </p>
+
+                            <Projects/>
                         </motion.div>
-                        <div className={""}>
+                        <div className={"xl:-mb-12 md:-mb-10 -mb-7"}>
                             <p className={"flex justify-center text-center mx-auto text-gray-500"}>
                                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diaur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
                             </p>
