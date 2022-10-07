@@ -10,8 +10,18 @@ import Image from "next/image";
 import MarvinImage from "../../public/IMG_9815.jpeg";
 import PointingToYou from "../../style/icons/PointingToYouEmoji.png";
 
-
 export default function WhoIAmView() {
+    function calculateAge() {
+        const today = new Date();
+        const birthDate = new Date("September 11, 2005");
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
     return (
         <div className={"w-full bg-gray-500"}>
             <motion.div
@@ -49,7 +59,7 @@ export default function WhoIAmView() {
                             Das bin ich.
                         </h1>
                         <p className={"text-white xl:text-5xl md:text-5xl text-4xl"}>
-                            Ich bin <span className={"font-bold"}>17 Jahre</span> alt und komme aus <a href={"#"} className={"text-indigo-300 font-bold hover:cursor-pointer"}>Hamm</a> in Nordrhein-Westfalen.
+                            Ich bin <span className={"font-bold"}>{calculateAge()} Jahre</span> alt und komme aus <a href={"https://maps.apple.com/?address=Hamm,%20Deutschland&auid=3094865715305345970&ll=51.677569,7.821620&lsp=6489&q=Hamm&_ext=Ch8KBQgEEIEBCgQIBRADCgQIBhADCgQIChAGCgQIVRAHEiYp94+F6BDKSUAxqwZhbveyHkA5Dfs9sU7fSUBBpGyRtBv9H0BQDA%3D%3D"} className={"text-indigo-300 font-bold hover:cursor-pointer"}>Hamm</a> in Nordrhein-Westfalen.
                             Ich besuche die 12 Klasse eines <span className={"font-bold"}>beruflichen Gymnasium</span> und intressiere mich für Informatik und Technik. Eines meiner Schwerpunkte liegt bei der <span className={"font-bold"}>Gestaltung und die Interaktion</span> mit Webseiten.
                         </p>
                         <div className={"pt-8"}>

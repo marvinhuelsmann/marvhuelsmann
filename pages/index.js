@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {motion, useMotionValue, useScroll, useTransform, useViewportScroll} from "framer-motion";
 import WhoIAmView from "../components/home/WhoIAm";
 import Projects from "../components/home/Projects";
+import Footer from "../components/home/Footer";
 
 export function getHelloWord() {
     const helloWords =
@@ -25,10 +26,6 @@ export default function Home() {
         } else {
             setAR(false)
         }
-
-        return scrollYProgress.onChange((latest) => {
-            console.log(latest * 10)
-        })
 
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -81,16 +78,12 @@ export default function Home() {
                                 Meine Projekte
                             </h1>
                             <p className={"flex text-5xl justify-center text-center mx-auto text-gray-200"}>
-                               labore et dolore magna aliquyam erat, sed diaur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                               Viele verschiedene Open Source Projekte, in denen ich mitgewirkt habe und gepushed habe .... Diese sind Live GitHub Projekte... und andere nicht Open Source Projekte...
                             </p>
 
                             <Projects/>
                         </motion.div>
-                        <div className={"xl:-mb-12 md:-mb-10 -mb-7"}>
-                            <p className={"flex justify-center text-center mx-auto text-gray-500"}>
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diaur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-                            </p>
-                        </div>
+                       <Footer/>
                     </motion.div>
                 </div>
             </main>
