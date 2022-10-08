@@ -95,7 +95,8 @@ export function GitHubProjects() {
                 </div>
             </div>
             <div className={"mt-12 -mb-6"}>
-                <p className={"pt-1 text-white text-sm text-gray-300 text-center"}>Weitere Daten konnten nicht geladen werden,<br/> da keine
+                <p className={"pt-1 text-white text-sm text-gray-300 text-center"}>Weitere Daten konnten nicht geladen
+                    werden,<br/> da keine
                     Internetverbindung besteht.</p>
                 <div className={"flex justify-center pt-3"}>
                     <div className={"mb-5 h-12 w-4 pl-4 pr-4 bg-gray-400 animate-spin rounded-xl"}/>
@@ -104,7 +105,14 @@ export function GitHubProjects() {
             </div>
         </div>
     );
-    if (!data) return <div className={"text-white"}>Daten werden geladen...</div>;
+    if (!data) return (
+        <div>
+            <div className={"text-white"}>Daten werden geladen...</div>
+            <div className={"flex justify-center pt-3"}>
+                <div className={"mb-5 h-12 w-4 pl-4 pr-4 bg-gray-400 animate-spin rounded-xl"}/>
+            </div>
+        </div>
+    );
 
     return (
         <div className="min-h-screen mt-4 lg:pl-0 md:pl-0 pl-2 text-white">

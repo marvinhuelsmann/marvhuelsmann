@@ -74,11 +74,11 @@ export default function Home() {
                             animate={{ y: 0 }}
                             transition={{ ease: "easeIn", duration: 0.6 }}
                             className={"pt-10 mb-32"}>
-                            <h1 className={"text-8xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
+                            <h1 className={"xl:text-8xl text-7xl text-6xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
                                 Meine Projekte
                             </h1>
-                            <p className={"flex text-5xl justify-center text-center mx-auto text-gray-200"}>
-                               Viele verschiedene Open Source Projekte, in denen ich mitgewirkt habe und gepushed habe .... Diese sind Live GitHub Projekte... und andere nicht Open Source Projekte...
+                            <p className={"pt-2 flex xl:text-5xl md:text-4xl text-3xl justify-center text-center mx-auto text-gray-200"}>
+                                Hier findest du viele verschiedene GitHub und Live Projekte,<br className={"xl:block md:block hidden"}/> an denen ich in der letzten Zeit gearbeitet habe.
                             </p>
 
                             <Projects/>
