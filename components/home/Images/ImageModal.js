@@ -26,9 +26,10 @@ export default function ImageModal() {
                     y: -4
                 }}
                 transition={{
-                    type: "spring",
-                    stiffness: 10,
-                    damping: 20,
+                    type: "ease",
+                    stiffness: 7,
+                    damping: 10,
+                    delay: 0.2
                 }}
                 className={"text-center"}>
                     <div>

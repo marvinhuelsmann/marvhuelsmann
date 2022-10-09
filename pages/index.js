@@ -73,7 +73,7 @@ export default function Home() {
                             whileInView={{opacity: 1}}
                             animate={{ y: 0 }}
                             transition={{ ease: "easeIn", duration: 0.6 }}
-                            className={"pt-10 mb-32"}>
+                            className={"pt-10 mb-14"}>
                             <h1 className={"xl:text-8xl text-7xl text-6xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
                                 Meine Projekte
                             </h1>

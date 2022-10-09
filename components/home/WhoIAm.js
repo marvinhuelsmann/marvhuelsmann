@@ -8,7 +8,7 @@ import SteakEmoji from "../../style/icons/SteakEmoji.png"
 import EmailEmoji from "../../style/icons/EmailEmoji.png"
 import MarvinImage from "../../public/IMG_9815.jpeg";
 import PointingToYou from "../../style/icons/PointingToYouEmoji.png";
-import ImageInformation from "./Image";
+import ImageInformation from "./Contact";
 
 export default function WhoIAmView() {
 
