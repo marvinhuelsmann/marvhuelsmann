@@ -8,7 +8,7 @@ export default function Footer() {
                     <br/>
                     Nelkenstraße 17, 59073 Hamm, Deutschland
                     <br/>
-                    Contact: kontakt@marvhuelsmann.com
+                    Kontakt: mail@marvhuelsmann.com
                 </p>
             </div>
         </div>
