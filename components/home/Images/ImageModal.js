@@ -19,17 +19,20 @@ export default function ImageModal() {
     return (
         <>
             <motion.div
+                initial={{opacity: 0}}
+                whileInView={{opacity: 1}}
                 animate={{
-                    scale: 0.9
+                    scale: 1,
+                    y: -4
                 }}
                 transition={{
                     type: "spring",
                     stiffness: 10,
-                    damping: 20
+                    damping: 20,
                 }}
                 className={"text-center"}>
                     <div>
-                            <div onClick={openModal} className={"xl:pt-0 pt-2"}>
+                            <div onClick={openModal} className={"xl:pt-0 -pt-1"}>
                                 <p className={"text-2xl text-gray-300 hover:cursor-pointer"}>Weitere Bilder ansehen</p>
                             </div>
                     </div>
@@ -64,9 +67,9 @@ export default function ImageModal() {
                             leaveTo="opacity-0 scale-95"
                         >
                             <div
-                                className=" grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 space-x-1 space-y-2  p-6  text-left align-middle transition-all transform rounded-2xl">
+                                className="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 space-x-1 space-y-2 p-6 text-left align-middle transition-all transform rounded-2xl w-full">
                                 <Image placeholder="blur" src={Image1}/>
-                                <Image placeholder="blur" className={"w-full h-full"} src={Image2}/>
+                                <Image placeholder="blur" className={"object-cover h-full"} src={Image2}/>
 
                                 <div className="mt-4">
                                     <button
@@ -76,7 +79,6 @@ export default function ImageModal() {
                                     >
                                         Schließen
                                     </button>
-                                        <p className={"text-sm flex mx-auto text-gray-200"}>Weitere Bilder werden bald hinzugefügt.</p>
                                 </div>
                             </div>
                         </Transition.Child>

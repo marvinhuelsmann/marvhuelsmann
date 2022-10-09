@@ -1,24 +1,21 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import Image1 from "../../public/IMG_9815.jpeg";
-import Image2 from "../../public/IMG_0242.jpeg";
 import EmailEmoji from "../../style/icons/EmailEmoji.png";
-import {useState} from "react";
 import ImageModal from "./Images/ImageModal";
+import {Dialog, Transition} from '@headlessui/react'
+import {Fragment, useState} from 'react'
 
 export default function ImageInformation() {
-    function calculateAge() {
-        const today = new Date();
-        const birthDate = new Date("September 11, 2005");
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age;
+    let [isOpen, setIsOpen] = useState(false)
+
+    function closeModal() {
+        setIsOpen(false)
     }
 
-
+    function openModal() {
+        setIsOpen(true)
+    }
 
     return (
         <motion.div
@@ -30,7 +27,7 @@ export default function ImageInformation() {
                 <Image placeholder="blur"
                        alt={"Marvin Image"}
                        src={Image1}
-                       className={"rounded-2xl drop-shadow-2xl shadow"} />
+                       className={"rounded-2xl drop-shadow-2xl shadow"}/>
                 <ImageModal className={"absolute"}/>
             </div>
             <div className={"pl-4"}>
@@ -38,18 +35,93 @@ export default function ImageInformation() {
                     Das bin ich.
                 </h1>
                 <p className={"text-white xl:text-5xl md:text-5xl text-4xl"}>
-                    Ich bin <span className={"font-bold"}>{calculateAge()} Jahre</span> alt und komme aus <a href={"https://maps.apple.com/?address=Hamm,%20Deutschland&auid=3094865715305345970&ll=51.677569,7.821620&lsp=6489&q=Hamm&_ext=Ch8KBQgEEIEBCgQIBRADCgQIBhADCgQIChAGCgQIVRAHEiYp94+F6BDKSUAxqwZhbveyHkA5Dfs9sU7fSUBBpGyRtBv9H0BQDA%3D%3D"} className={"text-indigo-300 font-bold hover:cursor-pointer"}>Hamm</a> in Nordrhein-Westfalen.
-                    Ich besuche die 12 Klasse eines <span className={"font-bold"}>beruflichen Gymnasium</span> und intressiere mich für Informatik und Technik. Eines meiner Schwerpunkte liegt bei der <span className={"font-bold"}>Gestaltung und die Interaktion</span> mit Webseiten.
+                    Ich bin <span
+                    className={"font-bold blur text-opacity-40 backdrop-blur hover:cursor-pointer"}
+                    title={"Klick um mehr zu erfahren!"}
+                    onClick={openModal}>XY</span><span className={"font-bold text-indigo-300 hover:cursor-pointer"}
+                                                       onClick={openModal}>Jahre</span> alt und komme aus Nordrhein
+                    Westfalen, geboren in <a
+                    href={"https://maps.apple.com/?address=Hamm,%20Deutschland&auid=3094865715305345970&ll=51.677569,7.821620&lsp=6489&q=Hamm&_ext=Ch8KBQgEEIEBCgQIBRADCgQIBhADCgQIChAGCgQIVRAHEiYp94+F6BDKSUAxqwZhbveyHkA5Dfs9sU7fSUBBpGyRtBv9H0BQDA%3D%3D"}
+                    className={"text-indigo-300 font-bold hover:cursor-pointer"}>Hamm</a>.
+                    Ich intressiere mich für Informatik und Technik. Einer meiner Schwerpunkte liegt bei der <span
+                    className={"font-bold"}>Gestaltung und der Interaktion</span> von und mit Webseiten.
                 </p>
                 <div className={"pt-8"}>
                     <a href={"mailto:kontakt@marvhuelsmann.com"} className={"text-3xl"}>
                         <button type="button"
                                 className="text-white bg-black items-center hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-2xl">
-                            <img className={"inline xl:h-8 md:h-12 h-8 pr-2"} src={EmailEmoji.src} alt={"Email"}/> schreiben
+                            <img className={"inline xl:h-8 md:h-12 h-8 pr-2"} src={EmailEmoji.src}
+                                 alt={"Email"}/> schreiben
                         </button>
                     </a>
                 </div>
             </div>
+            <Transition appear show={isOpen} as={Fragment}>
+                <Dialog
+                    as="div"
+                    className="fixed inset-0 z-10 overflow-y-auto transition transform bg-gradient-to-t from-indigo-50 to-indigo-500"
+                    onClose={closeModal}
+                >
+                    <div className="min-h-screen px-4 text-center">
+                        <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0"
+                        >
+                            <Dialog.Overlay className="fixed inset-0"/>
+                        </Transition.Child>
+                        {/* This element is to trick the browser into centering the modal contents. */}
+                        <span
+                            className="inline-block h-screen align-middle"
+                            aria-hidden="true"
+                        >
+              &#8203;
+            </span>
+
+                        <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0 scale-95"
+                            enterTo="opacity-100 scale-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100 scale-100"
+                            leaveTo="opacity-0 scale-95"
+                        >
+                            <div
+                                className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-center align-middle transition-all transform  rounded-2xl">
+                                <p className={"xl:text-5xl md:text-5xl text-4xl font-bold text-white pb-4 -mt-4"}>Wie lautet
+                                    die Determinate dieser Matrix?</p>
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    whileInView={{opacity: 1}}
+                                    scale={3}
+                                    viewport={{once: true}}>
+                                <span className={"text-white text-6xl font-bold pb-10"}>
+                                    (4,4,1)<br/>(2,5,3)<br/>(7,8,3)
+                                </span>
+                                </motion.div>
+                                <br/>
+                                <p className={"font-bold text-white text-3xl mt-4"}>
+                                    11.09.200<span className={"font-light"}>?</span>
+                                </p>
+                                <div className="mt-7">
+                                    <button
+                                        type="button"
+                                        className="justify-center text-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                                        onClick={closeModal}
+                                    >
+                                        Hilfreich!
+                                    </button>
+                                </div>
+                            </div>
+                        </Transition.Child>
+                    </div>
+                </Dialog>
+            </Transition>
         </motion.div>
     )
 }

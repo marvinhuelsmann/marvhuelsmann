@@ -119,7 +119,7 @@ export function GitHubProjects() {
             <div className="mx-auto grid items-center flex justify-center">
                 <div className={"xl:pl-0 md:pl-4 pl-3 xl:pr-0 md:pr-4 pr-3"}>
                     <span
-                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Aktuelle Projekte</span>
+                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Neustes</span>
                     <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
                         {realtimeProjects.map((project) => project.homepage && (
                             <div key={project.name} className=" border-gray-200 pt-3">
@@ -138,7 +138,7 @@ export function GitHubProjects() {
 
             <div className="mx-auto grid items-center flex justify-center">
                 <div className={"pt-12"}>
-                    <span className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Aktuelle GitHub Projekte</span>
+                    <span className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Community Projekte</span>
                     <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
                         {data.map((project) => project.homepage && !project.archived && project.name !== 'tailwindcss.com' && project.name !== 'marvhuelsmann' && (
                             <div key={project.name} className=" border-gray-200 pt-3">
@@ -158,7 +158,7 @@ export function GitHubProjects() {
             <div className="mx-auto grid items-center flex justify-center">
                 <div className={"pt-12"}>
                     <span
-                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Alte GitHub Projekte</span>
+                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Andere Projekte</span>
                     <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
                         {data.map((project) => !project.homepage && !project.archived && project.name !== 'marvinhuelsmann' && (
                             <div key={project.name} className=" border-gray-200 pt-3">
