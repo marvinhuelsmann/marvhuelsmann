@@ -11,7 +11,7 @@ module.exports = {
         'display': ['DM Sans'],
         'body': ['"DM Sans"']
       }
-    },
+    }
   },
   variants: {
     extend: {},

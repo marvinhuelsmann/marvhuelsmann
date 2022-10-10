@@ -1,59 +1,24 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar'
 import {useEffect, useState} from "react";
 
-import Image from 'next/image'
-import IpadImage from '../public/IpadWithMemoji.png'
-import OpenAIView from "../components/OpenAIView";
-import Countdown, {zeroPad} from "react-countdown";
+import {motion, useScroll, useTransform} from "framer-motion";
+import WhoIAmView from "../components/home/WhoIAm";
+import Projects from "../components/home/Projects";
+import Footer from "../components/home/Footer";
 
 export function getHelloWord() {
     const helloWords =
-        ["Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
+        ["Guten Tag", "Hi", "Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
 
     return helloWords[Math.floor(Math.random() * helloWords.length)];
 }
 
-export function callbackAnimation(entries, longAnimation) {
-    entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-            if (longAnimation) {
-                entry.target.classList.add("animate-fadeInLong");
-            } else entry.target.classList.add("animate-fadeIn");
-        } else {
-            if (longAnimation) {
-                entry.target.classList.remove("animate-fadeInLong");
-            } else entry.target.classList.remove("animate-fadeIn");
-        }
-    });
-}
-
 export default function Home() {
-        const [ar, setAR] = useState('ar')
+    const [ar, setAR] = useState('ar')
+    const {scrollYProgress} = useScroll();
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
 
     useEffect(() => {
-        const callbackSmall = function (entries) {
-            callbackAnimation(entries, false)
-        };
-        const callbackLong = function (entries) {
-            callbackAnimation(entries, true)
-        };
-
-        const observerSmall = new IntersectionObserver(callbackSmall)
-        const observerLong = new IntersectionObserver(callbackLong)
-
-        const targetsSmall = document.querySelectorAll(".show-on-scroll");
-        targetsSmall.forEach(function (targetsSmall) {
-            targetsSmall.classList.add("opacity-0");
-            observerSmall.observe(targetsSmall);
-        });
-        const targetsLong = document.querySelectorAll(".show-on-scroll-long");
-        targetsLong.forEach(function (targetsLong) {
-            targetsLong.classList.add("opacity-0");
-            observerLong.observe(targetsLong);
-        });
-
         const a = document.createElement("a");
         if (a.relList.supports("ar")) {
             setAR(true)
@@ -67,46 +32,61 @@ export default function Home() {
         } else {
             document.documentElement.classList.remove('dark')
         }
-    })
-    const CompletionMessage = () => <span className={"font-bold text-4xl"}>Bitte warten...</span>;
-
-    // Renderer callback with condition
-    const renderer = ({ hours, minutes, seconds, completed }) => {
-        if (completed) {
-            // Render a completed state
-            return <CompletionMessage />;
-        } else {
-            // Render a countdown
-            return <span className={"xl:text-9xl text-6xl font-bold"}>{zeroPad(hours)}:{zeroPad(minutes)}:{zeroPad(seconds)}</span>;
-        }
-    };
+    }, [scale])
 
     return (
-        <div className="min-h-screen dark:bg-black">
+        <div className="min-h-screen">
             <Head>
                 <title>Marvin Hülsmann</title>
                 <link rel="icon" href="https://i.imgur.com/duXild5.png"/>
 
-                <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500|Jost:400,500,600&display=swap"
-                      rel="stylesheet"/>
+                <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"/>
             </Head>
 
+            <main className={"mb-10"}>
+                <div
+                    className="flex justify-center mb-5">
+                    <div className="xl:mt-64 mt-24 mb-4">
+                        <motion.div
+                            whileInView="visible"
+                            style={{scaleY: scale}}
+                        >
+                            <span
+                                className={"flex text-gray-400 xl:text-3xl md:text-2xl text-xl text-left justify-left"}>{getHelloWord()}, ich heiße
+                            </span>
+                            <h2 className="text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-400 to-red-600 flex mx-auto font-medium xl:text-9xl md:text-8xl text-5xl">
+                                Marvin Hülsmann
+                            </h2>
+                        </motion.div>
+                    </div>
+                </div>
+                <WhoIAmView/>
+                <div className={"justify-center bg-white"}>
+                    <motion.div
+                        initial={{opacity: 0}}
+                        whileInView={{opacity: 1}}
+                        transition={{delay: 0.1, duration: 0.4}}
+                        className={"w-full h-auto bg-black"}>
+                        <motion.div
+                            initial={{opacity: 0}}
+                            whileInView={{opacity: 1}}
+                            animate={{ y: 0 }}
+                            transition={{ ease: "easeIn", duration: 0.6 }}
+                            className={"pt-10 mb-14"}>
+                            <h1 className={"xl:text-8xl text-7xl text-6xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
+                                Meine Projekte
+                            </h1>
+                            <p className={"pt-2 flex xl:text-5xl md:text-4xl text-3xl justify-center text-center mx-auto text-gray-200"}>
+                                Hier findest du viele verschiedene GitHub und Live Projekte,<br className={"xl:block md:block hidden"}/> an denen ich in der letzten Zeit gearbeitet habe.
+                            </p>
 
-            <main className={"dark:bg-black dark:text-white text-black flex h-screen justify-center items-center"}>
-                <a
-                    className="absolute xl:pt-44 md:pt-28 pt-24 justify-center"
-                    href="https://www.linkedin.com/in/marvin-hülsmann-9892201b5/"
-                    rel="noopener noreferrer"
-                >
-                    <img src="/Logo-Extra-Big-Red.png" alt="MH Logo" className="h-14"/>
-                </a>
-                <Countdown renderer={renderer} className={"dark:text-white text-center text-black font-bold text-5xl justify-center shadow"} date={new Date(1665426600 * 1000)}>
-                    <CompletionMessage className={"dark:text-white text-black"}/>
-                </Countdown>
-
+                            <Projects/>
+                        </motion.div>
+                       <Footer/>
+                    </motion.div>
+                </div>
             </main>
         </div>
 
     )
 }
-
