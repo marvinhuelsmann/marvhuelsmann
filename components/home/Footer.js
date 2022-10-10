@@ -15,12 +15,12 @@ export default function Footer() {
     return (
         <div className={""}>
             {(ar &&
-                <div className={"pb-2"}>
+                <div className={"pb-4 -pt-2"}>
                     <a id={"ar-link"} rel={"ar"} href={"../../Starbase.usdz"}
                        className={"text-blue-500 dark:text-blue-400"}>
                         <img alt={"Hidden"} className={"hidden w-1"} src={""}/>
-                        <span className={"text-xl text-blue-500"}>
-                                AR starten
+                        <span className={"text-xl flex justify-center text-center text-blue-500 hover:text-blue-400"}>
+                                AR Flugplatz Erlebniss starten
                             </span>
                     </a>
                 </div>

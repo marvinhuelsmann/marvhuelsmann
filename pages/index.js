@@ -8,7 +8,7 @@ import Footer from "../components/home/Footer";
 
 export function getHelloWord() {
     const helloWords =
-        ["", "Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
+        ["Guten Tag", "Hi", "Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
 
     return helloWords[Math.floor(Math.random() * helloWords.length)];
 }
