@@ -95,10 +95,11 @@ export function GitHubProjects() {
                 </div>
             </div>
             <div className={"mt-12 -mb-6"}>
-                <p className={"pt-1 text-white text-sm text-gray-300 text-center"}>Weitere Daten konnten nicht geladen
-                    werden,<br/> da keine
-                    Internetverbindung besteht.</p>
+                <p className={"pt-1 text-white text-md leading-tight text-gray-300 text-center"}>Weitere Daten konnten nicht geladen
+                    werden,<br/> da keine{' '}
+                    <span className={"font-bold"}>Internetverbindung</span> besteht und<br/> diese von <span className={"font-bold"}>GitHub</span> geladen werden.</p>
                 <div className={"flex justify-center pt-3"}>
+                    <div className={"bg-gray-400 w-9 bg-opacity-90 rounded-3xl h-10 animate-pulse absolute mt-1"}/>
                     <div className={"mb-5 h-12 w-4 pl-4 pr-4 bg-gray-400 animate-spin rounded-xl"}/>
                 </div>
 

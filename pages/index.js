@@ -1,15 +1,14 @@
 import Head from 'next/head'
 import {useEffect, useState} from "react";
 
-
-import {motion, useMotionValue, useScroll, useTransform, useViewportScroll} from "framer-motion";
+import {motion, useScroll, useTransform} from "framer-motion";
 import WhoIAmView from "../components/home/WhoIAm";
 import Projects from "../components/home/Projects";
 import Footer from "../components/home/Footer";
 
 export function getHelloWord() {
     const helloWords =
-        ["Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
+        ["", "Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"]
 
     return helloWords[Math.floor(Math.random() * helloWords.length)];
 }

@@ -111,7 +111,7 @@ export default function ImageInformation() {
                                     11.09.200<span className={"font-light"}>?</span>
                                 </p>
                                 <p className={"text-white text-md font-medium -mt-1 leading-tight text-gray-100"}>
-                                    Die Determinante gibt mein Geburtsjahr an und <br/>muss mit dem obigen Fragezeichen ersetzt werden.
+                                    Die Determinante gibt mein Geburtsjahr an und <br className={"xl:block md:block hidden"}/>muss mit dem obigen Fragezeichen ersetzt werden.
                                 </p>
                                 <div className="mt-7">
                                     <button
