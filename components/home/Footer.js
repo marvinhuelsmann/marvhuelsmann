@@ -20,7 +20,7 @@ export default function Footer() {
                        className={"text-blue-500 dark:text-blue-400"}>
                         <img alt={"Hidden"} className={"hidden w-1"} src={""}/>
                         <span className={"text-xl flex justify-center text-center text-blue-500 hover:text-blue-400"}>
-                                AR Flugplatz Erlebniss starten
+                                AR Flugplatz Erlebnis starten
                             </span>
                     </a>
                 </div>
