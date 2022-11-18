@@ -44,7 +44,7 @@ export default function ImageInformation() {
                     Westfalen, geboren in <a
                     href={"https://maps.apple.com/?address=Hamm,%20Deutschland&auid=3094865715305345970&ll=51.677569,7.821620&lsp=6489&q=Hamm&_ext=Ch8KBQgEEIEBCgQIBRADCgQIBhADCgQIChAGCgQIVRAHEiYp94+F6BDKSUAxqwZhbveyHkA5Dfs9sU7fSUBBpGyRtBv9H0BQDA%3D%3D"}
                     className={"text-indigo-300 font-bold hover:cursor-pointer"}>Hamm</a>.
-                    Ich intressiere mich für Informatik und Technik. Einer meiner Schwerpunkte liegt bei der <span
+                    Ich interessiere mich für Informatik und Technik. Einer meiner Schwerpunkte liegt bei der <span
                     className={"font-bold"}>Gestaltung und der Interaktion</span> von und mit Webseiten.
                 </p>
                 <div className={"pt-8"}>
