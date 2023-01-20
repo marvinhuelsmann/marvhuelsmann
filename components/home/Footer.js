@@ -36,6 +36,8 @@ export default function Footer() {
                     <br/>
                     mail@marvhuelsmann.com, +49 172 8244589
                     <br/>
+                    DE353408902
+                    <br/>
                 </p>
             </div>
 
