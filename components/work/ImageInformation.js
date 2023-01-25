@@ -90,7 +90,7 @@ export default function ImageInformation() {
                                     scale={3}
                                     className={"flex"}
                                     viewport={{once: true}}>
-                                <a target={"_blank"} href={"https://maps.apple.com/?address=Hamm,%20Nordrhein-Westfalen,%20Deutschland&auid=3094865715305345970&ll=51.680431,7.817423&lsp=7618&q=Hamm"} className={"pb-1 xl:pl-8 md:pl-10 pl-0"}>
+                                <a tabIndex="-1" target={"_blank"} href={"https://maps.apple.com/?address=Hamm,%20Nordrhein-Westfalen,%20Deutschland&auid=3094865715305345970&ll=51.680431,7.817423&lsp=7618&q=Hamm"} className={"pb-1 xl:pl-8 md:pl-10 pl-0"}>
                                     <img className={"rounded-3xl"} src={MapWidgetImage.src} alt={"Maps"}/>
                                 </a>
                                 </motion.div>
