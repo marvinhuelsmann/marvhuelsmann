@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
+import Link from "next/link"
 import MemoEmoji from "../../style/icons/MemoEmoji.png";
 
-export default function Footer() {
+export default function Footer({darkLogo, oneSheetVisible}) {
     const [ar, setAR] = useState('ar')
 
     useEffect(() => {
@@ -15,20 +16,24 @@ export default function Footer() {
 
     return (
         <div className={""}>
-            <div className={"flex -mt-3 pb-5 justify-center"}>
-                <a target={"_blank"}
-                   href={"https://www.trnsp.ml/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Ftransportier.appspot.com%2Fo%2Fuploads%252F1670450044175.png%3Falt%3Dmedia%26token%3Ded13b195-6780-4731-a922-a8b494ca062c&w=1920&q=75"}
-                   className={"text-3xl"}>
-                    <button type="button"
-                            className="dark:text-white dark:bg-black bg-gray-400 text-gray-900 items-center hover:bg-gray-500 dark:hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded px-2 py-1.5 mr-1 mb-1 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-600 dark:border-gray-600 text-xl">
-                        <img className={"inline xl:h-6 md:h-7 h-6 pr-1"} src={MemoEmoji.src}
-                             alt={"Memo"}/> One Sheet
-                    </button>
-                </a>
-            </div>
+            {(oneSheetVisible &&
+                <div className={"justify-center mb-9 hover:cursor-pointer flex"}>
+                    <Link href={"work"}>
+                        <p className={"font-medium text-blue-400 hover:underline transition text-2xl"}>
+                            Mit mir zusammen arbeiten?
+                        </p>
+                    </Link>
+                </div>
+            )}
             <div className={"xl:-mb-12 md:-mb-10 -mb-14 pb-10 justify-center"}>
-                <img width={70} height={40} className={"mx-auto flex"} src={"../../LogoExtraBigWhiteMode.svg"}
-                     alt={"MH Logo"}/>
+                {(darkLogo &&
+                    <img width={70} height={40} className={"mx-auto flex"} src={"../../LogoExtraBig.svg"}
+                         alt={"MH Logo"}/>
+                )}
+                {(!darkLogo &&
+                    <img width={70} height={40} className={"mx-auto flex"} src={"../../LogoExtraBigWhiteMode.svg"}
+                         alt={"MH Logo"}/>
+                )}
                 <p className={"flex leading-tight justify-center text-center mx-auto text-gray-500"}>
                     Marvin Hülsmann © {new Date().getFullYear()}
                     <br/>
@@ -36,7 +41,7 @@ export default function Footer() {
                     <br/>
                     mail@marvhuelsmann.com, +49 172 8244589
                     <br/>
-                    DE353408902
+                    USt - IdNr: DE 353408902
                     <br/>
                 </p>
             </div>
@@ -53,5 +58,5 @@ export default function Footer() {
                 </div>
             )*/}
         </div>
-)
+    )
 }

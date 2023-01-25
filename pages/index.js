@@ -82,7 +82,7 @@ export default function Home() {
 
                             <Projects/>
                         </motion.div>
-                       <Footer/>
+                       <Footer oneSheetVisible={true} darkLogo={false}/>
                     </motion.div>
                 </div>
             </main>
