@@ -96,7 +96,7 @@ export default function ImageInformation() {
                                 </motion.div>
                                 <br/>
                                 <p className={"font-bold text-white text-3xl mt-4"}>
-                                    Direkt Anrufen?
+                                    Direkt <a target={"_blank"} href={"tel:+49 172 8244589"}>Anrufen</a>?
                                 </p>
                                 <p className={"pt-2 text-white text-md font-medium -mt-1 leading-tight text-gray-100"}>
                                     Ich bin bereit Ideen persönlich<br/> zu besprechen und umzusetzen.
