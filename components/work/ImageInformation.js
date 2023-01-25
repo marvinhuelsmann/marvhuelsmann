@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import Image1 from "../../public/Marvin_Mountain_Orange.png";
-import MapWidgetImage from "../../public/MapsWidgetIcon.png";
+import MapWidgetImage from "../../public/MapsWidgetIcon.svg";
 import ImageModal from "./ImageModal";
 import Contact from "./Contact"
 import {Dialog, Transition} from '@headlessui/react'
