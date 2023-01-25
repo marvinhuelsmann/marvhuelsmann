@@ -6,6 +6,7 @@ export default function Contact() {
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [error, setError] = useState(false)
 
     const openMailClient = (e) => {
         e.preventDefault()
@@ -18,7 +19,11 @@ export default function Contact() {
             message
         }
 
-        window.location.href = "mailto:kontakt@marvhuelsmann.com?subject=Anfrage von " + data.firstName + " " + data.lastName + " - " + data.email + "&body=" + data.message;
+        if (firstName !== '' || email !== '' || message !== '') {
+            window.location.href = "mailto:kontakt@marvhuelsmann.com?subject=Anfrage von " + data.firstName + " " + data.lastName + " - " + data.email + "&body=" + data.message;
+        } else {
+            setError(true)
+        }
     }
 
     return (
@@ -100,6 +105,9 @@ export default function Contact() {
                                 </button>
                             </div>
                         </div>
+                        {(error &&
+                            <p className={"text-left text-2xl text-gray-200 pt-1"}>Bitte fülle die <span className={"font-bold text-red-200"}>Felder</span> aus!</p>
+                        )}
                     </form>
                 </div>
             </div>
