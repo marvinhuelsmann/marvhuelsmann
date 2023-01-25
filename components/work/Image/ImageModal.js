@@ -84,13 +84,13 @@ export default function ImageModal() {
                                     whileInView={{opacity: 1}}
                                     scale={3}
                                     viewport={{once: true}}>
-                                    <div className={"grid grid-cols-3 col-span-1 justify-center pl-2"}>
+                                    <div className={"grid grid-cols-3 col-span-3 justify-center pr-3"}>
                                         <a target={"_blank"} href={"https://twitter.com/marvhuelsmann?s=20"}><AiOutlineTwitter
-                                            className={"flex mx-0 text-blue-400 hover:text-blue-500 transition transform w-32 h-32"}/></a>
+                                            className={"flex pr-1 mx-0 text-blue-400 hover:text-blue-500 transition transform w-32 h-32"}/></a>
                                         <a target={"_blank"} href={"https://www.linkedin.com/in/marvin-hülsmann-9892201b5/"}><AiFillLinkedin
-                                            className={"flex mx-0 text-blue-700 hover:text-blue-800 transition transform w-32 h-32"}/></a>
+                                            className={"flex mx-0 pr-1 pl-1 text-blue-700 hover:text-blue-800 transition transform w-32 h-32"}/></a>
                                         <a target={"_blank"} href={"https://www.instagram.com/marvhuelsmann"}><AiOutlineInstagram
-                                            className={"flex mx-0 text-pink-600 hover:text-pink-700 transition transform w-32 h-32"}/></a>
+                                            className={"flex mx-0 pl-1 text-pink-600 hover:text-pink-700 transition transform w-32 h-32"}/></a>
                                     </div>
                                 </motion.div>
                                 <br/>
