@@ -94,8 +94,8 @@ export default function Contact() {
                             <div className="bg-orange-300/50 px-4 py-3 text-right sm:px-6">
                                 <button type="submit"
                                         onClick={(e)=>{openMailClient(e)}}
-                                        className="text-white bg-black items-center hover:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-orange-300 font-medium rounded px-5 py-2 mr-1 mb-1 dark:bg-orange-800 dark:hover:bg-orange-700 dark:focus:ring-orange-700 dark:border-yellow-700 text-2xl">
-                                    <img className={"inline xl:h-8 md:h-12 h-8 pr-2"} src={EmailEmoji.src}
+                                        className="text-white bg-black items-center hover:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-orange-300 font-medium rounded px-5 py-2 mr-1 mb-1 dark:bg-orange-800 dark:hover:bg-orange-700 dark:focus:ring-orange-700 dark:border-yellow-700 xl:text-2xl md:text-2xl text-xl">
+                                    <img className={"inline xl:h-8 md:h-12 h-6 pr-2"} src={EmailEmoji.src}
                                          alt={"Email"}/> schreiben
                                 </button>
                             </div>

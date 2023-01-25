@@ -31,10 +31,10 @@ export default function WhoIAmView() {
                     whileInView={{opacity: 1}}
                     className={"xl:ml-48 md:ml-16 ml-8 xl:pr-24 md:pr-10"}>
                     <h1 className={"w-full xl:text-8xl md:text-6xl text-5xl font-medium xl:text-left md:text-left text-left text-white mb-32 leading-10"}>
-                        <span className={"xl:text-8xl md:text-6xl text-5xl"}>  Deine Ideen + meine Skills = <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={BicepEmoji.src} alt={"BicepEmoji"}/></span>
+                        <span className={"xl:text-8xl md:text-6xl text-5xl break-keep "}>  Deine Ideen + meine Skills = <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={BicepEmoji.src} alt={"BicepEmoji"}/></span>
                         <br/>
                         <br className={"xl:hidden md:hidden block"}/>
-                        <span className={"xl:text-7xl md:text-5xl text-4xl"}>Dein Geschick + meine Erfahrung = <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={WeightlifterEmoji.src} alt={"WeightlifterEmoji"}/></span>
+                        <span className={"xl:text-7xl md:text-5xl text-4xl break-keep"}>Dein Geschick + meine lange Erfahrung = <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={WeightlifterEmoji.src} alt={"WeightlifterEmoji"}/></span>
                         </h1>
                 </motion.div>
 

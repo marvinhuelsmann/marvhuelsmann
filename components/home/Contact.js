@@ -5,6 +5,9 @@ import EmailEmoji from "../../style/icons/EmailEmoji.png";
 import ImageModal from "./Images/ImageModal";
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useState} from 'react'
+import Link from "next/link"
+
+import { IoIosLink } from 'react-icons/io';
 
 export default function ImageInformation() {
     let [isOpen, setIsOpen] = useState(false)
@@ -48,13 +51,17 @@ export default function ImageInformation() {
                     className={"font-bold"}>Gestaltung und der Interaktion</span> von und mit Webseiten.
                 </p>
                 <div className={"pt-8"}>
-                    <a href={"mailto:kontakt@marvhuelsmann.com"} className={"text-3xl"}>
+                    <Link href={"work"} className={"text-3xl"}>
                         <button type="button"
                                 className="text-white bg-black items-center hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-2xl">
-                            <img className={"inline xl:h-8 md:h-12 h-8 pr-2"} src={EmailEmoji.src}
-                                 alt={"Email"}/> schreiben
+                            <span className={"xl:block md:block hidden"}><IoIosLink className={"flex mx-0 pr-2 h-9 text-blue-500"}/>Entdecke mehr auf der Kontakt Seite</span>
+                            <span className={"xl:hidden md:hidden block"}><IoIosLink className={"flex mx-0 pr-2 h-9 text-blue-500"}/>Kontakt Seite</span>
                         </button>
-                    </a>
+                    </Link>
+                    <p  className={"text-gray-300/90 text-xl hover:text-gray-200/90 hover:cursor-pointer font-medium -pt-3"}>
+                        oder direkt eine <a href={"mailto:kontakt@marvhuelsmann.com"}><img className={"inline xl:h-8 md:h-8 h-8 pr-0.5 pb-1"} src={EmailEmoji.src}
+                                       alt={"Email"}/></a> schreiben
+                    </p>
                 </div>
             </div>
             <Transition appear show={isOpen} as={Fragment}>

@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
 import Skills from "../components/work/Skills";
 import Projects from "../components/home/Projects";
-import Footer from "../components/home/Footer";
+import Footer from "../components/Footer";
 import References from "../components/work/References";
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
                             <span
                                 className={"flex text-black xl:text-3xl md:text-2xl text-xl text-left justify-left"}>Mit mir <span className={"underline decoration-orange-400/30 xl:pl-2 xl:pr-2 pr-1 pl-1"}>zusammen</span> arbeiten?
                             </span>
-                            <h2 className="text-transparent text-center bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 flex mx-auto font-medium xl:text-9xl md:text-8xl text-5xl">
+                            <h2 className="text-transparent text-center bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 flex mx-auto font-medium xl:text-9xl md:text-8xl text-6xl">
                                 Definitiv.
                             </h2>
                         </motion.div>
@@ -64,12 +64,12 @@ export default function Home() {
                                 Wieso ich?
                             </h1>
                             <p className={"pt-2 flex xl:text-5xl md:text-4xl text-3xl justify-center text-center mx-auto text-black"}>
-                                schnell, reaktionsschnell, zuverlässig, Detail verliebt,<br className={"xl:block md:block hidden"}/> anpassungsfähig, aufnahmefähig, gut
+                                aufmerksam, reaktionsschnell, zuverlässig, Detail verliebt,<br className={"xl:block md:block hidden"}/> anpassungsfähig, aufnahmefähig, ehrgeizig
                             </p>
 
                             <References/>
                         </motion.div>
-                        <Footer darkLogo={true}/>
+                        <Footer darkLogo={true} oneSheetVisible={true}/>
                     </motion.div>
                 </div>
             </main>

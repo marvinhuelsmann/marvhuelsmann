@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {motion, useScroll, useTransform} from "framer-motion";
 import WhoIAmView from "../components/home/WhoIAm";
 import Projects from "../components/home/Projects";
-import Footer from "../components/home/Footer";
+import Footer from "../components/Footer";
 
 export function getHelloWord() {
     const helloWords =
@@ -82,7 +82,7 @@ export default function Home() {
 
                             <Projects/>
                         </motion.div>
-                       <Footer oneSheetVisible={true} darkLogo={false}/>
+                       <Footer oneSheetVisible={false} darkLogo={false}/>
                     </motion.div>
                 </div>
             </main>

@@ -2,8 +2,10 @@ import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useState} from 'react'
 import {motion} from "framer-motion";
 import Image from 'next/image'
-import Image1 from "../../public/IMG_9815.jpeg";
-import Image2 from "../../public/IMG_0242.jpeg";
+import Image1 from "../../../public/IMG_9815.jpeg";
+import Image2 from "../../../public/IMG_0242.jpeg";
+import MapWidgetImage from "../../../public/MapsWidgetIcon.svg";
+import {AiOutlineTwitter, AiFillLinkedin, AiOutlineInstagram} from 'react-icons/ai';
 
 export default function ImageModal() {
     let [isOpen, setIsOpen] = useState(false)
@@ -34,7 +36,7 @@ export default function ImageModal() {
                 className={"text-center"}>
                 <div>
                     <div onClick={openModal} className={"xl:pt-0 -pt-1"}>
-                        <p className={"text-2xl text-orange-200/90 hover:cursor-pointer"}>Weitere Bilder ansehen</p>
+                        <p className={"text-2xl text-orange-200/90 hover:cursor-pointer"}>Weiteres entdecken</p>
                     </div>
                 </div>
             </motion.div>
@@ -57,6 +59,12 @@ export default function ImageModal() {
                         >
                             <Dialog.Overlay className="fixed inset-0"/>
                         </Transition.Child>
+                        <span
+                            className="inline-block h-screen align-middle"
+                            aria-hidden="true"
+                        >
+              &#8203;
+            </span>
 
                         <Transition.Child
                             as={Fragment}
@@ -68,17 +76,31 @@ export default function ImageModal() {
                             leaveTo="opacity-0 scale-95"
                         >
                             <div
-                                className="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 space-x-1 space-y-2 p-6 text-left align-middle transition-all transform rounded-2xl w-full">
-                                <Image placeholder="blur" src={Image1}/>
-                                <Image placeholder="blur" className={"object-cover h-full"} src={Image2}/>
-
+                                className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-center align-middle transition-all transform  rounded-2xl">
+                                <p className={"xl:text-5xl md:text-5xl text-4xl font-bold text-white pb-4 -mt-4"}>Meine
+                                    Sozialen Netzwerke</p>
+                                <motion.div
+                                    initial={{opacity: 0}}
+                                    whileInView={{opacity: 1}}
+                                    scale={3}
+                                    viewport={{once: true}}>
+                                    <div className={"grid grid-cols-3 col-span-1 justify-center pl-2"}>
+                                        <a target={"_blank"} href={"https://twitter.com/marvhuelsmann?s=20"}><AiOutlineTwitter
+                                            className={"flex mx-0 text-blue-400 hover:text-blue-500 transition transform w-32 h-32"}/></a>
+                                        <a target={"_blank"} href={"https://www.linkedin.com/in/marvin-hülsmann-9892201b5/"}><AiFillLinkedin
+                                            className={"flex mx-0 text-blue-700 hover:text-blue-800 transition transform w-32 h-32"}/></a>
+                                        <a target={"_blank"} href={"https://www.instagram.com/marvhuelsmann"}><AiOutlineInstagram
+                                            className={"flex mx-0 text-pink-600 hover:text-pink-700 transition transform w-32 h-32"}/></a>
+                                    </div>
+                                </motion.div>
+                                <br/>
                                 <div className="mt-4">
                                     <button
                                         type="button"
-                                        className="inline-flex justify-center px-4 py-2 text-sm font-medium text-orange-900 bg-yellow-100 border border-transparent rounded-md hover:bg-yellow-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500"
+                                        className="justify-center text-center px-4 py-2 text-sm font-medium text-orange-900 bg-yellow-100 border border-transparent rounded-md hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-200"
                                         onClick={closeModal}
                                     >
-                                        Schließen
+                                        Zurück zur Seite
                                     </button>
                                 </div>
                             </div>
