@@ -58,10 +58,10 @@ export default function ImageInformation() {
                             <span className={"xl:hidden md:hidden block"}><IoIosLink className={"inline mx-0 pr-2 h-9 text-blue-500"}/>Kontakt Seite</span>
                         </button>
                     </Link>
-                    <p  className={"text-gray-300/90 text-xl hover:text-gray-200/90 hover:cursor-pointer font-medium -pt-3"}>
-                        oder direkt eine <a href={"mailto:kontakt@marvhuelsmann.com"}><img className={"inline xl:h-8 md:h-8 h-8 pr-0.5 pb-1"} src={EmailEmoji.src}
-                                       alt={"Email"}/></a> schreiben
-                    </p>
+                    <a href={"mailto:kontakt@marvhuelsmann.com"} className={"text-gray-300/90 text-xl hover:text-gray-200/90 hover:cursor-pointer font-medium -pt-3"}>
+                        oder direkt eine <img className={"inline xl:h-8 md:h-8 h-8 pr-0.5 pb-1"} src={EmailEmoji.src}
+                                       alt={"Email"}/> schreiben
+                    </a>
                 </div>
             </div>
             <Transition appear show={isOpen} as={Fragment}>
