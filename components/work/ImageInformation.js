@@ -42,7 +42,7 @@ export default function ImageInformation() {
                 <div className={"pt-8"}>
                     <p onClick={openModal} className={"text-3xl hover:cursor-pointer text-white"}>
                         Wenn du ein <span className={"font-bold"}>cooles Projekt</span> im Sinn hast, Beratung benötigst oder Fragen hast, nutze das
-                        Formular oben und wende dich unverbindlich an mich. <span className={"text-yellow-200 font-bold"}>Weitere Informationen <BiLinkAlt className={"flex mx-auto pb-1 font-bold"}/></span></p>
+                        Formular oben und wende dich unverbindlich an mich. <span className={"text-yellow-200 font-bold"}>Weitere Informationen <BiLinkAlt className={"inline pb-1 font-bold"}/></span></p>
                 </div>
             </div>
             <Transition appear show={isOpen} as={Fragment}>

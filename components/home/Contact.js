@@ -53,9 +53,9 @@ export default function ImageInformation() {
                 <div className={"pt-8"}>
                     <Link href={"work"} className={"text-3xl"}>
                         <button type="button"
-                                className="text-white bg-black items-center hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-2xl">
-                            <span className={"xl:block md:block hidden"}><IoIosLink className={"flex mx-0 pr-2 h-9 text-blue-500"}/>Entdecke mehr auf der Kontakt Seite</span>
-                            <span className={"xl:hidden md:hidden block"}><IoIosLink className={"flex mx-0 pr-2 h-9 text-blue-500"}/>Kontakt Seite</span>
+                                className="flex text-white bg-black items-center hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 font-medium rounded px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 text-2xl">
+                            <span className={"xl:block md:block hidden"}><IoIosLink className={"inline pr-2 h-9 text-blue-500"}/>Entdecke mehr auf der Kontakt Seite</span>
+                            <span className={"xl:hidden md:hidden block"}><IoIosLink className={"inline mx-0 pr-2 h-9 text-blue-500"}/>Kontakt Seite</span>
                         </button>
                     </Link>
                     <p  className={"text-gray-300/90 text-xl hover:text-gray-200/90 hover:cursor-pointer font-medium -pt-3"}>
