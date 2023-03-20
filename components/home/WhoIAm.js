@@ -27,7 +27,7 @@ export default function WhoIAmView() {
                     whileInView={{opacity: 1}}
                     className={"xl:ml-48 md:ml-16 ml-8 xl:pr-24 md:pr-10"}>
                     <h1 className={"container xl:text-7xl md:text-6xl text-4xl font-medium xl:text-left md:text-left text-left text-white mb-32 "}>
-                        Ich bin <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={StudentEmoji.src} alt={"Student"}/> und Freiberufler.<br/> Nebenbei beschäftige ich mich mit
+                        Ich bin <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={StudentEmoji.src} alt={"Student"}/> und Unternehmer.<br/> Nebenbei beschäftige ich mich mit
                         {' '}<img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={DeveloperEmoji.src} alt={"Developer"}/> und programmiere und designe Webseiten.
                         Außerdem fahre ich gerne  <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={RollerCoasterEmoji.src} alt={"Rollercoaster"}/>
                         {' '}und esse gerne leckere <img className={"inline xl:h-16 md:h-12 h-8"} src={PizzaEmoji.src} alt={"Pizza"}/>
