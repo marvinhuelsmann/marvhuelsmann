@@ -18,10 +18,10 @@ const realtimeProjects = [
         language: "Javascript"
     },
     {
-        name: "SparkyShop",
-        homepage: 'https://sparkyshop.de',
-        description: "SparkyShop, eine schnelle und übersichtliche Schnellansicht über Produkte.",
-        language: "Javascript"
+        name: "Financy - iOS App",
+        homepage: 'https://apps.apple.com/de/app/financy/id6446224577',
+        description: "Tracke deine nächsten Produkt Käufe mit Financy, um den Überblick deiner Transaktionen zu behalten.",
+        language: "Swift"
     },
 ]
 
@@ -120,8 +120,8 @@ export function GitHubProjects() {
             <div className="mx-auto grid items-center flex justify-center">
                 <div className={"xl:pl-0 md:pl-4 pl-3 xl:pr-0 md:pr-4 pr-3"}>
                     <span
-                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Neustes</span>
-                    <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
+                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Highlight</span>
+                    <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4 pt-1">
                         {realtimeProjects.map((project) => project.homepage && (
                             <div key={project.name} className=" border-gray-200 pt-3">
                                 <dt className="font-bold text-gray-200 shadow text-3xl flex">{project.name}
