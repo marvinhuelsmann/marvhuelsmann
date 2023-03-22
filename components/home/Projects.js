@@ -20,7 +20,7 @@ const realtimeProjects = [
     {
         name: "Financy - iOS App",
         homepage: 'https://apps.apple.com/de/app/financy/id6446224577',
-        description: "Tracke deine nächsten Produkt Käufe mit Financy, um den Überblick deiner Transaktionen zu behalten.",
+        description: "Tracke deine nächsten Produkt Käufe mit Financy, um den Überblick zu behalten.",
         language: "Swift"
     },
 ]
