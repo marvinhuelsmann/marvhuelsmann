@@ -6,10 +6,20 @@ import Skills from "../components/work/Skills";
 import Projects from "../components/home/Projects";
 import Footer from "../components/Footer";
 import References from "../components/work/References";
+import Clock from 'react-live-clock';
 
 export default function Home() {
     const {scrollYProgress} = useScroll();
     const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+
+    const [currentTime, setCurrentTime] = useState(() => {
+        const hour = ("0" + new Date().getHours()).slice(-2);
+        const minutes = ("0" + new Date().getMinutes()).slice(-2);
+        const seconds = ("0" + new Date().getSeconds()).slice(-2);
+
+        return `${hour}:${minutes}:${seconds}`;
+    });
+
 
     useEffect(() => {
 

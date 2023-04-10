@@ -12,6 +12,22 @@ import { BiLinkAlt } from 'react-icons/bi';
 export default function ImageInformation() {
     let [isOpen, setIsOpen] = useState(false)
 
+    function howLongIAmToReach() {
+        const hour = ("0" + new Date().getHours()).slice(-2);
+
+        if (hour < 21 && hour > 12) {
+            return "In diesem Moment bin ich auch telefonisch erreichbar."
+        } else {
+            return "In diesem Moment bin ich gerade leider telefonisch nicht zu erreichen."
+        }
+
+    }
+
+    function reachable() {
+        const hour = ("0" + new Date().getHours()).slice(-2);
+        return hour < 21 && hour > 12
+    }
+
     function closeModal() {
         setIsOpen(false)
     }
@@ -39,6 +55,22 @@ export default function ImageInformation() {
                 </h1>
                 <Contact/>
                 {/*My age is a random number in the source code*/}
+                {(reachable() &&
+                <div className={"pt-2"}>
+                    <a target={"_blank"} href={"tel:+49 172 8244589"} className={reachable() ? "text-xl font-medium text-green-300" : "text-xl text-red-100"}>
+                        {howLongIAmToReach()}
+                    </a>
+                    <span className="relative align-super inline-flex h-2 w-2 mr-2 mt-0.5">
+                    <span
+                        className="
+                        animate-ping absolute inline-flex
+                         h-full w-full rounded-full"/>
+                  <span className="
+                  relative inline-flex rounded-full h-2 w-2
+                   bg-green-300"/>
+               </span>
+                </div>
+                )}
                 <div className={"pt-8"}>
                     <p onClick={openModal} className={"text-3xl hover:cursor-pointer text-white"}>
                         Wenn du ein <span className={"font-bold"}>cooles Projekt</span> im Sinn hast, Beratung benötigst oder Fragen hast, nutze das
