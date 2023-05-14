@@ -57,7 +57,7 @@ export function GitHubProjects() {
 
             <div id={"projects"}>
                 <div className={"xl:pt-20 md:pt-16 pt-8"}>
-                    <div className={"xl:ml-10 md:ml-10 ml-4 mb-10"}>
+                    <div className={"xl:ml-10 md:ml-10 ml-3.5 mb-10"}>
                         <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>Öffentliche Projekte</span>
                     </div>
 
