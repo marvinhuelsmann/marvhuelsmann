@@ -4,6 +4,7 @@ import {
 import useSWR from 'swr'
 
 const API_URL = "https://api.github.com/users/marvinhuelsmann/repos"
+import {BsChevronCompactRight} from 'react-icons/bs';
 
 async function fetcher(url) {
     const res = await fetch(url);
@@ -61,7 +62,7 @@ export function GitHubProjects() {
                         <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>Öffentliche Projekte</span>
                     </div>
 
-                    <div className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-screen space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-10 pr-10 ">
+                    <div className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-screen space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-5 pr-10 ">
                         {realtimeProjects.map((project) => project.homepage && (
                             <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
                                 <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
@@ -131,8 +132,16 @@ export function GitHubProjects() {
                                 </div>
                             </div>
                         ))}
-                         </div>
+
+                        <div className="absolute right-5 self-center ">
+                            <div className="bg-zinc-600 bg-opacity-50 backdrop-blur-2xl rounded-full flex ">
+                                <BsChevronCompactRight className={"text-white w-12 h-12 text-2xl p-1 shadow"}/>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
 
