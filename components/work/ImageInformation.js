@@ -15,7 +15,7 @@ export default function ImageInformation() {
     function howLongIAmToReach() {
         const hour = ("0" + new Date().getHours()).slice(-2);
 
-        if (hour < 21 && hour > 12) {
+        if (hour < 21 && hour > 11) {
             return "In diesem Moment bin ich auch telefonisch erreichbar."
         } else {
             return "In diesem Moment bin ich gerade leider telefonisch nicht zu erreichen."

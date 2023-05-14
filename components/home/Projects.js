@@ -25,77 +25,13 @@ const realtimeProjects = [
     },
 ]
 
-
-function AchievedBadge({isArchived}) {
-    if (isArchived) {
-        return (
-            <div
-                className={"text-yellow-600 font-normal pl-2 hover:text-yellow-400 dark:hover:text-yellow-300 text-xl"}>
-                (Archiviert)
-            </div>
-        )
-    }
-    return (
-        <></>
-    )
-}
-
-function ProjectLanguage({language}) {
-    if (language !== "" && language !== null) {
-        return (
-            <div>
-                <div
-                    className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
-                    {language}
-                </div>
-            </div>
-        )
-    } else return (
-        <div>
-            <div
-                className="pt-1 font-medium text-gray-200 bg-gray-500 rounded-md w-24 text-center opacity-70 shadow-lg dark:text-gray-300">
-                Text
-            </div>
-        </div>
-    )
-}
-
-function WebsiteLink({link}) {
-    if (link !== "") {
-        return (
-            <a target={"_blank"} href={link}><ExternalLinkIcon
-                className="h-5 pl-1 w-5 dark:text-gray-700 text-gray-300 hover:text-gray-500 dark:hover:text-gray-500"
-                aria-hidden="true"/></a>
-        )
-    } else return (
-        <></>
-    )
-}
-
 export function GitHubProjects() {
     const {data, error} = useSWR(API_URL, fetcher);
 
     if (error) return (
         <div className={"container pt-12 -mb-7"}>
-            <div className="mx-auto grid items-center flex justify-center">
-                <div className={"xl:pl-0 md:pl-4 pl-3 xl:pr-0 md:pr-4 pr-3"}>
-                    <span
-                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Aktuelle Projekte</span>
-                    <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
-                        {realtimeProjects.map((project) => project.homepage && (
-                            <div key={project.name} className=" border-gray-200 pt-3">
-                                <dt className="font-bold text-gray-200 shadow text-3xl flex">{project.name}
-                                    <AchievedBadge isArchived={project.archived}/> <WebsiteLink
-                                        link={project.homepage}/></dt>
-                                <dd className=" font-medium text-gray-300">{project.description} </dd>
-                                <ProjectLanguage language={project.language}/>
-                            </div>
-                        ))}
-                    </dl>
-                </div>
-            </div>
             <div className={"mt-12 -mb-6"}>
-                <p className={"pt-1 text-white text-md leading-tight text-gray-300 text-center"}>Weitere Daten konnten nicht geladen
+                <p className={"pt-1 text-md leading-tight text-gray-300 text-center"}>Weitere Daten konnten nicht geladen
                     werden,<br/> da keine{' '}
                     <span className={"font-bold"}>Internetverbindung</span> besteht und<br/> diese von <span className={"font-bold"}>GitHub</span> geladen werden.</p>
                 <div className={"flex justify-center pt-3"}>
@@ -116,69 +52,96 @@ export function GitHubProjects() {
     );
 
     return (
-        <div className="min-h-screen mt-4 lg:pl-0 md:pl-0 pl-2 text-white">
-            <div className="mx-auto grid items-center flex justify-center">
-                <div className={"xl:pl-0 md:pl-4 pl-3 xl:pr-0 md:pr-4 pr-3"}>
-                    <span
-                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Highlight</span>
-                    <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4 pt-1">
+        <div className="lg:pl-0 md:pl-0 text-white">
+
+
+            <div className="">
+                <div className={"pt-20"}>
+                    <div className={"xl:ml-10 md:ml-10 ml-4 mb-10"}>
+                        <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>Community Projekte</span>
+                    </div>
+
+                    <div className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-screen space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-10 pr-10 ">
                         {realtimeProjects.map((project) => project.homepage && (
-                            <div key={project.name} className=" border-gray-200 pt-3">
-                                <dt className="font-bold text-gray-200 shadow text-3xl flex">{project.name}
-                                    <AchievedBadge isArchived={project.archived}/> <WebsiteLink
-                                        link={project.homepage}/></dt>
-                                <dd className=" font-medium text-gray-300">{project.description} </dd>
-                                <ProjectLanguage language={project.language}/>
+                            <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
+                                <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
+                                    <h1 className={"font-medium text-red-500/90 text-4xl"}>
+                                        {project.name}.
+                                    </h1>
+                                    <h2 className={"text-4xl font-medium text-white"}>
+                                        {project.description}
+                                    </h2>
+
+                                    <div className="relative pt-4">
+                                        <div className="flex bottom-0 right-0 ...">
+                                            <a href={project.homepage} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
+                                                Projekt ansehen
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         ))}
-                    </dl>
-                </div>
-            </div>
+                        {data.map((project) => !project.homepage && !project.archived && project.name !== 'marvinhuelsmann' && project.name !== 'Financy' && (
+                            <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
+                                <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
+                                    <h1 className={"font-medium text-yellow-400/95 text-4xl"}>
+                                        {project.name}.
+                                    </h1>
+                                    <h2 className={"text-4xl font-medium text-white"}>
+                                        {project.description}
+                                    </h2>
 
-            <hr className={"pl-2 mt-7 -mb-3"}/>
 
-            <div className="mx-auto grid items-center flex justify-center">
-                <div className={"pt-12"}>
-                    <span className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Community Projekte</span>
-                    <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
+
+                                    <div className="relative pt-4">
+                                        <div className="flex bottom-0 right-0 ...">
+                                            {(project.homepage !== "" &&
+                                            <a href={project} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
+                                                Projekt ansehen
+                                            </a>
+                                            )}
+                                            {(project.homepage === "" &&
+                                                <a href={project.html_url} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
+                                                    Projekt ansehen
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                         {data.map((project) => project.homepage && !project.archived && project.name !== 'tailwindcss.com' && project.name !== 'marvhuelsmann' && (
-                            <div key={project.name} className=" border-gray-200 pt-3">
-                                <dt className="font-bold text-gray-200 shadow text-3xl flex">{project.name}
-                                    <AchievedBadge isArchived={project.archived}/> <WebsiteLink
-                                        link={project.homepage}/></dt>
-                                <dd className=" font-medium text-gray-300">{project.description} </dd>
-                                <ProjectLanguage language={project.language}/>
+                            <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
+                                <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
+                                    <h1 className={"font-medium text-blue-400/95 text-4xl"}>
+                                        {project.name}.
+                                    </h1>
+                                    <h2 className={"text-4xl font-medium text-white"}>
+                                        {project.description}
+                                    </h2>
+
+                                    <div className="relative pt-4">
+                                        <div className="flex bottom-0 right-0 ...">
+                                            <a href={project.homepage} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
+                                                Projekt ansehen
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         ))}
-                    </dl>
+                         </div>
                 </div>
             </div>
 
-            <hr className={"pl-2 mt-7 -mb-3"}/>
 
-            <div className="mx-auto grid items-center flex justify-center">
-                <div className={"pt-12"}>
-                    <span
-                        className={"bg-white text-black p-2 rounded-2xl shadow bg-opacity-70"}>Andere Projekte</span>
-                    <dl className=" grid grid-cols-1 gap-x-2 sm:grid-cols-2 gap-y-8 lg:gap-x-4">
-                        {data.map((project) => !project.homepage && !project.archived && project.name !== 'marvinhuelsmann' && (
-                            <div key={project.name} className=" border-gray-200 pt-3">
-                                <a href={project.html_url} target={"_blank"}>
-                                    <dt className="font-bold text-gray-200 shadow text-3xl flex">{project.name}
-                                        <AchievedBadge isArchived={project.archived}/> <WebsiteLink
-                                            link={project.homepage}/></dt>
-                                    <dd className=" font-medium text-gray-300">{project.description} </dd>
-                                    <ProjectLanguage language={project.language}/>
-                                </a>
-                            </div>
-                        ))}
-                    </dl>
-                </div>
+            <div className={"pl-10 mt-8 font-thin"}>
+                <p className={"text-gray-100"}>Du kannst <span className={"underline font-thin"}>horizontal scrollen</span> um mehr zu entdecken.</p>
             </div>
 
-            <div className={"pl-0 mt-12 text-white"}>
-                <hr className={"pl-2"}/>
-                <div className={"mt-3"}>
+            <div className={"pl-10 mt-0 text-white"}>
+                <div className={"mt-0"}>
                 <span className="relative inline-flex h-2 w-2 mr-2 mt-0.5">
                     <span
                         className="

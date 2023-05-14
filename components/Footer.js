@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Link from "next/link"
 import MemoEmoji from "../style/icons/MemoEmoji.png";
+import {AiOutlineSearch} from 'react-icons/ai';
 
 export default function Footer({darkLogo, oneSheetVisible}) {
     const [ar, setAR] = useState('ar')
@@ -14,16 +15,22 @@ export default function Footer({darkLogo, oneSheetVisible}) {
         }
     })
 
+
     return (
         <div className={""}>
             {(!oneSheetVisible &&
-                <div className={"justify-center mb-9 hover:cursor-pointer flex"}>
-                    <Link href={"work"}>
-                        <p className={"font-medium text-blue-400 hover:underline transition text-2xl"}>
-                            Mit mir zusammen arbeiten?
-                        </p>
-                    </Link>
-                </div>
+                <Link href={"work"}>
+                    <div>
+                        <div className={"flex pb-2 mx-auto justify-center"}>
+                            <AiOutlineSearch className={"text-6xl text-blue-400 hover:text-blue-300 transition"}/>
+                        </div>
+                        <div className={"justify-center mb-9 hover:cursor-pointer flex"}>
+                            <p className={"font-medium text-blue-400 hover:underline transition text-2xl"}>
+                                Mit mir zusammen arbeiten?
+                            </p>
+                        </div>
+                    </div>
+                </Link>
             )}
             {(oneSheetVisible &&
                 <div className={"flex -mt-3 pb-5 justify-center"}>
