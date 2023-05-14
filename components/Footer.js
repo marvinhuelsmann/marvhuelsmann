@@ -21,7 +21,7 @@ export default function Footer({darkLogo, oneSheetVisible}) {
             {(!oneSheetVisible &&
                 <Link href={"work"}>
                     <div>
-                        <div className={"flex pb-2 mx-auto justify-center"}>
+                        <div className={"flex xl:pb-2 md:pl-2 pb-0.5 mx-auto justify-center"}>
                             <AiOutlineSearch className={"text-6xl text-blue-400 hover:text-blue-300 transition"}/>
                         </div>
                         <div className={"justify-center mb-9 hover:cursor-pointer flex"}>

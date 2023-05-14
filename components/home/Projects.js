@@ -55,10 +55,10 @@ export function GitHubProjects() {
         <div className="lg:pl-0 md:pl-0 text-white">
 
 
-            <div className="">
-                <div className={"pt-20"}>
+            <div id={"projects"}>
+                <div className={"xl:pt-20 md:pt-16 pt-8"}>
                     <div className={"xl:ml-10 md:ml-10 ml-4 mb-10"}>
-                        <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>Community Projekte</span>
+                        <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>Öffentliche Projekte</span>
                     </div>
 
                     <div className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-screen space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-10 pr-10 ">
@@ -136,11 +136,11 @@ export function GitHubProjects() {
             </div>
 
 
-            <div className={"pl-10 mt-8 font-thin"}>
+            <div className={"xl:pl-10 md:pl-10 pl-4 mt-8 font-thin"}>
                 <p className={"text-gray-100"}>Du kannst <span className={"underline font-thin"}>horizontal scrollen</span> um mehr zu entdecken.</p>
             </div>
 
-            <div className={"pl-10 mt-0 text-white"}>
+            <div className={"xl:pl-10 md:pl-10 pl-4 mt-0 text-white"}>
                 <div className={"mt-0"}>
                 <span className="relative inline-flex h-2 w-2 mr-2 mt-0.5">
                     <span
