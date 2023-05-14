@@ -133,7 +133,7 @@ export function GitHubProjects() {
                             </div>
                         ))}
 
-                        <div className="absolute right-5 self-center ">
+                        <div className="absolute xl:right-5 md:right-5 right-3 self-center ">
                             <div className="bg-zinc-600 bg-opacity-50 backdrop-blur-2xl rounded-full flex ">
                                 <BsChevronCompactRight className={"text-white w-12 h-12 text-2xl p-1 shadow"}/>
 
