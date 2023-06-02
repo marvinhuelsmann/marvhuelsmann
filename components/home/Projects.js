@@ -161,7 +161,7 @@ export function GitHubProjects() {
                         </div>
 
                         {hasPressed && (
-                            <div className="absolute xl:left-1 md:-left-2 -left-4 self-center transition ease-in">
+                            <div className="absolute xl:left-1 md:-left-2 -left-3 self-center transition ease-in">
                             <div className="bg-zinc-600 bg-opacity-50 backdrop-blur-2xl rounded-full flex ">
                             <BsChevronCompactLeft onClick={scrollLeft} className={"text-white w-8 h-8 text-2xl p-1 shadow"}/>
                               </div>
