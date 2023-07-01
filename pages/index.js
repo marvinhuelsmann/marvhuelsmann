@@ -37,7 +37,8 @@ export default function Home() {
     return (
         <div className="min-h-screen">
             <Head>
-                <title>Marvin Hülsmann</title>
+                <title>Marvin Hülsmann - Webentwickler in Hamm</title>
+                <meta name="description" content="Marvin Hülsmann, bieten persönlich erstellte Websiten an. Diese werden nach Wunsch gestaltet."/>
                 <link rel="icon" href="https://i.imgur.com/duXild5.png"/>
 
                 <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"/>
