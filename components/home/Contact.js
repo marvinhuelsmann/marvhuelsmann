@@ -2,6 +2,7 @@ import {motion} from "framer-motion";
 import Image from "next/image";
 import Image1 from "../../public/IMG_9815.jpeg";
 import EmailEmoji from "../../style/icons/EmailEmoji.png";
+import MemoEmoji from "../../style/icons/MemoEmoji.png";
 import ImageModal from "./Images/ImageModal";
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useState} from 'react'
@@ -19,6 +20,8 @@ export default function ImageInformation() {
     function openModal() {
         setIsOpen(true)
     }
+
+    const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
 
     return (
         <motion.div
@@ -40,9 +43,9 @@ export default function ImageInformation() {
                 {/*My age is a random number in the source code*/}
                 <p className={"text-white xl:text-5xl md:text-5xl text-4xl"}>
                     Ich bin <span
-                    className={"font-bold blur-md text-opacity-40 backdrop-blur hover:cursor-pointer"}
+                    className={"font-bold text-indigo-300 backdrop-blur hover:cursor-pointer"}
                     title={"This is a random Number!"}
-                    onClick={openModal}>{Math.floor(Math.random() * 80) + 9}</span><span className={"font-bold text-indigo-300 hover:cursor-pointer"}
+                    onClick={openModal}>{getAge("2005-09-11")}</span><span className={"font-bold text-indigo-300 hover:cursor-pointer"}
                                                        onClick={openModal}>Jahre</span> alt und komme aus Nordrhein
                     Westfalen, geboren in <a
                     href={"https://maps.apple.com/?address=Hamm,%20Deutschland&auid=3094865715305345970&ll=51.677569,7.821620&lsp=6489&q=Hamm&_ext=Ch8KBQgEEIEBCgQIBRADCgQIBhADCgQIChAGCgQIVRAHEiYp94+F6BDKSUAxqwZhbveyHkA5Dfs9sU7fSUBBpGyRtBv9H0BQDA%3D%3D"}
@@ -61,6 +64,12 @@ export default function ImageInformation() {
                     <a href={"mailto:kontakt@marvhuelsmann.com"} className={"text-gray-300/90 text-xl hover:text-gray-200/90 hover:cursor-pointer font-medium -pt-3"}>
                         oder direkt eine <img className={"inline xl:h-8 md:h-8 h-8 pr-0.5 pb-1"} src={EmailEmoji.src}
                                        alt={"Email"}/> schreiben
+                    </a>
+                    <br/>
+
+                    <a href={"https://cal.com/marvin-hulsmann-rjtji3/30min"} target={"_blank"} className={"text-gray-300/90 text-xl hover:text-gray-200/90 hover:cursor-pointer font-medium -pt-3"}>
+                        oder direkt einen <img className={"inline xl:h-8 md:h-8 h-8 pr-0.5 pb-1"} src={MemoEmoji.src}
+                                              alt={"Email"}/> Termin vereinbaren
                     </a>
                 </div>
             </div>
