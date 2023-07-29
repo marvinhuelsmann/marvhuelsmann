@@ -14,6 +14,12 @@ async function fetcher(url) {
 
 const realtimeProjects = [
     {
+        name: "JourneyMate - iOS App",
+        homepage: 'https://testflight.apple.com/join/cxv6llBt',
+        description: "Die ultimative Reisebegleiter-App für unvergessliche Abenteuer rund um den Globus - mit teilen deiner Freunde! ",
+        language: "Swift"
+    },
+    {
         name: "Transporter",
         homepage: 'https://transporter-git-main-marvinhuelsmann.vercel.app',
         description: "Ein Datei Transporter um Bilder oder Ordner schnell und sicher zu transportieren.",
