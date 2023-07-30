@@ -16,7 +16,7 @@ const realtimeProjects = [
     {
         name: "JourneyMate",
         homepage: 'https://testflight.apple.com/join/cxv6llBt',
-        description: "Die ultimative Reisebegleiter-App für unvergessliche Abenteuer rund um den Globus",
+        description: "Die ultimative Reisebegleiter-App für unvergessliche Abenteuer rund um den Globus.",
         language: "Swift"
     },
     {
