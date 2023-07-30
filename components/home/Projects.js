@@ -14,7 +14,7 @@ async function fetcher(url) {
 
 const realtimeProjects = [
     {
-        name: "JourneyMate - iOS App",
+        name: "JourneyMate",
         homepage: 'https://testflight.apple.com/join/cxv6llBt',
         description: "Die ultimative Reisebegleiter-App für unvergessliche Abenteuer rund um den Globus - mit teilen deiner Freunde! ",
         language: "Swift"
