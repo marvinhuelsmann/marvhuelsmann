@@ -46,7 +46,7 @@ export default function ImageInformation() {
                     className={"font-bold text-indigo-300 backdrop-blur hover:cursor-pointer"}
                     title={"This is a random Number!"}
                     onClick={openModal}>{getAge("2005-09-11")}</span><span className={"font-bold text-indigo-300 hover:cursor-pointer"}
-                                                       onClick={openModal}>{' '}Jahre</span> alt und komme aus Nordrhein
+                                                       onClick={openModal}>{' '} Jahre</span> alt und komme aus Nordrhein
                     Westfalen, geboren in <a
                     href={"https://maps.apple.com/?address=Hamm,%20Deutschland&auid=3094865715305345970&ll=51.677569,7.821620&lsp=6489&q=Hamm&_ext=Ch8KBQgEEIEBCgQIBRADCgQIBhADCgQIChAGCgQIVRAHEiYp94+F6BDKSUAxqwZhbveyHkA5Dfs9sU7fSUBBpGyRtBv9H0BQDA%3D%3D"}
                     className={"text-indigo-300 font-bold hover:cursor-pointer"}>Hamm</a>.
