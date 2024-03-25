@@ -89,7 +89,7 @@ export function GitHubProjects() {
                         <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>Öffentliche Projekte</span>
                     </div>
 
-                    <div id={"scroller"} className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-screen space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-5 pr-10 ">
+                    <div id={"scroller"} className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-[calc(100vw-16px)] space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-5 pr-10 ">
                         {realtimeProjects.map((project) => project.homepage && (
                             <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
                                 <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
