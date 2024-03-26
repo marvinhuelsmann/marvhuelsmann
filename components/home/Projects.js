@@ -27,6 +27,18 @@ const realtimeProjects = [
         language: "Unternehmen"
     },
     {
+        name: "Textosy",
+        homepage: 'https://apps.apple.com/de/app/textosy/id6479321960',
+        description: "visionOS App, die die Texterstellung revolutioniert - immersive 3D Texte.",
+        language: "Unternehmen"
+    },
+    {
+        name: "BookyTrack",
+        homepage: 'https://apps.apple.com/de/app/textosy/id6479989211',
+        description: "watchOS-App für Bücherliebhaber. Markiere Seiten, lese mühelos weiter.",
+        language: "Unternehmen"
+    },
+    {
         name: "Transporter",
         homepage: 'https://transporter-git-main-marvinhuelsmann.vercel.app',
         description: "Ein Datei Transporter um Bilder oder Ordner schnell und sicher zu transportieren.",
