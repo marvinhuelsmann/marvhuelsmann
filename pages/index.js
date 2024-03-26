@@ -6,6 +6,7 @@ import {motion, useScroll, useTransform} from "framer-motion";
 import WhoIAmView from "../components/home/WhoIAm";
 import Projects from "../components/home/Projects";
 import Footer from "../components/Footer";
+import {useTranslation} from "next-i18next";
 
 export function getHelloWord() {
     const helloWords =
@@ -14,10 +15,24 @@ export function getHelloWord() {
     return helloWords[Math.floor(Math.random() * helloWords.length)];
 }
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, [
+                'common',
+            ])),
+        },
+    }
+}
+
 export default function Home() {
     const [ar, setAR] = useState('ar')
     const {scrollYProgress} = useScroll();
     const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+
+    const { t } = useTranslation('common')
 
     useEffect(() => {
         const a = document.createElement("a");
@@ -54,7 +69,7 @@ export default function Home() {
                             style={{scaleY: scale}}
                         >
                             <span
-                                className={"flex text-gray-400 xl:text-3xl md:text-2xl text-xl text-left justify-left"}>hi, ich heiße
+                                className={"flex text-gray-400 xl:text-3xl md:text-2xl text-xl text-left justify-left"}>{t('hi')}
                             </span>
                             <h2 className="text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-400 to-red-600 flex mx-auto font-medium xl:text-9xl md:text-8xl text-5xl">
                                 Marvin Hülsmann
@@ -76,10 +91,10 @@ export default function Home() {
                             transition={{ ease: "easeIn", duration: 0.6 }}
                             className={"pt-10 mb-14"}>
                             <h1 className={"xl:text-8xl text-6xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
-                                Meine Projekte
+                                {t('projects')}
                             </h1>
                             <p className={"pt-2 flex xl:text-5xl md:text-4xl text-3xl justify-center text-center mx-auto text-gray-200"}>
-                                Hier findest du viele verschiedene GitHub und Live Projekte,<br className={"xl:block md:block hidden"}/> an denen ich in der letzten Zeit gearbeitet habe.
+                                {t('projects.text.1')}<br className={"xl:block md:block hidden"}/> {t('projects.text.2')}
                             </p>
 
                             <Projects/>

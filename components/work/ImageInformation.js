@@ -7,6 +7,7 @@ import Contact from "./Contact"
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useState} from 'react'
 import { BiLinkAlt } from 'react-icons/bi';
+import {useTranslation} from "next-i18next";
 
 
 export default function ImageInformation() {
@@ -20,8 +21,9 @@ export default function ImageInformation() {
         } else {
             return "In diesem Moment bin ich gerade leider telefonisch nicht zu erreichen."
         }
-
     }
+
+    const { t } = useTranslation('common')
 
     function reachable() {
         const hour = ("0" + new Date().getHours()).slice(-2);
@@ -51,10 +53,9 @@ export default function ImageInformation() {
             </div>
             <div className={"pl-4 xl:pr-16 md:pr-4 pr-4"}>
                 <h1 className={"font-bold xl:pt-0 md:pt-0 pt-10 text-gray-50 xl:text-8xl md:text-7xl text-5xl"}>
-                    Kontakt
+                    {t('contact.clean')}
                 </h1>
                 <Contact/>
-                {/*My age is a random number in the source code*/}
                 {(reachable() &&
                 <div className={"pt-2"}>
                     <a target={"_blank"} href={"tel:+49 172 8244589"} className={reachable() ? "text-xl font-medium text-green-300" : "text-xl text-red-100"}>
@@ -73,8 +74,7 @@ export default function ImageInformation() {
                 )}
                 <div className={"pt-8"}>
                     <p onClick={openModal} className={"text-3xl hover:cursor-pointer text-white"}>
-                        Wenn du ein <span className={"font-bold"}>cooles Projekt</span> im Sinn hast, Beratung benötigst oder Fragen hast, nutze das
-                        Formular oben und wende dich unverbindlich an mich. <span className={"text-yellow-200 font-bold"}>Weitere Informationen <BiLinkAlt className={"inline pb-1 font-bold"}/></span></p>
+                        {t('work.info.text.1')} <span className={"font-bold"}>{t('work.info.text.2')}</span> {t('work.info.text.3')} <span className={"text-yellow-200 font-bold"}>{t('work.info.text.4')} <BiLinkAlt className={"inline pb-1 font-bold"}/></span></p>
                 </div>
             </div>
             <Transition appear show={isOpen} as={Fragment}>

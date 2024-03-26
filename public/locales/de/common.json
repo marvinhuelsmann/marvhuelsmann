@@ -1,3 +1,67 @@
 {
-    "body": "Test Nachricht"
+  "language": "Aktuelle Sprache:",
+  "change-locale": "Deutsch",
+  "back": "Schließen",
+  "hi": "hi, ich heiße",
+  "projects": "Meine Projekte",
+  "projects.text.1": "Hier findest du viele verschiedene GitHub und Live Projekte",
+  "projects.text.2": ",an denen ich in der letzten Zeit gearbeitet habe.",
+
+  "whoiam.text.1": "Ich bin ",
+  "whoiam.text.2": " und Unternehmer.",
+  "whoiam.text.3": "Nebenbei beschäftige ich mich mit ",
+  "whoiam.text.4": " und programmiere und designe Webseiten.",
+  "whoiam.text.5": " Außerdem fahre ich gerne ",
+  "whoiam.text.6": "und esse gerne leckere ",
+  "power": "df",
+
+  "person": "Das bin ich.",
+  "person.text.1": "Ich bin ",
+  "person.text.2": " Jahre",
+  "person.text.3": " alt und komme aus Nordrhein Westfalen, geboren in ",
+  "person.text.4": "Hamm",
+  "person.text.5": ". Ich interessiere mich für Informatik, Technik und Soziale Medien. Einer meiner Schwerpunkte liegt bei der ",
+  "person.text.6": "Gestaltung und der Interaktion",
+  "person.text.7": "von und mit Webseiten.",
+
+  "person.contact": "Entdecke mehr auf der Kontakt Seite",
+  "contact": "Kontakt Seite",
+  "contact.clean": "Kontakt",
+  "contact.mail.text.1": "oder direkt eine ",
+  "contact.mail.text.2": " schreiben",
+  "contact.meeting.text.1": "oder direkt einen",
+  "contact.meeting.text.2": "Termin vereinbaren",
+
+  "images.more": "Weiteres ansehen",
+
+  "projects.public": "Öffentliche Projekte",
+  "projects.discover": "Projekt ansehen",
+
+  "projects.footnote.text.1": "Du kannst",
+  "projects.footnote.text.2": "horizontal scrollen",
+  "projects.footnote.text.3": "um mehr zu entdecken",
+
+  "projects.footnote.github.text.1": "Live-Daten von der",
+  "projects.footnote.github.text.2": "GitHub API",
+
+
+  "footer.work": "Mit mir zusammen arbeiten?",
+  "vatid": "USt - IdNr",
+
+  "work.definitely": "Definitiv.",
+  "work.definitely.text.1": "Mit mir ",
+  "work.definitely.text.2": "zusammen",
+  "work.definitely.text.3": "arbeiten?",
+  "work.why": "Wieso ich?",
+  "work.why.text.1": "aufmerksam, reaktionsschnell, zuverlässig, Detail verliebt,",
+  "work.why.text.2": "anpassungsfähig, aufnahmefähig, ehrgeizig",
+
+  "skills.text.1": "Deine Ideen + meine Skills = ",
+  "skills.text.2": "Dein Geschick + meine lange Erfahrung = ",
+
+
+  "work.info.text.1": "Wenn du ein ",
+  "work.info.text.2": "cooles Projekt",
+  "work.info.text.3": " im Sinn hast, Beratung benötigst oder Fragen hast, nutze das Formular oben und wende dich unverbindlich an mich. ",
+  "work.info.text.4": "Weitere Informationen"
 }

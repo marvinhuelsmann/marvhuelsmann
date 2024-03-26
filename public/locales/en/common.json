@@ -1,3 +1,67 @@
 {
-    "body": "i18n News Reader"
+  "language": "Current language:",
+  "change-locale": "English",
+  "back": "Close",
+  "hi": "hi, my name is",
+  "projects": "My projects",
+  "projects.text.1": "Here you can find many different GitHub and Live projects",
+  "projects.text.2": "that I've been working on recently.",
+
+  "whoiam.text.1": "I am ",
+  "whoiam.text.2": "and an entrepreneur.",
+  "whoiam.text.3": "I'm also busy with ",
+  "whoiam.text.4": "and program and design websites.",
+  "whoiam.text.5": " I also like driving ",
+  "whoiam.text.6": "and like to eat delicious food",
+  "power": "df",
+
+  "person": "That's me.",
+  "person.text.1": "I am ",
+  "person.text.2": "Years",
+  "person.text.3": " old and live in North Rhine Westphalia, born in ",
+  "person.text.4": "Hamm",
+  "person.text.5": ". I am interested in computer science, technology and social media. One of my main focuses is on ",
+  "person.text.6": "Design and interaction",
+  "person.text.7": "from and with websites.",
+  "person.text.8": "I am ",
+
+  "person.contact": "Discover more on the contact page",
+  "contact": "Contact Page",
+  "contact.clean": "Contact",
+  "contact.mail.text.1": "or write directly a ",
+  "contact.mail.text.2": "",
+  "contact.meeting.text.1": "or make directly an ",
+  "contact.meeting.text.2": "",
+
+  "images.more": "Learn more",
+
+  "projects.public": "Public Projects",
+  "projects.discover": "View project",
+
+  "projects.footnote.text.1": "You can",
+  "projects.footnote.text.2": "scroll horizontally",
+  "projects.footnote.text.3": "to discover more",
+
+  "projects.footnote.github.text.1": "Live data from the",
+  "projects.footnote.github.text.2": "GitHub API",
+
+
+  "footer.work": "Work with me?",
+  "vatid": "VAT-ID",
+
+  "work.definitely": "Definitely.",
+  "work.definitely.text.1": "Work",
+  "work.definitely.text.2": "together",
+  "work.definitely.text.3": "with me?",
+  "work.why": "Why me?",
+  "work.why.text.1": "attentive, responsive, reliable, attentive to detail,",
+  "work.why.text.2": "adaptable, receptive, ambitious",
+
+  "skills.text.1": "Your ideas + my skills = ",
+  "skills.text.2": "Your skill + my long experience = ",
+
+  "work.info.text.1": "If you have a ",
+  "work.info.text.2": "cool project",
+  "work.info.text.3": "in mind, need advice or have any questions, use the form above and contact me without obligation.",
+  "work.info.text.4": "More information"
 }

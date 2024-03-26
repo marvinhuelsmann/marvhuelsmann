@@ -6,6 +6,7 @@ import useSWR from 'swr'
 const API_URL = "https://api.github.com/users/marvinhuelsmann/repos"
 import {BsChevronCompactRight, BsChevronCompactLeft} from 'react-icons/bs';
 import {useState} from "react";
+import {useTranslation} from "next-i18next";
 
 async function fetcher(url) {
     const res = await fetch(url);
@@ -41,7 +42,7 @@ export function GitHubProjects() {
 
     function scrollLeft() {
         const scrollElement = document.getElementById('scroller');
-        const scrollAmount = 9000; // Anpassen, wie viele Pixel gescrollt werden sollen
+        const scrollAmount = 9000;
 
         setPressed(false)
         scrollElement.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -49,12 +50,13 @@ export function GitHubProjects() {
 
     function scrollRight() {
         const scrollElement = document.getElementById('scroller');
-        const scrollAmount = 200; // Anpassen, wie viele Pixel gescrollt werden sollen
+        const scrollAmount = 200;
 
         scrollElement.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         setPressed(true)
     }
 
+    const { t } = useTranslation('common')
 
     if (error) return (
         <div className={"container pt-12 -mb-7"}>
@@ -86,7 +88,7 @@ export function GitHubProjects() {
             <div id={"projects"}>
                 <div id={"s"} className={"xl:pt-20 md:pt-16 pt-8"}>
                     <div className={"xl:ml-10 md:ml-10 ml-3.5 mb-10"}>
-                        <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>Öffentliche Projekte</span>
+                        <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>{t('projects.public')}</span>
                     </div>
 
                     <div id={"scroller"} className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-[calc(100vw-16px)] space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-5 pr-10 ">
@@ -103,7 +105,7 @@ export function GitHubProjects() {
                                     <div className="relative pt-4">
                                         <div className="flex bottom-0 right-0 ...">
                                             <a href={project.homepage} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                Projekt ansehen
+                                                {t('projects.discover')}
                                             </a>
                                         </div>
                                     </div>
@@ -126,12 +128,12 @@ export function GitHubProjects() {
                                         <div className="flex bottom-0 right-0 ...">
                                             {(project.homepage !== "" &&
                                             <a href={project} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                Projekt ansehen
+                                                {t('projects.discover')}
                                             </a>
                                             )}
                                             {(project.homepage === "" &&
                                                 <a href={project.html_url} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                    Projekt ansehen
+                                                    {t('projects.discover')}
                                                 </a>
                                             )}
                                         </div>
@@ -152,7 +154,7 @@ export function GitHubProjects() {
                                     <div className="relative pt-4">
                                         <div className="flex bottom-0 right-0 ...">
                                             <a href={project.homepage} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                Projekt ansehen
+                                                {t('projects.discover')}
                                             </a>
                                         </div>
                                     </div>
@@ -182,7 +184,7 @@ export function GitHubProjects() {
 
 
             <div className={"xl:pl-10 md:pl-10 pl-4 mt-8 font-thin"}>
-                <p className={"text-gray-100"}>Du kannst <span className={"underline font-thin"}>horizontal scrollen</span> um mehr zu entdecken.</p>
+                <p className={"text-gray-100"}>{t('projects.footnote.text.1')} <span className={"underline font-thin"}>{t('projects.footnote.text.2')}</span> {t('projects.footnote.text.3')}</p>
             </div>
 
             <div className={"xl:pl-10 md:pl-10 pl-4 mt-0 text-white"}>
@@ -197,7 +199,7 @@ export function GitHubProjects() {
                   relative inline-flex rounded-full h-2 w-2
                    bg-green-300"/>
                </span>
-                    Live-Daten von der <strong>GitHub API</strong>.
+                    {t('projects.footnote.github.text.1')} <strong>{t('projects.footnote.github.text.2')}</strong>.
                 </div>
             </div>
         </div>

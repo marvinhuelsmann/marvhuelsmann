@@ -6,6 +6,7 @@ import Image1 from "../../../public/IMG_9815.jpeg";
 import Image2 from "../../../public/IMG_0242.jpeg";
 import MapWidgetImage from "../../../public/MapsWidgetIcon.svg";
 import {AiOutlineTwitter, AiFillLinkedin, AiOutlineInstagram} from 'react-icons/ai';
+import {useTranslation} from "next-i18next";
 
 export default function ImageModal() {
     let [isOpen, setIsOpen] = useState(false)
@@ -17,6 +18,8 @@ export default function ImageModal() {
     function openModal() {
         setIsOpen(true)
     }
+
+    const { t } = useTranslation('common')
 
     return (
         <>
@@ -36,7 +39,7 @@ export default function ImageModal() {
                 className={"text-center"}>
                 <div>
                     <div onClick={openModal} className={"xl:pt-0 -pt-1"}>
-                        <p className={"text-2xl text-orange-200/90 hover:cursor-pointer"}>Weiteres entdecken</p>
+                        <p className={"text-2xl text-orange-200/90 hover:cursor-pointer"}>{t('images.more')}</p>
                     </div>
                 </div>
             </motion.div>
@@ -77,8 +80,8 @@ export default function ImageModal() {
                         >
                             <div
                                 className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-center align-middle transition-all transform  rounded-2xl">
-                                <p className={"xl:text-5xl md:text-5xl text-4xl font-bold text-white pb-4 -mt-4"}>Meine
-                                    Sozialen Netzwerke</p>
+                                <p className={"xl:text-5xl md:text-5xl text-4xl font-bold text-white pb-4 -mt-4"}>
+                                    Social Media</p>
                                 <motion.div
                                     initial={{opacity: 0}}
                                     whileInView={{opacity: 1}}
@@ -100,7 +103,7 @@ export default function ImageModal() {
                                         className="justify-center text-center px-4 py-2 text-sm font-medium text-orange-900 bg-yellow-100 border border-transparent rounded-md hover:bg-orange-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-200"
                                         onClick={closeModal}
                                     >
-                                        Zurück zur Seite
+                                        {t('back')}
                                     </button>
                                 </div>
                             </div>

@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import Link from "next/link"
 import MemoEmoji from "../style/icons/MemoEmoji.png";
 import {AiOutlineSearch} from 'react-icons/ai';
+import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
 
 export default function Footer({darkLogo, oneSheetVisible}) {
     const [ar, setAR] = useState('ar')
@@ -15,6 +17,14 @@ export default function Footer({darkLogo, oneSheetVisible}) {
         }
     })
 
+    const onToggleLanguageClick = (newLocale) => {
+        const { pathname, asPath, query } = router
+        router.push({pathname, query}, asPath, {locale: newLocale}).then(r => console.log(r))
+     }
+
+    const router = useRouter()
+    const changeTo = router.locale === 'en' ? 'de' : 'en'
+    const { t } = useTranslation('common')
 
     return (
         <div className={""}>
@@ -26,7 +36,7 @@ export default function Footer({darkLogo, oneSheetVisible}) {
                         </div>
                         <div className={"justify-center mb-9 hover:cursor-pointer flex"}>
                             <p className={"font-medium text-blue-400 hover:underline transition text-2xl"}>
-                                Mit mir zusammen arbeiten?
+                                {t('footer.work')}
                             </p>
                         </div>
                     </div>
@@ -46,28 +56,38 @@ export default function Footer({darkLogo, oneSheetVisible}) {
                 </div>
             )}
             <div className={"xl:-mb-12 md:-mb-10 -mb-14 pb-10 justify-center"}>
-                {(darkLogo &&
-                    <a href={"/"}>
-                        <img width={70} height={40} className={"mx-auto flex"} src={"../../LogoExtraBig.svg"}
-                             alt={"MH Logo"}/>
-                    </a>
-                )}
-                {(!darkLogo &&
-                    <a href={"/"}>
-                        <img width={70} height={40} className={"mx-auto flex"} src={"../../LogoExtraBigWhiteMode.svg"}
-                             alt={"MH Logo"}/>
-                    </a>
-                )}
+
+
+                <div className={"flex leading-tight justify-center text-center mx-auto text-gray-500 p-5"}>
+                    <Link href="/" locale={changeTo}>
+                        {t('language')}{' '}<button className={"text-blue-500 font-bold"}>{t('change-locale', { changeTo })}</button>
+                    </Link>
+                </div>
+
+
                 <p className={"flex leading-tight justify-center text-center mx-auto text-gray-500"}>
                     Marvin Hülsmann © {new Date().getFullYear()}
                     <br/>
-                    Nelkenstraße 17, 59073 Hamm, Deutschland
+                    Nelkenstraße 17, 59073 Hamm, Germany
                     <br/>
                     mail@marvhuelsmann.com, +49 172 8244589
                     <br/>
-                    USt - IdNr: DE 353408902
+                    {t('vatid')}: DE 353408902
                     <br/>
                 </p>
+
+                {(darkLogo &&
+                    <Link href={"/"}>
+                        <img width={70} height={40} className={"mx-auto flex"} src={"../../LogoExtraBig.svg"}
+                             alt={"MH Logo"}/>
+                    </Link>
+                )}
+                {(!darkLogo &&
+                    <Link href={"/"}>
+                        <img width={70} height={40} className={"mx-auto flex"} src={"../../LogoExtraBigWhiteMode.svg"}
+                             alt={"MH Logo"}/>
+                    </Link>
+                )}
             </div>
 
             {/*( !ar &&

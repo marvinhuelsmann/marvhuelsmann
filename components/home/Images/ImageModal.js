@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import Image from 'next/image'
 import Image1 from "../../../public/IMG_9815.jpeg";
 import Image2 from "../../../public/IMG_0242.jpeg";
+import {useTranslation} from "next-i18next";
 
 export default function ImageModal() {
     let [isOpen, setIsOpen] = useState(false)
@@ -15,6 +16,9 @@ export default function ImageModal() {
     function openModal() {
         setIsOpen(true)
     }
+
+    const { t } = useTranslation('common')
+
 
     return (
         <>
@@ -34,7 +38,7 @@ export default function ImageModal() {
                 className={"text-center"}>
                     <div>
                             <div onClick={openModal} className={"xl:pt-0 -pt-1"}>
-                                <p className={"text-2xl text-gray-300 hover:cursor-pointer"}>Weitere Bilder ansehen</p>
+                                <p className={"text-2xl text-gray-300 hover:cursor-pointer"}>{t('images.more')}</p>
                             </div>
                     </div>
             </motion.div>
@@ -78,7 +82,7 @@ export default function ImageModal() {
                                         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                                         onClick={closeModal}
                                     >
-                                        Schließen
+                                        {t('back')}
                                     </button>
                                 </div>
                             </div>
