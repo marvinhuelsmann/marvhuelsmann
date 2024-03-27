@@ -23,7 +23,7 @@ export default function Footer({darkLogo, oneSheetVisible}) {
      }
 
     const router = useRouter()
-    const changeTo = router.locale === 'en' ? 'de' : 'en'
+    const changeTo = router.locale === 'de' ? 'en' : router.locale === 'en' ? 'sp' : router.locale === 'sp' ? 'fr' : 'de'
     const { t } = useTranslation('common')
 
     return (

@@ -1,0 +1,66 @@
+{
+  "language": "Langue actuelle:",
+  "change-locale": "francais",
+  "back": "Fermer",
+  "hi": "salut, je m'appelle",
+  "projects": "Mes projets",
+  "projects.text.1": "Ici vous pouvez trouver de nombreux projets GitHub et Live différents",
+  "projects.text.2": "sur lequel j'ai travaillé récemment.",
+
+  "whoiam.text.1": "Je suis",
+  "whoiam.text.2": "et un entrepreneur.",
+  "whoiam.text.3": "Je suis aussi occupé avec ",
+  "whoiam.text.4": "et programmer et concevoir des sites Web.",
+  "whoiam.text.5": " J'aime aussi conduire ",
+  "whoiam.text.6": "et j'aime manger des plats délicieux",
+
+  "person": "C'est moi.",
+  "person.text.1": "Je suis",
+  "person.text.2": "Années",
+  "person.text.3": " vieux et vivant en Rhénanie du Nord-Westphalie, né à ",
+  "person.text.4": "Hamm",
+  "person.text.5": ". Je m'intéresse à l'informatique, à la technologie et aux médias sociaux. L'un de mes principaux objectifs est ",
+  "person.text.6": "Conception et interaction",
+  "person.text.7": "depuis et avec des sites Web.",
+  "person.text.8": "Je suis",
+
+  "person.contact": "Découvrez-en plus sur la page contact",
+  "contact": "Page de contact",
+  "contact.clean": "Contact",
+  "contact.mail.text.1": "ou écrivez directement un ",
+  "contact.mail.text.2": "",
+  "contact.meeting.text.1": "ou faire directement un ",
+  "contact.meeting.text.2": "",
+
+  "images.more": "En savoir plus",
+
+  "projects.public": "Projets publics",
+  "projects.discover": "Afficher le projet",
+
+  "projects.footnote.text.1": "Vous pouvez",
+  "projects.footnote.text.2": "faire défiler horizontalement",
+  "projects.footnote.text.3": "pour en savoir plus",
+
+  "projects.footnote.github.text.1": "Données en direct du",
+  "projects.footnote.github.text.2": "API GitHub",
+
+
+  "footer.work": "Tu travailles avec moi ?",
+  "vatid": "ID TVA",
+
+  "work.definitely": "Certainement.",
+  "work.definitely.text.1": "Travail",
+  "work.definitely.text.2": "ensemble",
+  "work.definitely.text.3": "avec moi ?",
+  "work.why": "Pourquoi moi ?",
+  "work.why.text.1": "attentif, réactif, fiable, attentif aux détails,",
+  "work.why.text.2": "adaptable, réceptif, ambitieux",
+
+  "skills.text.1": "Vos idées + mes compétences = ",
+  "skills.text.2": "Votre compétence + ma longue expérience = ",
+
+  "work.info.text.1": "Si vous avez un ",
+  "work.info.text.2": "projet sympa",
+  "work.info.text.3": "en tête, besoin de conseils ou avez des questions, utilisez le formulaire ci-dessus et contactez-moi sans engagement.",
+  "work.info.text.4": "Plus d'informations"
+}

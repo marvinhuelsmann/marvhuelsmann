@@ -1,0 +1,11 @@
+{
+  "firstname":  "nombre",
+  "lastname":  "Apellido",
+  "mail": "correo electrónico",
+  "message": "Mensaje",
+  "write":  "escribe",
+
+  "error.text.1": "Por favor complete el",
+  "error.text.2": "Campos",
+  "error.text.3": ""
+}
