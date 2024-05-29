@@ -41,7 +41,7 @@ const realtimeProjects = [
     {
         name: "MemoJournal",
         homepage: 'https://apps.apple.com/de/app/memojournal/id6502835696',
-        description: "innovative iOS Tagebuch-App, die Ihre Stimme nutzt, um Ihre Gedanken und Erinnerungen mit KI festzuhalten.",
+        description: "innovative iOS Tagebuch-App, die Ihre Stimme nutzt, um Ihre Gedanken mit KI festzuhalten.",
         language: "Unternehmen"
     },
     {
