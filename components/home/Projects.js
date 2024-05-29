@@ -39,6 +39,12 @@ const realtimeProjects = [
         language: "Unternehmen"
     },
     {
+        name: "MemoJournal",
+        homepage: 'https://apps.apple.com/de/app/memojournal/id6502835696',
+        description: "innovative iOS Tagebuch-App, die Ihre Stimme nutzt, um Ihre Gedanken und Erinnerungen mit KI festzuhalten.",
+        language: "Unternehmen"
+    },
+    {
         name: "Transporter",
         homepage: 'https://transporter-git-main-marvinhuelsmann.vercel.app',
         description: "Ein Datei Transporter um Bilder oder Ordner schnell und sicher zu transportieren.",
