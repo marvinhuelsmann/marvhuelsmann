@@ -2,7 +2,7 @@ import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useState} from 'react'
 import {motion} from "framer-motion";
 import Image from 'next/image'
-import Image1 from "../../../public/IMG_9815.jpeg";
+import Image1 from "../../../public/SFMarvin.jpeg";
 import Image2 from "../../../public/IMG_0242.jpeg";
 import {useTranslation} from "next-i18next";
 
@@ -72,9 +72,9 @@ export default function ImageModal() {
                             leaveTo="opacity-0 scale-95"
                         >
                             <div
-                                className="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 space-x-1 space-y-2 p-6 text-left align-middle transition-all transform rounded-2xl w-full">
+                                className="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 p-6 text-left align-middle transition-all transform rounded-2xl w-full">
                                 <Image placeholder="blur" src={Image1}/>
-                                <Image placeholder="blur" className={"object-cover h-full"} src={Image2}/>
+                                <Image placeholder="blur" src={Image2}/>
 
                                 <div className="mt-4">
                                     <button

@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
-import Image1 from "../../public/Marvin_Mountain_Orange.png";
+import Image1 from "../../public/StandUpMarvin2.jpeg";
 import MapWidgetImage from "../../public/MapsWidgetIcon.svg";
 import ImageModal from "./Image/ImageModal";
 import Contact from "./Contact"

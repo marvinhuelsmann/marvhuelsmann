@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
-import Image1 from "../../public/IMG_9815.jpeg";
+import Image1 from "../../public/StandUpMarvin.jpeg";
 import EmailEmoji from "../../style/icons/EmailEmoji.png";
 import MemoEmoji from "../../style/icons/MemoEmoji.png";
 import ImageModal from "./Images/ImageModal";
