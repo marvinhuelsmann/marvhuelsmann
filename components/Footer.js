@@ -70,7 +70,7 @@ export default function Footer({darkLogo, oneSheetVisible}) {
                     <br/>
                     Nelkenstraße 17, 59073 Hamm, Germany
                     <br/>
-                    mail@marvhuelsmann.com, +49 172 8244589
+                    mail@marvhuelsmann.com, +49 172 1109101
                     <br/>
                     {t('vatid')}: DE 353408902
                     <br/>
