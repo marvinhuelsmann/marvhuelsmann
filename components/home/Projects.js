@@ -17,38 +17,38 @@ const realtimeProjects = [
     {
         name: "DoThis",
         homepage: 'https://apps.apple.com/de/app/dothis/id6744120353',
-        description: "Die ultimative AI Reisebegleiter-App für unvergessliche Abenteuer rund um den Globus.",
+        description: "The ultimate AI travel companion app for adventures around the globe.",
         language: "Swift"
     },
     {
         name: "MH - Creations",
         homepage: 'https://mhcreations.de',
-        description: "Einzigartige und personalisierte Webseiten für dein Unternehmen.",
-        language: "Unternehmen"
+        description: "Unique and personalized websites for your business.",
+        language: "Business"
     },
     {
         name: "Textosy",
         homepage: 'https://apps.apple.com/de/app/textosy/id6479321960',
-        description: "visionOS App, die die Texterstellung revolutioniert - immersive 3D Texte.",
-        language: "Unternehmen"
+        description: "visionOS app that revolutionizes text creation – immersive 3D texts.",
+        language: "Business"
     },
     {
         name: "BookyTrack",
         homepage: 'https://apps.apple.com/de/app/textosy/id6479989211',
-        description: "watchOS-App für Bücherliebhaber. Markiere Seiten, lese mühelos weiter.",
-        language: "Unternehmen"
+        description: "watchOS app for book lovers. Mark pages and continue reading effortlessly.",
+        language: "Business"
     },
     {
         name: "MemoJournal",
         homepage: 'https://apps.apple.com/de/app/memojournal/id6502835696',
-        description: "innovative iOS Tagebuch-App, die Ihre Stimme nutzt, um Ihre Gedanken mit KI festzuhalten.",
-        language: "Unternehmen"
+        description: "Innovative iOS journaling app that uses your voice to capture your thoughts with AI.",
+        language: "Business"
     },
     {
         name: "Transporter",
         homepage: 'https://transporter-git-main-marvinhuelsmann.vercel.app',
-        description: "Ein Datei Transporter um Bilder oder Ordner schnell und sicher zu transportieren.",
-        language: "Javascript"
+        description: "A file transporter to move images or folders quickly and securely.",
+        language: "JavaScript"
     },
 ]
 
