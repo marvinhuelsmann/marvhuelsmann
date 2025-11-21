@@ -17,26 +17,34 @@ import {useTranslation} from "next-i18next";
 
 export default function WhoIAmView() {
     const { t } = useTranslation('common')
+
     return (
-        <div className={"w-full bg-orange-900"}>
+        <div className="w-full bg-orange-900">
             <motion.div
-                initial={{opacity: 0}}
+                initial={{ opacity: 0 }}
                 transition={{ delay: 0.4, duration: 1.5 }}
-                whileInView={{opacity: 1}}
-                className={"w-full h-full bg-orange-600 pb-1"}
+                whileInView={{ opacity: 1 }}
+                className="w-full h-full bg-orange-600 pb-16"
             >
                 <motion.div
-                    initial={{opacity: 0}}
+                    initial={{ opacity: 0 }}
                     animate={{ y: 70 }}
                     transition={{ delay: 0.2, duration: 2.5, type: "spring", stiffness: 100 }}
-                    whileInView={{opacity: 1}}
-                    className={"xl:ml-48 md:ml-16 ml-8 xl:pr-24 md:pr-10"}>
-                    <h1 className={"w-full xl:text-8xl md:text-6xl text-5xl font-medium xl:text-left md:text-left text-left text-white mb-32 leading-10"}>
-                        <span className={"xl:text-8xl md:text-6xl text-5xl break-keep "}>  {t('skills.text.1')} <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={BicepEmoji.src} alt={"BicepEmoji"}/></span>
+                    whileInView={{ opacity: 1 }}
+                    className="container mx-auto px-4 flex flex-col text-left"
+                >
+                    <h1 className="w-full xl:text-8xl md:text-6xl text-5xl font-medium text-white mb-32 leading-tight">
+                        <span className="xl:text-8xl md:text-6xl text-5xl break-keep">
+                            {t('skills.text.1')}
+                            <img className="inline xl:h-16 md:h-12 h-8 align-baseline" src={BicepEmoji.src} alt="BicepEmoji"/>
+                        </span>
                         <br/>
-                        <br className={"xl:hidden md:hidden block"}/>
-                        <span className={"xl:text-7xl md:text-5xl text-4xl break-keep"}>{t('skills.text.2')} <img className={"inline xl:h-16 md:h-12 h-8 align-baseline"} src={WeightlifterEmoji.src} alt={"WeightlifterEmoji"}/></span>
-                        </h1>
+                        <br className="xl:hidden md:hidden block"/>
+                        <span className="xl:text-7xl md:text-5xl text-4xl break-keep">
+                            {t('skills.text.2')}
+                            <img className="inline xl:h-16 md:h-12 h-8 align-baseline" src={WeightlifterEmoji.src} alt="WeightlifterEmoji"/>
+                        </span>
+                    </h1>
                 </motion.div>
 
                 <ImageInformation/>

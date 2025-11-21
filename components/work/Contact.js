@@ -48,7 +48,7 @@ export default function Contact() {
                                             autoComplete="given-name"
                                             onChange={(e)=>{setFirstName(e.target.value)}}
                                             placeholder={"Max"}
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500 text-xl"
+                                            className="mt-1 block w-full p-1 rounded-md border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 text-xl"
                                         />
                                     </div>
 
@@ -63,7 +63,7 @@ export default function Contact() {
                                             autoComplete="family-name"
                                             onChange={(e)=>{setLastName(e.target.value)}}
                                             placeholder={"Mustermann"}
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500 text-xl"
+                                            className="mt-1 block w-full p-1 rounded-md border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 text-xl"
                                         />
                                     </div>
 
@@ -79,7 +79,7 @@ export default function Contact() {
                                             autoComplete="email"
                                             onChange={(e)=>{setEmail(e.target.value)}}
                                             placeholder={"muster@mail.com"}
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500 text-xl"
+                                            className="mt-1 block w-full p-1 rounded-md border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 text-xl"
                                         />
                                     </div>
 
@@ -94,7 +94,7 @@ export default function Contact() {
                                             autoComplete="message"
                                             onChange={(e)=>{setMessage(e.target.value)}}
                                             placeholder={"Hi Marvin..."}
-                                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-yellow-500 focus:ring-yellow-500 text-xl"
+                                            className="mt-1 block w-full p-1 rounded-md border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 text-xl"
                                         />
                                     </div>
                                 </div>

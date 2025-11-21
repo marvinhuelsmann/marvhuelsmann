@@ -23,41 +23,12 @@ export default function Footer({darkLogo, oneSheetVisible}) {
      }
 
     const router = useRouter()
-    const changeTo = router.locale === 'de' ? 'en' : router.locale === 'en' ? 'sp' : router.locale === 'sp' ? 'fr' : 'de'
+    const changeTo = router.locale === 'us' ? 'de' : router.locale === 'de' ? 'sp' : router.locale === 'sp' ? 'fr' : 'us'
     const { t } = useTranslation('common')
 
     return (
-        <div className={""}>
-            {(!oneSheetVisible &&
-                <Link href={"work"}>
-                    <div>
-                        <div className={"flex xl:pb-2 md:pl-2 pb-0.5 mx-auto justify-center"}>
-                            <AiOutlineSearch className={"text-6xl text-blue-400 hover:text-blue-300 transition"}/>
-                        </div>
-                        <div className={"justify-center mb-9 hover:cursor-pointer flex"}>
-                            <p className={"font-medium text-blue-400 hover:underline transition text-2xl"}>
-                                {t('footer.work')}
-                            </p>
-                        </div>
-                    </div>
-                </Link>
-            )}
-            {(oneSheetVisible &&
-                <div className={"flex -mt-3 pb-5 justify-center"}>
-                    <a target={"_blank"}
-                       href={"https://transporter-git-main-marvinhuelsmann.vercel.app/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Ftransportier.appspot.com%2Fo%2Fuploads%252F1670450044175.png%3Falt%3Dmedia%26token%3Ded13b195-6780-4731-a922-a8b494ca062c&w=1920&q=75"}
-                       className={"text-3xl"}>
-                        <button type="button"
-                                className="text-white bg-black items-center hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded px-4 py-3 mr-1 mb-1 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-600 dark:border-gray-600 text-2xl">
-                            <img className={"inline xl:h-8 md:h-7 h-6 pr-1"} src={MemoEmoji.src}
-                                 alt={"Memo"}/> One Sheet
-                        </button>
-                    </a>
-                </div>
-            )}
+        <div className={"w-full"}>
             <div className={"xl:-mb-12 md:-mb-10 -mb-14 pb-10 justify-center"}>
-
-
                 <div className={"flex leading-tight justify-center text-center mx-auto text-gray-500 p-5"}>
                     <Link href="/" locale={changeTo}>
                         {t('language')}{' '}<button className={"text-blue-500 font-bold"}>{t('change-locale', { changeTo })}</button>

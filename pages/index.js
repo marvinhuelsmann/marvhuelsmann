@@ -53,7 +53,7 @@ export default function Home() {
     return (
         <div className="min-h-screen">
             <Head>
-                <title>Marvin Hülsmann - Webentwickler in Hamm</title>
+                <title>Marvin Hülsmann - Webentwickler in Berlin</title>
                 <meta name="description" content="Marvin Hülsmann, bieten persönlich erstellte Websiten an. Diese werden nach Wunsch gestaltet."/>
                 <link rel="icon" href="https://i.imgur.com/duXild5.png"/>
 
@@ -62,7 +62,7 @@ export default function Home() {
 
             <main className={"mb-10"}>
                 <div
-                    className="flex justify-center mb-5">
+                    className="container mx-auto px-4 mb-5">
                     <div className="xl:mt-64 mt-24 mb-4">
                         <motion.div
                             whileInView="visible"
@@ -71,7 +71,7 @@ export default function Home() {
                             <span
                                 className={"flex text-gray-400 xl:text-3xl md:text-2xl text-xl text-left justify-left"}>{t('hi')}
                             </span>
-                            <h2 className="text-transparent text-center bg-clip-text bg-gradient-to-r from-blue-400 to-red-600 flex mx-auto font-medium xl:text-9xl md:text-8xl text-5xl">
+                            <h2 className="text-transparent text-left bg-clip-text bg-gradient-to-r from-blue-400 to-red-600 flex mx-auto font-medium xl:text-9xl md:text-8xl text-5xl">
                                 Marvin Hülsmann
                             </h2>
                         </motion.div>
@@ -90,12 +90,6 @@ export default function Home() {
                             animate={{ y: 0 }}
                             transition={{ ease: "easeIn", duration: 0.6 }}
                             className={"pt-10 mb-14"}>
-                            <h1 className={"xl:text-8xl text-6xl font-bold flex justify-center items-center text-center text-white mx-auto"}>
-                                {t('projects')}
-                            </h1>
-                            <p className={"pt-2 flex xl:text-5xl md:text-4xl text-3xl justify-center text-center mx-auto text-gray-200"}>
-                                {t('projects.text.1')}<br className={"xl:block md:block hidden"}/> {t('projects.text.2')}
-                            </p>
 
                             <Projects/>
                         </motion.div>

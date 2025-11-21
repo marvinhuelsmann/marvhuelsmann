@@ -1,4 +1,4 @@
-import '/style/tailwind.css'
+import '../style/global.css'
 
 import { appWithTranslation } from 'next-i18next'
 
