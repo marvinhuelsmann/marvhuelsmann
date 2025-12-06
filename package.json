@@ -12,7 +12,7 @@
     "framer-motion": "^6.5.1",
     "i18next": "^25.6.3",
     "mailgun-js": "^0.6.7",
-    "next": "16.0.2",
+    "next": "16.0.7",
     "next-i18next": "^15.2.0",
     "openai": "^4.24.2",
     "react": "^19.2.0",
