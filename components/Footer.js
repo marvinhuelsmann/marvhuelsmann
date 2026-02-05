@@ -39,7 +39,7 @@ export default function Footer({darkLogo, oneSheetVisible}) {
                 <p className={"flex leading-tight justify-center text-center mx-auto text-gray-500"}>
                     Marvin Hülsmann © {new Date().getFullYear()}
                     <br/>
-                    Nelkenstraße 17, 59073 Hamm, Germany
+                    Stralsunderstraße 14, 13355 Berlin
                     <br/>
                     mail@marvhuelsmann.com, +49 172 1109101
                     <br/>
