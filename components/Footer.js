@@ -39,7 +39,7 @@ export default function Footer({darkLogo, oneSheetVisible}) {
                 <p className={"flex leading-tight justify-center text-center mx-auto text-gray-500"}>
                     Marvin Hülsmann © {new Date().getFullYear()}
                     <br/>
-                    Stralsunderstraße 14, 13355 Berlin
+                    Stralsunderstraße 14, 13355 Berlin, Germany
                     <br/>
                     mail@marvhuelsmann.com, +49 172 1109101
                     <br/>
