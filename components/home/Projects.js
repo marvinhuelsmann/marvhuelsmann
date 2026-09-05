@@ -54,6 +54,9 @@ function FeaturedCard({project, index, t}) {
     )
 }
 
+/** Homebrew tap repos are named homebrew-<tool>; only the tool name is worth showing. */
+const displayName = (name) => name.replace(/^homebrew-/, "");
+
 function RepoCard({repo}) {
     const href = repo.homepage || repo.html_url;
     const color = LANGUAGE_COLOR[repo.language] || "#8e8e93";
@@ -66,7 +69,7 @@ function RepoCard({repo}) {
                 className="group flex h-full flex-col rounded-3xl bg-white p-5 hairline transition duration-500 hover:-translate-y-1 hover:card-shadow"
             >
                 <div className="flex items-start justify-between gap-3">
-                    <h4 className="truncate text-lg font-semibold tracking-tight">{repo.name}</h4>
+                    <h4 className="truncate text-lg font-semibold tracking-tight">{displayName(repo.name)}</h4>
                     <BsArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-ink-3 transition group-hover:text-ink"/>
                 </div>
                 <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-ink-2">
