@@ -1,237 +1,223 @@
-import {
-    ExternalLinkIcon,
-} from '@heroicons/react/outline'
-import useSWR from 'swr'
-
-const API_URL = "https://api.github.com/users/marvinhuelsmann/repos"
-import {BsChevronCompactRight, BsChevronCompactLeft} from 'react-icons/bs';
-import {useState} from "react";
+import {useRef, useState} from "react";
+import useSWR from "swr";
 import {useTranslation} from "next-i18next";
+import {motion} from "framer-motion";
+import {BsArrowUpRight, BsChevronLeft, BsChevronRight, BsStar} from "react-icons/bs";
+import {RiGithubFill} from "react-icons/ri";
+import Reveal, {Stagger, Item} from "../motion/Reveal";
+import {FEATURED, PLATFORM_STYLE, LANGUAGE_COLOR} from "./projects.data";
 
-async function fetcher(url) {
+const API_URL = "https://api.github.com/users/marvinhuelsmann/repos?per_page=100&sort=pushed";
+const EXCLUDED = new Set(["marvinhuelsmann", "marvhuelsmann", "Financy", "tailwindcss.com"]);
+
+const fetcher = async (url) => {
     const res = await fetch(url);
-    return await res.json();
+    if (!res.ok) throw new Error(`GitHub ${res.status}`);
+    return res.json();
+};
+
+function FeaturedCard({project, index, t}) {
+    const style = PLATFORM_STYLE[project.platform] || PLATFORM_STYLE.web;
+    return (
+        <motion.a
+            href={project.homepage}
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{y: -6}}
+            transition={{type: "spring", stiffness: 260, damping: 24}}
+            className="group relative flex h-[26rem] w-[82vw] shrink-0 snap-start flex-col overflow-hidden rounded-[2rem] bg-white p-7 hairline card-shadow sm:w-[24rem] sm:p-8 md:h-[27rem]"
+        >
+            <div aria-hidden="true"
+                 className={`absolute -right-20 -top-20 h-56 w-56 rounded-full bg-gradient-to-br ${style.gradient} opacity-25 blur-2xl transition-all duration-700 group-hover:opacity-50 group-hover:scale-125`}/>
+
+            <div className="relative flex items-center justify-between">
+                <span className={`inline-flex items-center rounded-full bg-gradient-to-r ${style.gradient} px-3 py-1 text-xs font-semibold text-white`}>
+                    {t(style.label)}
+                </span>
+                <span className="text-sm tabular-nums text-ink-3">{String(index + 1).padStart(2, "0")}</span>
+            </div>
+
+            <div className="relative mt-auto">
+                <h3 className="font-semibold leading-none tracking-display text-[2.4rem] sm:text-[2.75rem]">
+                    {project.name}<span className="text-accent">.</span>
+                </h3>
+                <p className="mt-4 text-lg leading-snug text-ink-2">{project.description}</p>
+            </div>
+
+            <div className="relative mt-8 flex items-center justify-between">
+                <span className="text-sm font-medium text-ink">{t("projects.discover")}</span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-white transition-transform duration-500 group-hover:rotate-45">
+                    <BsArrowUpRight className="h-4 w-4"/>
+                </span>
+            </div>
+        </motion.a>
+    )
 }
 
-const realtimeProjects = [
-    {
-        name: "DoThis",
-        homepage: 'https://apps.apple.com/de/app/dothis/id6744120353',
-        description: "The ultimate AI travel companion app for adventures around the globe.",
-        language: "Swift"
-    },
-    {
-        name: "MH - Creations",
-        homepage: 'https://mhcreations.de',
-        description: "Unique and personalized websites for your business.",
-        language: "Business"
-    },
-    {
-        name: "Textosy",
-        homepage: 'https://apps.apple.com/de/app/textosy/id6479321960',
-        description: "visionOS app that revolutionizes text creation – immersive 3D texts.",
-        language: "Business"
-    },
-    {
-        name: "BookyTrack",
-        homepage: 'https://apps.apple.com/de/app/textosy/id6479989211',
-        description: "watchOS app for book lovers. Mark pages and continue reading effortlessly.",
-        language: "Business"
-    },
-    {
-        name: "MemoJournal",
-        homepage: 'https://apps.apple.com/de/app/memojournal/id6502835696',
-        description: "Innovative iOS journaling app that uses your voice to capture your thoughts with AI.",
-        language: "Business"
-    },
-    {
-        name: "Transporter",
-        homepage: 'https://transporter-git-main-marvinhuelsmann.vercel.app',
-        description: "A file transporter to move images or folders quickly and securely.",
-        language: "JavaScript"
-    },
-]
-
-
-
-export function GitHubProjects() {
-    const {data, error} = useSWR(API_URL, fetcher);
-    const [hasPressed, setPressed] = useState(false);
-
-    function scrollLeft() {
-        const scrollElement = document.getElementById('scroller');
-        const scrollAmount = 9000;
-
-        setPressed(false)
-        scrollElement.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    }
-
-    function scrollRight() {
-        const scrollElement = document.getElementById('scroller');
-        const scrollAmount = 200;
-
-        scrollElement.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        setPressed(true)
-    }
-
-    const { t } = useTranslation('common')
-
-    if (error) return (
-        <div className={"container pt-12 -mb-7"}>
-            <div className={"mt-12 -mb-6"}>
-                <p className={"pt-1 text-md leading-tight text-gray-300 text-center"}>Weitere Daten konnten nicht geladen
-                    werden,<br/> da keine{' '}
-                    <span className={"font-bold"}>Internetverbindung</span> besteht und<br/> diese von <span className={"font-bold"}>GitHub</span> geladen werden.</p>
-                <div className={"flex justify-center pt-3"}>
-                    <div className={"bg-gray-400 w-9 bg-opacity-90 rounded-3xl h-10 animate-pulse absolute mt-1"}/>
-                    <div className={"mb-5 h-12 w-4 pl-4 pr-4 bg-gray-400 animate-spin rounded-xl"}/>
+function RepoCard({repo}) {
+    const href = repo.homepage || repo.html_url;
+    const color = LANGUAGE_COLOR[repo.language] || "#8e8e93";
+    return (
+        <Item>
+            <a
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex h-full flex-col rounded-3xl bg-white p-5 hairline transition duration-500 hover:-translate-y-1 hover:card-shadow"
+            >
+                <div className="flex items-start justify-between gap-3">
+                    <h4 className="truncate text-lg font-semibold tracking-tight">{repo.name}</h4>
+                    <BsArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-ink-3 transition group-hover:text-ink"/>
                 </div>
+                <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-ink-2">
+                    {repo.description || "—"}
+                </p>
+                <div className="mt-4 flex items-center gap-4 text-xs text-ink-3">
+                    {repo.language && (
+                        <span className="inline-flex items-center gap-1.5">
+                            <span className="h-2.5 w-2.5 rounded-full" style={{background: color}}/>
+                            {repo.language}
+                        </span>
+                    )}
+                    {repo.stargazers_count > 0 && (
+                        <span className="inline-flex items-center gap-1"><BsStar className="h-3 w-3"/>{repo.stargazers_count}</span>
+                    )}
+                </div>
+            </a>
+        </Item>
+    )
+}
 
-            </div>
-        </div>
-    );
-    if (!data) return (
-        <div>
-            <div className={"text-white"}>Daten werden geladen...</div>
-            <div className={"flex justify-center pt-3"}>
-                <div className={"mb-5 h-12 w-4 pl-4 pr-4 bg-gray-400 animate-spin rounded-xl"}/>
-            </div>
-        </div>
-    );
+function GitHubGrid() {
+    const {t} = useTranslation("common");
+    const {data, error} = useSWR(API_URL, fetcher, {revalidateOnFocus: false});
+
+    const repos = Array.isArray(data)
+        ? data
+            .filter((r) => !r.archived && !r.fork && !EXCLUDED.has(r.name))
+            .sort((a, b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.pushed_at) - new Date(a.pushed_at)))
+            .slice(0, 8)
+        : [];
 
     return (
-        <div className="lg:pl-0 md:pl-0 text-white">
-
-
-            <div id={"projects"}>
-                <div id={"s"} className={"xl:pt-20 md:pt-16 pt-8"}>
-                    <div className={"xl:ml-5 md:ml-10 ml-3.5 mb-10"}>
-                        <span className={"p-5 rounded-2xl shadow bg-zinc-800 text-2xl font-medium text-white"}>{t('projects.public')}</span>
-                    </div>
-
-                    <div id={"scroller"} className="flex mt-5 snap-x mx-auto snap-mandatory h-96 w-[calc(100vw-16px)] space-x-5 overflow-scroll overflow-y-hidden no-scrollbar pl-5 pr-10 ">
-                        {realtimeProjects.map((project) => project.homepage && (
-                            <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
-                                <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
-                                    <h1 className={"font-medium text-red-500/90 text-4xl"}>
-                                        {project.name}.
-                                    </h1>
-                                    <h2 className={"text-4xl font-medium text-white"}>
-                                        {project.description}
-                                    </h2>
-
-                                    <div className="relative pt-4">
-                                        <div className="flex bottom-0 right-0 ...">
-                                            <a href={project.homepage} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                {t('projects.discover')}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                        {data.map((project) => !project.homepage && !project.archived && project.name !== 'marvinhuelsmann' && project.name !== 'Financy' && (
-                            <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
-                                <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
-                                    <h1 className={"font-medium text-yellow-400/95 text-4xl"}>
-                                        {project.name}.
-                                    </h1>
-                                    <h2 className={"text-4xl font-medium text-white"}>
-                                        {project.description}
-                                    </h2>
-
-
-
-                                    <div className="relative pt-4">
-                                        <div className="flex bottom-0 right-0 ...">
-                                            {(project.homepage !== "" &&
-                                            <a href={project} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                {t('projects.discover')}
-                                            </a>
-                                            )}
-                                            {(project.homepage === "" &&
-                                                <a href={project.html_url} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                    {t('projects.discover')}
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                        {data.map((project) => project.homepage && !project.archived && project.name !== 'tailwindcss.com' && project.name !== 'marvhuelsmann' && (
-                            <div key={project.name} className="snap-center items-center justify-center w-96 h-screen">
-                                <div className={"p-10 h-96 w-96 bg-zinc-800/95 rounded-2xl"}>
-                                    <h1 className={"font-medium text-blue-400/95 text-4xl"}>
-                                        {project.name}.
-                                    </h1>
-                                    <h2 className={"text-4xl font-medium text-white"}>
-                                        {project.description}
-                                    </h2>
-
-                                    <div className="relative pt-4">
-                                        <div className="flex bottom-0 right-0 ...">
-                                            <a href={project.homepage} target={"_blank"} className={"font-thin text-blue-200 rounded backdrop-filter bg-blue-800 hover:bg-blue-700 transition p-2 text-3xl"}>
-                                                {t('projects.discover')}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-
-                        <div className="absolute xl:right-5 md:right-5 right-3 self-center ">
-                            <div className="bg-zinc-600 bg-opacity-50 backdrop-blur-2xl rounded-full flex ">
-                                <BsChevronCompactRight onClick={scrollRight} className={"text-white w-12 h-12 text-2xl p-1 shadow"}/>
-                            </div>
-                        </div>
-
-                        {hasPressed && (
-                            <div className="absolute xl:left-1 md:-left-2 -left-3 self-center transition ease-in">
-                            <div className="bg-zinc-600 bg-opacity-50 backdrop-blur-2xl rounded-full flex ">
-                            <BsChevronCompactLeft onClick={scrollLeft} className={"text-white w-8 h-8 text-2xl p-1 shadow"}/>
-                              </div>
-                             </div>
-                            )}
-
-                    </div>
+        <div className="mt-24 md:mt-32">
+            <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                    <p className="eyebrow flex items-center gap-2">
+                        <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"/>
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"/>
+                        </span>
+                        {t("projects.live")}
+                    </p>
+                    <p className="mt-2 text-lg text-ink-2">{t("projects.live.sub")}</p>
                 </div>
+                <a
+                    href="https://github.com/marvinhuelsmann"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 self-start rounded-full bg-white px-4 py-2 text-sm font-medium hairline transition hover:card-shadow"
+                >
+                    <RiGithubFill className="h-4 w-4"/> {t("projects.open")}
+                </a>
+            </Reveal>
 
-
-            </div>
-
-
-            <div className={"xl:pl-10 md:pl-10 pl-4 mt-8 font-thin"}>
-                <p className={"text-gray-100"}>{t('projects.footnote.text.1')} <span className={"underline font-thin"}>{t('projects.footnote.text.2')}</span> {t('projects.footnote.text.3')}</p>
-            </div>
-
-            <div className={"xl:pl-10 md:pl-10 pl-4 mt-0 text-white"}>
-                <div className={"mt-0"}>
-                <span className="relative inline-flex h-2 w-2 mr-2 mt-0.5">
-                    <span
-                        className="
-                        animate-ping absolute inline-flex
-                         h-full w-full rounded-full
-                         bg-green-300"/>
-                  <span className="
-                  relative inline-flex rounded-full h-2 w-2
-                   bg-green-300"/>
-               </span>
-                    {t('projects.footnote.github.text.1')} <strong>{t('projects.footnote.github.text.2')}</strong>.
+            {error && (
+                <div className="mt-8 rounded-3xl bg-white p-8 text-center hairline">
+                    <p className="text-lg font-medium">{t("projects.error")}</p>
+                    <p className="mt-1 text-ink-2">{t("projects.error.sub")}</p>
                 </div>
-            </div>
+            )}
+
+            {!error && !data && (
+                <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" aria-label={t("projects.loading")}>
+                    {Array.from({length: 8}).map((_, i) => (
+                        <div key={i} className="h-40 rounded-3xl skeleton"/>
+                    ))}
+                </div>
+            )}
+
+            {repos.length > 0 && (
+                <Stagger className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" step={0.05}>
+                    {repos.map((r) => <RepoCard key={r.id} repo={r}/>)}
+                </Stagger>
+            )}
         </div>
-    );
+    )
 }
 
 export default function Projects() {
+    const {t} = useTranslation("common");
+    const scroller = useRef(null);
+    const [atStart, setAtStart] = useState(true);
+    const [atEnd, setAtEnd] = useState(false);
+
+    const onScroll = () => {
+        const el = scroller.current;
+        if (!el) return;
+        setAtStart(el.scrollLeft < 8);
+        setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 8);
+    };
+
+    const scrollBy = (dir) => {
+        const el = scroller.current;
+        if (!el) return;
+        const card = el.querySelector("a");
+        const amount = card ? card.getBoundingClientRect().width + 20 : 400;
+        el.scrollBy({left: dir * amount, behavior: "smooth"});
+    };
+
     return (
-        <div className="py-2">
-            <div className={"mt-7"}>
-                <div className={"flex show-on-scroll justify-center"}>
-                    <GitHubProjects/>
-                </div>
+        <section id="projects" className="relative scroll-mt-20 bg-paper py-24 sm:py-32 md:py-40">
+            <div className="mx-auto max-w-7xl px-6">
+                <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <p className="eyebrow">{t("projects.eyebrow")}</p>
+                        <h2 className="mt-4 font-semibold leading-[0.98] tracking-display text-[clamp(2.4rem,6vw,5.5rem)]">
+                            {t("projects.title")}
+                        </h2>
+                        <p className="mt-5 max-w-xl text-xl text-ink-2">{t("projects.sub")}</p>
+                    </div>
+                    <div className="hidden items-center gap-2 md:flex">
+                        <button
+                            type="button"
+                            onClick={() => scrollBy(-1)}
+                            disabled={atStart}
+                            aria-label="Previous"
+                            className="flex h-12 w-12 items-center justify-center rounded-full bg-white hairline transition hover:card-shadow disabled:opacity-30"
+                        >
+                            <BsChevronLeft className="h-4 w-4"/>
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => scrollBy(1)}
+                            disabled={atEnd}
+                            aria-label="Next"
+                            className="flex h-12 w-12 items-center justify-center rounded-full bg-white hairline transition hover:card-shadow disabled:opacity-30"
+                        >
+                            <BsChevronRight className="h-4 w-4"/>
+                        </button>
+                    </div>
+                </Reveal>
             </div>
-        </div>
+
+            <Reveal delay={0.1} className="mt-12">
+                <div
+                    ref={scroller}
+                    onScroll={onScroll}
+                    className="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-6 pt-2 [scroll-padding-inline:1.5rem] md:[padding-inline:max(1.5rem,calc((100vw-80rem)/2+1.5rem))] md:[scroll-padding-inline:max(1.5rem,calc((100vw-80rem)/2+1.5rem))]"
+                >
+                    {FEATURED.map((p, i) => <FeaturedCard key={p.name} project={p} index={i} t={t}/>)}
+                    <div className="w-2 shrink-0" aria-hidden="true"/>
+                </div>
+                <p className="mx-auto mt-2 max-w-7xl px-6 text-sm text-ink-3 md:hidden">
+                    {t("projects.footnote.text.1")} <span className="underline decoration-coral/40 underline-offset-4">{t("projects.footnote.text.2")}</span> {t("projects.footnote.text.3")}
+                </p>
+            </Reveal>
+
+            <div className="mx-auto max-w-7xl px-6">
+                <GitHubGrid/>
+            </div>
+        </section>
     )
 }

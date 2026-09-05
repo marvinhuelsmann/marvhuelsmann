@@ -4,8 +4,8 @@
   "mail": "E-Mail",
   "message": "Nachricht",
   "write": "schreiben",
-
   "error.text.1": "Bitte fülle die",
   "error.text.2": "Felder",
-  "error.text.3": "aus"
+  "error.text.3": "aus",
+  "hint": "Vorname, E-Mail und Nachricht genügen."
 }

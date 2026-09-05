@@ -4,8 +4,8 @@
   "mail": "Email",
   "message": "Message",
   "write": "write",
-
   "error.text.1": "Please fill  in the",
   "error.text.2": "Fields",
-  "error.text.3": ""
+  "error.text.3": "",
+  "hint": "First name, email and message are enough."
 }

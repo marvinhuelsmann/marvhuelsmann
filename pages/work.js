@@ -1,81 +1,88 @@
-import Head from 'next/head'
-import {useEffect, useState} from "react";
-
-import {motion, useScroll, useTransform} from "framer-motion";
-import Skills from "../components/work/Skills";
-import Projects from "../components/home/Projects";
-import Footer from "../components/Footer";
+import {motion} from "framer-motion";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
+import {BsArrowDown} from "react-icons/bs";
+import Layout from "../components/layout/Layout";
+import Skills from "../components/work/Skills";
+import Contact from "../components/work/Contact";
 
-export async function getStaticProps({ locale }) {
+const EASE = [0.22, 1, 0.36, 1];
+
+export async function getStaticProps({locale}) {
     return {
         props: {
-            ...(await serverSideTranslations(locale, [
-                'common',
-                "contact"
-            ])),
+            ...(await serverSideTranslations(locale, ["common", "contact"])),
         },
     }
 }
 
-export default function Home() {
-    const { scrollYProgress } = useScroll();
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
-
-    const { t } = useTranslation('common')
-
-    useEffect(() => {
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    }, [scale])
+export default function Work() {
+    const {t} = useTranslation("common");
 
     return (
-        <div className="min-h-screen">
-            <Head>
-                <title>Marvin Hülsmann - Webseiten erstellen lassen - Hamm</title>
-                <link rel="icon" href="https://i.imgur.com/duXild5.png"/>
-                <meta name="description" content="Marvin Hülsmann, bieten persönlich erstellte Websiten an. Diese werden nach Wunsch gestaltet."/>
-                <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"/>
-            </Head>
-
-            <main className="mb-10">
-                <div className="container mx-auto px-4 flex mb-5">
-                    <div className="xl:mt-48 mt-12 mb-4 w-full">
-                        <motion.div
-                            whileInView="visible"
-                            style={{ scaleY: scale }}
-                        >
-                            <span className="flex text-black xl:text-3xl md:text-2xl text-xl text-left justify-left">
-                                {t('work.definitely.text.1')}
-                                <span className="underline decoration-orange-400/30 xl:pl-2 xl:pr-2 pr-1 pl-1">
-                                    {t('work.definitely.text.2')}
-                                </span>
-                                {t('work.definitely.text.3')}
-                            </span>
-                            <h2 className="text-transparent text-center bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 flex mx-auto font-medium xl:text-9xl md:text-8xl text-6xl">
-                                {t('work.definitely')}
-                            </h2>
-                        </motion.div>
-                    </div>
+        <Layout
+            title="Zusammenarbeiten – Marvin Hülsmann"
+            description="Websites und Apps, die im Kopf bleiben. Kontaktiere Marvin Hülsmann für dein nächstes Projekt."
+        >
+            <section className="relative overflow-hidden pt-36 pb-20 sm:pt-44 md:min-h-[92svh] md:pb-28">
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+                    <div className="absolute -top-56 right-[10%] h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,179,64,0.2),transparent_70%)] animate-float-slow"/>
+                    <div className="absolute -left-40 top-[30%] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.16),transparent_70%)] animate-float"/>
                 </div>
 
-                <Skills/>
-
-                <div className="w-full bg-blend-color-dodge">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.1, duration: 0.4 }}
-                        className="container mx-auto px-4 mt-10 h-auto bg-white"
+                <div className="mx-auto flex max-w-7xl flex-col px-6">
+                    <motion.p
+                        initial={{opacity: 0, y: 16}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.8, ease: EASE, delay: 0.2}}
+                        className="text-2xl text-ink-2 sm:text-3xl"
                     >
-                        <Footer darkLogo={true} oneSheetVisible={true}/>
+                        {t("work.definitely.text.1")}{" "}
+                        <span className="underline decoration-coral/40 decoration-[3px] underline-offset-[6px]">{t("work.definitely.text.2")}</span>{" "}
+                        {t("work.definitely.text.3")}
+                    </motion.p>
+
+                    <h1 className="mt-2 overflow-hidden font-serif italic leading-[1.05] tracking-[-0.03em] text-[clamp(4.5rem,17vw,15rem)]">
+                        <motion.span
+                            initial={{y: "105%"}}
+                            animate={{y: 0}}
+                            transition={{duration: 1.1, ease: EASE, delay: 0.35}}
+                            className="block pr-4 text-accent"
+                        >
+                            {t("work.definitely")}
+                        </motion.span>
+                    </h1>
+
+                    <motion.p
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.9, ease: EASE, delay: 0.7}}
+                        className="mt-8 max-w-2xl text-xl leading-snug text-ink-2 sm:text-2xl"
+                    >
+                        {t("work.hero.sub")}
+                    </motion.p>
+
+                    <motion.div
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.9, ease: EASE, delay: 0.85}}
+                        className="mt-10 flex flex-wrap gap-3"
+                    >
+                        <a href="#contact"
+                           className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-white transition hover:bg-black">
+                            {t("work.form.eyebrow")}
+                            <BsArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5"/>
+                        </a>
+                        <a href="https://cal.com/marvin-hulsmann-rjtji3/30min" target="_blank" rel="noreferrer"
+                           className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-ink hairline transition hover:card-shadow">
+                            {t("cta.meeting")}
+                        </a>
                     </motion.div>
                 </div>
-            </main>
-        </div>
+            </section>
+
+            <Skills/>
+            <Contact/>
+        </Layout>
     )
 }
