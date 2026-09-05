@@ -65,13 +65,23 @@ export default function Nav() {
     ];
 
     return (
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
             <motion.header
                 key={docked ? "dock" : "top"}
-                initial={{opacity: 0, y: docked ? 16 : -24}}
-                animate={{opacity: 1, y: 0}}
-                exit={{opacity: 0}}
-                transition={{duration: docked ? 0.45 : 0.7, ease: EASE}}
+                initial={{opacity: 0, y: docked ? 32 : -24}}
+                animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                        y: {type: "spring", stiffness: 280, damping: 32, mass: 0.9},
+                        opacity: {duration: 0.4, ease: EASE},
+                    },
+                }}
+                exit={{
+                    opacity: 0,
+                    y: docked ? 14 : -18,
+                    transition: {duration: 0.16, ease: "easeIn"},
+                }}
                 className={`pointer-events-none fixed inset-x-0 z-50 flex justify-center px-3
                 ${docked
                     ? "bottom-0 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
