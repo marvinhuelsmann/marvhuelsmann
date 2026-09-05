@@ -56,7 +56,7 @@ export default function Footer() {
                         <p className="eyebrow">{t("footer.contact")}</p>
                         <ul className="mt-4 space-y-2.5 text-ink">
                             <li><a className="transition hover:text-coral" href="mailto:mail@marvhuelsmann.com">mail@marvhuelsmann.com</a></li>
-                            <li><a className="transition hover:text-coral" href="tel:+491721109101">+49 172 1109101</a></li>
+                            <li><a className="transition hover:text-coral" href="tel:+491711109101">+49 171 1109101</a></li>
                             <li><a className="transition hover:text-coral" href="https://cal.com/marvin-hulsmann-rjtji3/30min" target="_blank" rel="noreferrer">cal.com/marvin</a></li>
                         </ul>
                     </div>

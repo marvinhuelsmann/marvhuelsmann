@@ -6,10 +6,52 @@ import {useTranslation} from "next-i18next";
 import Logo from "../Logo";
 import LocaleMenu from "./LocaleMenu";
 
+const EASE = [0.22, 1, 0.36, 1];
+/** Tailwind's sm breakpoint – below it the bar docks to the bottom of the screen. */
+const MOBILE = "(max-width: 639px)";
+
+/**
+ * On phones the bar sits at the bottom and stays out of the way until the first
+ * section is behind you; from sm up it is the pill at the top of the page.
+ */
+function useDock(asPath) {
+    const [ready, setReady] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const [passedFirst, setPassedFirst] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia(MOBILE);
+        const sync = () => setIsMobile(mq.matches);
+        sync();
+        setReady(true);
+        mq.addEventListener("change", sync);
+        return () => mq.removeEventListener("change", sync);
+    }, []);
+
+    useEffect(() => {
+        if (!isMobile) return;
+        const onScroll = () => {
+            const first = document.querySelector("main > section");
+            const height = first ? first.offsetHeight : window.innerHeight;
+            setPassedFirst(window.scrollY > Math.max(160, height - 96));
+        };
+        onScroll();
+        window.addEventListener("scroll", onScroll, {passive: true});
+        window.addEventListener("resize", onScroll);
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+        };
+    }, [isMobile, asPath]);
+
+    return {isMobile, visible: ready && (!isMobile || passedFirst)};
+}
+
 export default function Nav() {
     const router = useRouter();
     const {t} = useTranslation("common");
     const [scrolled, setScrolled] = useState(false);
+    const {isMobile, visible} = useDock(router.asPath);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 24);
@@ -27,13 +69,14 @@ export default function Nav() {
     return (
         <motion.header
             initial={{y: -24, opacity: 0}}
-            animate={{y: 0, opacity: 1}}
-            transition={{duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1}}
-            className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:pt-4"
+            animate={{y: visible ? 0 : (isMobile ? 112 : -24), opacity: visible ? 1 : 0}}
+            transition={{duration: 0.7, ease: EASE}}
+            className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:bottom-auto sm:top-0 sm:pb-0 sm:pt-4"
         >
             <nav
-                className={`pointer-events-auto flex items-center gap-0.5 rounded-full p-1.5 transition-all duration-500
-                ${scrolled ? "glass card-shadow" : "bg-transparent border border-transparent"}`}
+                className={`flex items-center gap-0.5 rounded-full p-1.5 transition-all duration-500
+                ${visible ? "pointer-events-auto" : "pointer-events-none"}
+                ${scrolled || isMobile ? "glass card-shadow" : "bg-transparent border border-transparent"}`}
             >
                 <Link
                     href="/"
@@ -59,7 +102,7 @@ export default function Nav() {
                 ))}
 
                 <div className="mx-0.5 h-5 w-px bg-black/10"/>
-                <LocaleMenu/>
+                <LocaleMenu align={isMobile ? "top end" : "bottom end"}/>
             </nav>
         </motion.header>
     )
