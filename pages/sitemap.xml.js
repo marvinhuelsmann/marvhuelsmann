@@ -10,7 +10,6 @@ const ROUTES = [
     {path: "/work", priority: "0.9", changefreq: "monthly"},
     {path: "/webdesign", priority: "0.9", changefreq: "weekly"},
     ...CITIES.map((c) => ({path: `/webdesign/${c.slug}`, priority: "0.8", changefreq: "monthly"})),
-    {path: "/financy-tracking", priority: "0.2", changefreq: "yearly"},
 ];
 
 const escape = (s) => s.replace(/&/g, "&amp;");
