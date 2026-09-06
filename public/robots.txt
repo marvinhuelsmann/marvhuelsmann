@@ -3,4 +3,4 @@ Allow: /
 Disallow: /_next/
 Disallow: /api/
 
-Sitemap: https://marvhuelsmann.com/sitemap.xml
+Sitemap: https://www.marvhuelsmann.com/sitemap.xml
