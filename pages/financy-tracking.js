@@ -122,10 +122,6 @@ export default function FinancyTracking() {
                             </div>
                         </div>
                     </Reveal>
-
-                    <Reveal delay={0.15} className="mt-10 text-sm text-ink-3">
-                        <p>Developer: Marvin Hülsmann, Wöhlertstraße 21, 10115 Berlin, Germany.</p>
-                    </Reveal>
                 </div>
             </section>
         </Layout>
