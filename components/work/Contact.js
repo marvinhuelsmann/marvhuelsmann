@@ -8,6 +8,8 @@ import EmailEmoji from "../../style/icons/EmailEmoji.png";
 import MemoEmoji from "../../style/icons/MemoEmoji.png";
 import Photo from "../../public/Marvin_Mountain.jpeg";
 import {SOCIALS} from "../Footer";
+import {ProtectedMail} from "../Protected";
+import {getContactMail} from "../../lib/contact";
 
 const field = "mt-1.5 block w-full rounded-2xl bg-paper px-4 py-3.5 text-lg text-ink outline-none ring-1 ring-black/[0.06] transition placeholder:text-ink-3 focus:bg-white focus:ring-2 focus:ring-ink";
 const label = "block text-sm font-medium text-ink-2";
@@ -29,7 +31,7 @@ function ContactForm() {
             return;
         }
         const subject = `Anfrage von ${form.firstName} ${form.lastName}`.trim() + ` - ${form.email}`;
-        window.location.href = `mailto:kontakt@marvhuelsmann.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(form.message)}`;
+        window.location.href = `mailto:${getContactMail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(form.message)}`;
     };
 
     return (
@@ -81,9 +83,9 @@ export default function Contact() {
     const {t} = useTranslation("common");
 
     const channels = [
-        {label: t("work.contact.mail"), value: "kontakt@marvhuelsmann.com", href: "mailto:kontakt@marvhuelsmann.com", icon: EmailEmoji},
         {label: t("work.contact.meeting"), value: "cal.com/marvin", href: "https://cal.com/marvin-hulsmann-rjtji3/30min", icon: MemoEmoji, external: true},
     ];
+    const channelClass = "group flex items-center gap-4 rounded-[1.5rem] p-4 transition hover:bg-paper";
 
     return (
         <section id="contact" className="scroll-mt-20 bg-paper py-24 sm:py-32 md:py-40">
@@ -111,13 +113,27 @@ export default function Contact() {
                         </Reveal>
 
                         <Reveal delay={0.15} className="rounded-[2rem] bg-white p-2 hairline">
+                            <ProtectedMail placeholder={t("contact.mail.placeholder")} className={`${channelClass} cursor-pointer`}>
+                                {(value) => (
+                                    <>
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-paper group-hover:bg-white">
+                                            <Emoji src={EmailEmoji} className="h-7"/>
+                                        </span>
+                                        <span className="min-w-0 flex-1">
+                                            <span className="block text-sm text-ink-3">{t("work.contact.mail")}</span>
+                                            <span className="block truncate font-medium">{value ?? t("contact.mail.placeholder")}</span>
+                                        </span>
+                                        <BsArrowUpRight className="h-4 w-4 text-ink-3 transition group-hover:text-ink"/>
+                                    </>
+                                )}
+                            </ProtectedMail>
                             {channels.map((c) => (
                                 <a
                                     key={c.label}
                                     href={c.href}
                                     target={c.external ? "_blank" : undefined}
                                     rel={c.external ? "noreferrer" : undefined}
-                                    className="group flex items-center gap-4 rounded-[1.5rem] p-4 transition hover:bg-paper"
+                                    className={channelClass}
                                 >
                                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-paper group-hover:bg-white">
                                         <Emoji src={c.icon} className="h-7"/>

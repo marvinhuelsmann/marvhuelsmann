@@ -1,6 +1,7 @@
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import Layout from "../components/layout/Layout";
 import Reveal from "../components/motion/Reveal";
+import {useTranslation} from "next-i18next";
 
 export async function getStaticProps({locale}) {
     return {
@@ -11,10 +12,11 @@ export async function getStaticProps({locale}) {
 }
 
 export default function FinancyTracking() {
+    const {t} = useTranslation("common");
     return (
         <Layout
-            title="Privacy Policy – DoThis & Procto"
-            description="Privacy policy for the DoThis and Procto apps by Marvin Hülsmann."
+            title={t("meta.privacy.title")}
+            description={t("meta.privacy.description")}
         >
             <section className="pt-36 pb-24 sm:pt-44 md:min-h-[70svh]">
                 <div className="mx-auto max-w-3xl px-6">

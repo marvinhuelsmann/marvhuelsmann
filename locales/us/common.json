@@ -108,5 +108,19 @@
   "footer.legal.details": "Detailed look",
   "footer.language": "Language",
   "hobby.study": "Studying",
-  "hobby.friends": "Friends"
+  "hobby.friends": "Friends",
+  "nav.cities": "Cities",
+  "meta.home.title": "Marvin Hülsmann – Web design & app development from Berlin",
+  "meta.home.description": "Marvin Hülsmann: web designer, Apple developer and entrepreneur from Berlin. Custom websites and apps for iPhone, Apple Watch and Vision Pro – for clients across Germany.",
+  "meta.work.title": "Work with me – request web design & app development",
+  "meta.work.description": "Planning a website or app? Contact Marvin Hülsmann from Berlin: personal advice, clear quotes, reply within 24 hours.",
+  "meta.privacy.title": "Privacy Policy – DoThis & Procto",
+  "meta.privacy.description": "Privacy policy for the DoThis and Procto apps by Marvin Hülsmann.",
+  "cities.eyebrow": "Across Germany",
+  "cities.title": "Web design & apps in your city.",
+  "cities.sub": "I work remotely from Berlin with businesses across Germany – and gladly come by for workshops.",
+  "cities.all": "See all cities",
+  "footer.cities": "Web design in Germany",
+  "contact.mail.placeholder": "Show email",
+  "contact.phone.placeholder": "Show phone"
 }

@@ -107,5 +107,19 @@
   "footer.legal.details": "Details ansehen",
   "footer.language": "Sprache",
   "hobby.study": "Studium",
-  "hobby.friends": "Freunde"
+  "hobby.friends": "Freunde",
+  "nav.cities": "Städte",
+  "meta.home.title": "Marvin Hülsmann – Webdesign & App-Entwicklung aus Berlin",
+  "meta.home.description": "Marvin Hülsmann: Webdesigner, Apple-Entwickler und Unternehmer aus Berlin. Individuelle Websites und Apps für iPhone, Apple Watch und Vision Pro – für Kunden in ganz Deutschland.",
+  "meta.work.title": "Zusammenarbeiten – Webdesign & App-Entwicklung anfragen",
+  "meta.work.description": "Website oder App geplant? Kontaktiere Marvin Hülsmann aus Berlin: persönliche Beratung, klare Angebote, Antwort innerhalb von 24 Stunden.",
+  "meta.privacy.title": "Datenschutz – DoThis & Procto",
+  "meta.privacy.description": "Datenschutzerklärung für die Apps DoThis und Procto von Marvin Hülsmann.",
+  "cities.eyebrow": "Deutschlandweit",
+  "cities.title": "Webdesign & Apps in deiner Stadt.",
+  "cities.sub": "Ich arbeite remote aus Berlin mit Unternehmen in ganz Deutschland – und komme für Workshops gerne vorbei.",
+  "cities.all": "Alle Städte ansehen",
+  "footer.cities": "Webdesign in Deutschland",
+  "contact.mail.placeholder": "E-Mail anzeigen",
+  "contact.phone.placeholder": "Telefon anzeigen"
 }

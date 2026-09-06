@@ -1,10 +1,12 @@
 import {motion} from "framer-motion";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
 import {BsArrowDown} from "react-icons/bs";
 import Layout from "../components/layout/Layout";
 import Skills from "../components/work/Skills";
 import Contact from "../components/work/Contact";
+import {graph, personSchema, businessSchema, websiteSchema, breadcrumbSchema} from "../lib/schema";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -18,11 +20,19 @@ export async function getStaticProps({locale}) {
 
 export default function Work() {
     const {t} = useTranslation("common");
+    const {locale} = useRouter();
+    const jsonLd = graph(
+        websiteSchema(locale),
+        personSchema(locale),
+        businessSchema(locale),
+        breadcrumbSchema([{name: t("nav.home"), path: "/"}, {name: t("nav.work"), path: "/work"}], locale),
+    );
 
     return (
         <Layout
-            title="Zusammenarbeiten – Marvin Hülsmann"
-            description="Websites und Apps, die im Kopf bleiben. Kontaktiere Marvin Hülsmann für dein nächstes Projekt."
+            title={t("meta.work.title")}
+            description={t("meta.work.description")}
+            jsonLd={jsonLd}
         >
             <section className="relative overflow-hidden pt-36 pb-20 sm:pt-44 md:min-h-[92svh] md:pb-28">
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">

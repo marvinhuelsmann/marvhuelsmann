@@ -3,6 +3,7 @@ import {useTranslation} from "next-i18next";
 import {BsArrowRight} from "react-icons/bs";
 import Reveal from "../motion/Reveal";
 import Emoji from "../Emoji";
+import {ProtectedMail} from "../Protected";
 import EmailEmoji from "../../style/icons/EmailEmoji.png";
 import MemoEmoji from "../../style/icons/MemoEmoji.png";
 
@@ -34,12 +35,12 @@ export default function CTA() {
                         {t("cta.work")}
                         <BsArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
                     </Link>
-                    <a
-                        href="mailto:kontakt@marvhuelsmann.com"
-                        className="inline-flex items-center gap-2 rounded-full glass-dark px-6 py-3.5 text-base font-medium text-white transition hover:bg-white/15"
+                    <ProtectedMail
+                        placeholder={t("cta.mail")}
+                        className="inline-flex cursor-pointer items-center gap-2 rounded-full glass-dark px-6 py-3.5 text-base font-medium text-white transition hover:bg-white/15"
                     >
-                        <Emoji src={EmailEmoji} className="h-5"/> {t("cta.mail")}
-                    </a>
+                        {() => <><Emoji src={EmailEmoji} className="h-5"/> {t("cta.mail")}</>}
+                    </ProtectedMail>
                     <a
                         href="https://cal.com/marvin-hulsmann-rjtji3/30min"
                         target="_blank"

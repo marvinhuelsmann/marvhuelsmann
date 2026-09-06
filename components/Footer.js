@@ -5,6 +5,8 @@ import {BsArrowUpRight} from "react-icons/bs";
 import {RiTwitterXFill, RiGithubFill} from "react-icons/ri";
 import Logo from "./Logo";
 import LocaleMenu from "./layout/LocaleMenu";
+import {ProtectedMail, ProtectedPhone} from "./Protected";
+import {TOP_CITIES} from "../lib/cities";
 
 export const SOCIALS = [
     {name: "GitHub", href: "https://github.com/marvinhuelsmann", Icon: RiGithubFill},
@@ -21,7 +23,7 @@ export default function Footer() {
         <footer className="border-t border-black/5 bg-paper">
             <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
                 <div className="grid gap-12 md:grid-cols-12">
-                    <div className="md:col-span-5">
+                    <div className="md:col-span-4">
                         <Link href="/" className="inline-flex items-center gap-3 text-ink">
                             <Logo className="h-7 w-auto"/>
                             <span className="text-lg font-semibold tracking-tight">Marvin Hülsmann</span>
@@ -33,7 +35,7 @@ export default function Footer() {
                                     key={name}
                                     href={href}
                                     target="_blank"
-                                    rel="noreferrer"
+                                    rel="noreferrer me"
                                     aria-label={name}
                                     className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink hairline transition hover:-translate-y-0.5 hover:card-shadow"
                                 >
@@ -49,14 +51,31 @@ export default function Footer() {
                             <li><Link className="transition hover:text-coral" href="/">{t("nav.home")}</Link></li>
                             <li><Link className="transition hover:text-coral" href="/#projects">{t("nav.projects")}</Link></li>
                             <li><Link className="transition hover:text-coral" href="/work">{t("nav.work")}</Link></li>
+                            <li><Link className="transition hover:text-coral" href="/webdesign">{t("nav.cities")}</Link></li>
                         </ul>
                     </div>
 
-                    <div className="md:col-span-3">
+                    <div className="md:col-span-2">
+                        <p className="eyebrow">{t("footer.cities")}</p>
+                        <ul className="mt-4 space-y-2.5 text-ink">
+                            {TOP_CITIES.slice(0, 6).map((c) => (
+                                <li key={c.slug}>
+                                    <Link className="transition hover:text-coral" href={`/webdesign/${c.slug}`}>{c.name}</Link>
+                                </li>
+                            ))}
+                            <li><Link className="text-sm text-ink-3 transition hover:text-coral" href="/webdesign">{t("cities.all")} →</Link></li>
+                        </ul>
+                    </div>
+
+                    <div className="md:col-span-2">
                         <p className="eyebrow">{t("footer.contact")}</p>
                         <ul className="mt-4 space-y-2.5 text-ink">
-                            <li><a className="transition hover:text-coral" href="mailto:mail@marvhuelsmann.com">mail@marvhuelsmann.com</a></li>
-                            <li><a className="transition hover:text-coral" href="tel:+491711109101">+49 171 1109101</a></li>
+                            <li>
+                                <ProtectedMail info placeholder={t("contact.mail.placeholder")} className="cursor-pointer transition hover:text-coral"/>
+                            </li>
+                            <li>
+                                <ProtectedPhone placeholder={t("contact.phone.placeholder")} className="cursor-pointer transition hover:text-coral"/>
+                            </li>
                             <li><a className="transition hover:text-coral" href="https://cal.com/marvin-hulsmann-rjtji3/30min" target="_blank" rel="noreferrer">cal.com/marvin</a></li>
                         </ul>
                     </div>

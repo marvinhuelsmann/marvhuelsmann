@@ -108,5 +108,19 @@
   "footer.legal.details": "Voir les détails",
   "footer.language": "Langue",
   "hobby.study": "Études",
-  "hobby.friends": "Amis"
+  "hobby.friends": "Amis",
+  "nav.cities": "Villes",
+  "meta.home.title": "Marvin Hülsmann – Webdesign & développement d'apps à Berlin",
+  "meta.home.description": "Marvin Hülsmann : webdesigner, développeur Apple et entrepreneur à Berlin. Sites web sur mesure et apps pour iPhone, Apple Watch et Vision Pro – pour des clients dans toute l'Allemagne.",
+  "meta.work.title": "Collaborer – demander un site web ou une app",
+  "meta.work.description": "Un site web ou une app en projet ? Contactez Marvin Hülsmann à Berlin : conseil personnel, devis clairs, réponse sous 24 heures.",
+  "meta.privacy.title": "Politique de confidentialité – DoThis & Procto",
+  "meta.privacy.description": "Politique de confidentialité des apps DoThis et Procto de Marvin Hülsmann.",
+  "cities.eyebrow": "Dans toute l'Allemagne",
+  "cities.title": "Webdesign & apps dans votre ville.",
+  "cities.sub": "Je travaille à distance depuis Berlin avec des entreprises dans toute l'Allemagne – et je passe volontiers pour des ateliers.",
+  "cities.all": "Voir toutes les villes",
+  "footer.cities": "Webdesign en Allemagne",
+  "contact.mail.placeholder": "Afficher l'e-mail",
+  "contact.phone.placeholder": "Afficher le téléphone"
 }
