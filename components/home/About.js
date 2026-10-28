@@ -55,7 +55,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="relative z-10 -mt-10 rounded-t-[2.25rem] border-t border-white/[0.09] bg-paper py-24 shadow-[0_-40px_80px_-20px_rgba(0,0,0,0.9)] sm:-mt-14 sm:rounded-t-[3rem] sm:py-32 md:py-40">
+        <section id="about" className="relative z-10 rounded-t-[2.25rem] border-t border-white/[0.09] bg-paper py-24 shadow-[0_-40px_80px_-20px_rgba(0,0,0,0.9)] sm:rounded-t-[3rem] sm:py-32 md:py-40">
             <div className="mx-auto max-w-7xl px-6">
                 {/* one statement – who, what, where */}
                 <Reveal>

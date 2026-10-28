@@ -92,7 +92,7 @@ export default function Hero() {
         <section
             id="hero"
             ref={ref}
-            className="relative isolate h-[100svh] min-h-[44rem] overflow-hidden bg-black text-ink select-none"
+            className="relative isolate h-[100lvh] min-h-[40rem] overflow-hidden bg-black text-ink select-none"
         >
             <motion.div style={{y: stageY, scale: stageScale, opacity: stageOpacity}} className="absolute inset-0 origin-top will-change-transform">
             {/* ── the photo ─────────────────────────────────────────── */}
@@ -158,7 +158,7 @@ export default function Hero() {
             </motion.div>
 
             {/* ── copy ──────────────────────────────────────────────── */}
-            <div className="relative z-20 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-[max(2.75rem,env(safe-area-inset-bottom))] lg:justify-center lg:pb-0">
+            <div className="relative z-20 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-[calc(100lvh-100svh+max(2.75rem,env(safe-area-inset-bottom)))] lg:justify-center lg:pb-0">
                 <motion.div style={{y: textY, opacity: fade}} className="max-w-[40rem] will-change-transform">
                     <motion.p
                         initial={{opacity: 0, y: 16}}
