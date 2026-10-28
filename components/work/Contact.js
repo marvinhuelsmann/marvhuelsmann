@@ -1,12 +1,10 @@
 import {useState} from "react";
-import Image from "next/image";
 import {useTranslation} from "next-i18next";
 import {BsArrowRight, BsArrowUpRight} from "react-icons/bs";
 import Reveal from "../motion/Reveal";
 import Emoji from "../Emoji";
 import EmailEmoji from "../../style/icons/EmailEmoji.png";
 import MemoEmoji from "../../style/icons/MemoEmoji.png";
-import Photo from "../../public/Marvin_Mountain.jpeg";
 import {SOCIALS} from "../Footer";
 import {ProtectedMail} from "../Protected";
 import {getContactMail} from "../../lib/contact";
@@ -103,12 +101,7 @@ export default function Contact() {
                         <ContactForm/>
                     </Reveal>
 
-                    <div className="flex flex-col gap-4 lg:col-span-5">
-                        <Reveal delay={0.1} className="relative aspect-[4/5] overflow-hidden rounded-[2rem] card-shadow sm:aspect-[5/4] lg:aspect-[4/5]">
-                            <Image src={Photo} alt="Marvin in den Alpen" fill placeholder="blur"
-                                   sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover photo-pro"/>
-                            <div aria-hidden="true" className="photo-vignette"/>
-                        </Reveal>
+                    <div className="flex flex-col gap-4 self-start lg:sticky lg:top-28 lg:col-span-5">
 
                         <Reveal delay={0.15} className="rounded-[2rem] bg-surface p-2 hairline">
                             <ProtectedMail placeholder={t("contact.mail.placeholder")} className={`${channelClass} cursor-pointer`}>

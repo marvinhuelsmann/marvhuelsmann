@@ -2,7 +2,7 @@ import {motion} from "framer-motion";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
-import {BsArrowDown, BsCheck2} from "react-icons/bs";
+import {BsArrowDown} from "react-icons/bs";
 import Layout from "../components/layout/Layout";
 import {Build, Process, Proof} from "../components/work/Offer";
 import Contact from "../components/work/Contact";
@@ -88,19 +88,6 @@ export default function Work() {
                             {t("cta.meeting")}
                         </a>
                     </motion.div>
-
-                    <motion.ul
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
-                        transition={{duration: 0.9, ease: EASE, delay: 1}}
-                        className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-2"
-                    >
-                        {[1, 2, 3].map((n) => (
-                            <li key={n} className="flex items-center gap-2">
-                                <BsCheck2 className="h-4 w-4 text-emerald-400"/> {t(`work.trust.${n}`)}
-                            </li>
-                        ))}
-                    </motion.ul>
                 </div>
             </section>
 
