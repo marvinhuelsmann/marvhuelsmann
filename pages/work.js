@@ -4,7 +4,7 @@ import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
 import {BsArrowDown} from "react-icons/bs";
 import Layout from "../components/layout/Layout";
-import {Build, Process, Proof} from "../components/work/Offer";
+import {Studio} from "../components/work/Offer";
 import Contact from "../components/work/Contact";
 import {graph, personSchema, businessSchema, websiteSchema, breadcrumbSchema} from "../lib/schema";
 
@@ -91,9 +91,7 @@ export default function Work() {
                 </div>
             </section>
 
-            <Build/>
-            <Process/>
-            <Proof/>
+            <Studio/>
             <Contact/>
         </Layout>
     )
