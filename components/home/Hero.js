@@ -37,22 +37,6 @@ function HelloWord() {
     )
 }
 
-/** Live Berlin time with seconds, ticking on the second boundary. */
-function BerlinTime() {
-    const [time, setTime] = useState("");
-    useEffect(() => {
-        const fmt = new Intl.DateTimeFormat("de-DE", {hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "Europe/Berlin"});
-        let id;
-        const tick = () => {
-            setTime(fmt.format(new Date()));
-            id = setTimeout(tick, 1000 - (Date.now() % 1000));
-        };
-        tick();
-        return () => clearTimeout(id);
-    }, []);
-    return <span className="tabular-nums">{time || "--:--:--"}</span>;
-}
-
 /** Thin rings that bloom where the visitor clicks, on top of the WebGL shockwave. */
 function useClickRings() {
     const [rings, setRings] = useState([]);
@@ -154,7 +138,7 @@ export default function Hero() {
                 </AnimatePresence>
             </div>
 
-            {/* ── top meta line, Berlin coordinates + live clock ───── */}
+            {/* ── top meta line: just the coordinates ─────────────── */}
             <motion.div
                 style={{opacity: fade}}
                 initial={{opacity: 0}}
@@ -162,11 +146,8 @@ export default function Hero() {
                 transition={{duration: 1, delay: 1}}
                 className="absolute inset-x-0 top-[5.25rem] z-20 hidden sm:block"
             >
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">
-                    <span>52.5200° N · 13.4050° E — Berlin</span>
-                    <span className="flex items-center gap-2">
-                        <span className="text-ink-2"><BerlinTime/></span> CET
-                    </span>
+                <div className="mx-auto max-w-7xl px-6 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">
+                    52.5200° N · 13.4050° E
                 </div>
             </motion.div>
 
