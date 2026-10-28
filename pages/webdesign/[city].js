@@ -43,7 +43,7 @@ export async function getStaticProps({params, locale}) {
 
 function Card({className = "", children}) {
     return (
-        <div className={`h-full rounded-[2rem] bg-white p-7 hairline transition duration-500 hover:-translate-y-1 hover:card-shadow sm:p-8 ${className}`}>
+        <div className={`spotlight h-full rounded-[2rem] bg-surface p-7 hairline transition duration-500 hover:-translate-y-1 hover:card-shadow sm:p-8 ${className}`}>
             {children}
         </div>
     )
@@ -98,9 +98,9 @@ export default function CityPage({slug}) {
                 <div className="mx-auto max-w-7xl px-6">
                     <nav aria-label="Breadcrumb" className="mb-8 text-sm text-ink-3">
                         <ol className="flex flex-wrap items-center gap-2">
-                            <li><Link className="transition hover:text-ink" href="/">{t("breadcrumb.home")}</Link></li>
+                            <li><Link className="transition hover:text-white" href="/">{t("breadcrumb.home")}</Link></li>
                             <li aria-hidden="true">/</li>
-                            <li><Link className="transition hover:text-ink" href="/webdesign">{t("breadcrumb.hub")}</Link></li>
+                            <li><Link className="transition hover:text-white" href="/webdesign">{t("breadcrumb.hub")}</Link></li>
                             <li aria-hidden="true">/</li>
                             <li aria-current="page" className="text-ink">{city.name}</li>
                         </ol>
@@ -140,12 +140,12 @@ export default function CityPage({slug}) {
 
                             <div className="mt-8 flex flex-wrap gap-3">
                                 <Link href="/work#contact"
-                                      className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-white transition hover:bg-black">
+                                      className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-black transition hover:bg-white">
                                     {t("cta.contact")}
                                     <BsArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
                                 </Link>
                                 <a href={CAL_URL} target="_blank" rel="noreferrer"
-                                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-ink hairline transition hover:card-shadow">
+                                   className="inline-flex items-center gap-2 rounded-full bg-elevated px-6 py-3.5 text-base font-medium text-ink hairline transition hover:bg-[#2c2c2e]">
                                     <Emoji src={MemoEmoji} className="h-5"/> {t("cta.call")}
                                 </a>
                             </div>
@@ -163,7 +163,7 @@ export default function CityPage({slug}) {
                                 {k: t("facts.apps"), v: String(APP_STORE_COUNT)},
                                 {k: t("facts.stack"), v: t("facts.stack.value")},
                             ].map((f) => (
-                                <div key={f.k} className="rounded-[1.5rem] bg-white p-5 hairline">
+                                <div key={f.k} className="rounded-[1.5rem] bg-surface p-5 hairline">
                                     <dt className="eyebrow">{f.k}</dt>
                                     <dd className="mt-2 text-lg font-semibold leading-tight tracking-tight">{f.v}</dd>
                                 </div>
@@ -174,7 +174,7 @@ export default function CityPage({slug}) {
             </section>
 
             {/* Services */}
-            <section className="bg-white py-24 sm:py-32">
+            <section className="bg-surface py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-6">
                     <Reveal>
                         <p className="eyebrow">{t("services.eyebrow")}</p>
@@ -185,7 +185,7 @@ export default function CityPage({slug}) {
                     <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                         {services.map((s) => (
                             <Item key={s.title} className="h-full">
-                                <Card className="!bg-paper">
+                                <Card className="!bg-elevated">
                                     <Emoji src={s.icon} className="h-10"/>
                                     <h3 className="mt-5 text-xl font-semibold tracking-tight">{s.title}</h3>
                                     <p className="mt-2 leading-relaxed text-ink-2">{s.text}</p>
@@ -197,7 +197,7 @@ export default function CityPage({slug}) {
             </section>
 
             {/* Why + remote */}
-            <section className="relative overflow-hidden bg-ink py-24 text-white grain sm:py-32">
+            <section className="relative overflow-hidden border-y border-white/[0.06] bg-[#0a0a0b] py-24 text-white grain sm:py-32">
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                     <div className="absolute -left-40 top-10 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,179,64,0.2),transparent_70%)]"/>
                     <div className="absolute -right-40 bottom-10 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.22),transparent_70%)]"/>
@@ -218,7 +218,7 @@ export default function CityPage({slug}) {
                         <Stagger className="grid gap-4 sm:grid-cols-2 lg:col-span-7" delay={0.1}>
                             {why.map((w, i) => (
                                 <Item key={w.title} className="h-full">
-                                    <div className="h-full rounded-[2rem] bg-white/[0.04] p-7 hairline-light transition-colors duration-500 hover:bg-white/[0.08]">
+                                    <div className="h-full spotlight rounded-[2rem] bg-white/[0.04] p-7 hairline-light transition-colors duration-500 hover:bg-white/[0.08]">
                                         <span className="text-sm tabular-nums text-white/40">{String(i + 1).padStart(2, "0")}</span>
                                         <h3 className="mt-4 text-xl font-semibold tracking-tight">{w.title}</h3>
                                         <p className="mt-2 leading-relaxed text-white/60">{w.text}</p>
@@ -243,7 +243,7 @@ export default function CityPage({slug}) {
                         {steps.map((s, i) => (
                             <Item key={s.title} className="h-full">
                                 <Card>
-                                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white">{i + 1}</span>
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-semibold text-black">{i + 1}</span>
                                     <h3 className="mt-5 text-xl font-semibold tracking-tight">{s.title}</h3>
                                     <p className="mt-2 leading-relaxed text-ink-2">{s.text}</p>
                                 </Card>
@@ -254,7 +254,7 @@ export default function CityPage({slug}) {
             </section>
 
             {/* FAQ */}
-            <section className="bg-white py-24 sm:py-32">
+            <section className="bg-surface py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
                         <Reveal className="lg:col-span-4">
@@ -266,10 +266,10 @@ export default function CityPage({slug}) {
                         <Stagger className="flex flex-col gap-3 lg:col-span-8" delay={0.05}>
                             {faqs.map((f) => (
                                 <Item key={f.q}>
-                                    <details className="group rounded-[1.5rem] bg-paper p-6 hairline open:bg-white open:card-shadow">
+                                    <details className="group rounded-[1.5rem] bg-elevated p-6 hairline open:bg-[#232326] open:card-shadow">
                                         <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold tracking-tight [&::-webkit-details-marker]:hidden">
                                             {f.q}
-                                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-ink-3 transition group-open:rotate-45 group-open:bg-ink group-open:text-white">+</span>
+                                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.08] text-ink-2 transition group-open:rotate-45 group-open:bg-ink group-open:text-black">+</span>
                                         </summary>
                                         <p className="mt-4 leading-relaxed text-ink-2">{f.a}</p>
                                     </details>
@@ -288,7 +288,7 @@ export default function CityPage({slug}) {
                             <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{t("nearby.title", vars)}</h2>
                             <p className="mt-2 text-ink-2">{t("nearby.text", vars)}</p>
                         </div>
-                        <Link href="/webdesign" className="group inline-flex items-center gap-2 self-start rounded-full bg-white px-5 py-2.5 text-sm font-medium hairline transition hover:card-shadow">
+                        <Link href="/webdesign" className="group inline-flex items-center gap-2 self-start rounded-full bg-elevated px-5 py-2.5 text-sm font-medium text-ink hairline transition hover:bg-[#2c2c2e]">
                             {t("nearby.all")}
                             <BsArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
                         </Link>
@@ -296,7 +296,7 @@ export default function CityPage({slug}) {
                     <Reveal delay={0.05} className="mt-8 flex flex-wrap gap-2">
                         {nearby.map((c) => (
                             <Link key={c.slug} href={`/webdesign/${c.slug}`}
-                                  className="rounded-full bg-white px-4 py-2 text-sm font-medium hairline transition hover:bg-ink hover:text-white">
+                                  className="rounded-full bg-elevated px-4 py-2 text-sm font-medium hairline transition hover:bg-ink hover:text-black">
                                 {c.name}
                             </Link>
                         ))}
@@ -305,7 +305,7 @@ export default function CityPage({slug}) {
             </section>
 
             {/* Final CTA */}
-            <section className="relative overflow-hidden bg-ink text-white grain">
+            <section className="relative overflow-hidden bg-surface text-white grain">
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                     <div className="absolute left-1/2 top-1/2 h-[50rem] w-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.28),transparent_70%)] animate-float-slow"/>
                 </div>
@@ -319,7 +319,7 @@ export default function CityPage({slug}) {
                     </Reveal>
                     <Reveal delay={0.15} className="mt-10 flex flex-wrap items-center justify-center gap-3">
                         <Link href="/work#contact"
-                              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-ink transition hover:bg-paper">
+                              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-black transition hover:bg-white/90">
                             {tc("cta.work")}
                             <BsArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
                         </Link>

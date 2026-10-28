@@ -5,40 +5,40 @@ export const FEATURED = [
     {
         name: "DoThis",
         homepage: "https://apps.apple.com/de/app/dothis/id6744120353",
-        description: "The ultimate AI travel companion app for adventures around the globe.",
+        description: "An AI travel companion for adventures around the world.",
         platform: "ios",
         store: true,
     },
     {
         name: "Trinkspiele",
         homepage: "https://trinkspiele.click",
-        description: "Drinking games played together in the browser – join with a QR code, synced live on every phone.",
+        description: "Drinking games to play together in the browser – join with a QR code, synced live on every phone.",
         platform: "web",
     },
     {
-        name: "Textosy",
-        homepage: "https://apps.apple.com/de/app/textosy/id6479321960",
-        description: "visionOS app that revolutionizes text creation – immersive 3D texts.",
-        platform: "vision",
+        name: "MemoJournal",
+        homepage: "https://apps.apple.com/de/app/memojournal/id6502835696",
+        description: "A voice diary for iPhone. Speak your day and AI turns it into clean, searchable entries.",
+        platform: "ios",
         store: true,
     },
     {
         name: "BookyTrack",
-        homepage: "https://apps.apple.com/de/app/textosy/id6479989211",
-        description: "watchOS app for book lovers. Mark pages and continue reading effortlessly.",
+        homepage: "https://apps.apple.com/de/app/bookytrack/id6479989211",
+        description: "A watchOS app for book lovers. Mark your page and pick up right where you left off.",
         platform: "watch",
         store: true,
     },
     {
         name: "MH Creations",
         homepage: "https://mhcreations.de",
-        description: "Unique and personalized websites for your business.",
+        description: "Custom websites, designed around your business.",
         platform: "business",
     },
     {
         name: "Transporter",
         homepage: "https://transporter-git-main-marvinhuelsmann.vercel.app",
-        description: "A file transporter to move images or folders quickly and securely.",
+        description: "Move images and folders quickly and securely.",
         platform: "web",
     },
 ];
@@ -46,11 +46,11 @@ export const FEATURED = [
 export const APP_STORE_COUNT = FEATURED.filter((p) => p.store).length;
 
 export const PLATFORM_STYLE = {
-    ios: {gradient: "from-[#0a84ff] to-[#5ac8fa]", label: "platform.ios"},
-    watch: {gradient: "from-[#ff2d55] to-[#ff9f0a]", label: "platform.watch"},
-    vision: {gradient: "from-[#bf5af2] to-[#5e5ce6]", label: "platform.vision"},
-    web: {gradient: "from-[#30d158] to-[#64d2ff]", label: "platform.web"},
-    business: {gradient: "from-[#ff5a3c] to-[#ffb340]", label: "platform.business"},
+    ios: {gradient: "from-[#0a84ff] to-[#5ac8fa]", glow: "10,132,255", label: "platform.ios"},
+    watch: {gradient: "from-[#ff2d55] to-[#ff9f0a]", glow: "255,45,85", label: "platform.watch"},
+    vision: {gradient: "from-[#bf5af2] to-[#5e5ce6]", glow: "191,90,242", label: "platform.vision"},
+    web: {gradient: "from-[#30d158] to-[#64d2ff]", glow: "48,209,88", label: "platform.web"},
+    business: {gradient: "from-[#ff5a3c] to-[#ffb340]", glow: "255,90,60", label: "platform.business"},
 };
 
 export const LANGUAGE_COLOR = {

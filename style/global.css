@@ -5,11 +5,15 @@
     --font-sans: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
 
-    --color-ink: #1d1d1f;
-    --color-ink-2: #6e6e73;
-    --color-ink-3: #86868b;
-    --color-paper: #f5f5f7;
-    --color-line: rgba(0, 0, 0, 0.08);
+    /* Dark-first palette, modelled on Apple's dark product pages.
+       ink = primary text, paper = page, surface/elevated = cards stacked on it. */
+    --color-ink: #f5f5f7;
+    --color-ink-2: #a1a1a6;
+    --color-ink-3: #6e6e73;
+    --color-paper: #000000;
+    --color-surface: #0f0f11;
+    --color-elevated: #1c1c1e;
+    --color-line: rgba(255, 255, 255, 0.08);
     --color-coral: #ff5a3c;
     --color-amber: #ffb340;
     --color-rose: #ff2d55;
@@ -42,6 +46,8 @@
 
 /* ───────────────────────── Base ───────────────────────── */
 html {
+    color-scheme: dark;
+    background: #000;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -57,7 +63,8 @@ body {
 }
 
 ::selection {
-    background: rgba(255, 90, 60, 0.22);
+    background: rgba(255, 90, 60, 0.35);
+    color: #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -95,39 +102,40 @@ body {
 }
 
 @utility glass {
-    background: rgba(255, 255, 255, 0.66);
-    -webkit-backdrop-filter: saturate(180%) blur(22px);
-    backdrop-filter: saturate(180%) blur(22px);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(22, 22, 24, 0.62);
+    -webkit-backdrop-filter: saturate(180%) blur(24px);
+    backdrop-filter: saturate(180%) blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 @utility glass-dark {
-    background: rgba(29, 29, 31, 0.6);
+    background: rgba(255, 255, 255, 0.06);
     -webkit-backdrop-filter: saturate(180%) blur(22px);
     backdrop-filter: saturate(180%) blur(22px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @utility hairline {
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 @utility hairline-light {
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
+/* On black, depth comes from a lit top edge and a hairline rather than a drop shadow. */
 @utility card-shadow {
     box-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.04),
-        0 8px 24px -8px rgba(0, 0, 0, 0.08),
-        0 24px 48px -24px rgba(0, 0, 0, 0.12);
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 20px 50px -20px rgba(0, 0, 0, 0.9);
 }
 
 @utility card-shadow-lg {
     box-shadow:
-        0 2px 4px rgba(0, 0, 0, 0.05),
-        0 20px 40px -12px rgba(0, 0, 0, 0.18),
-        0 60px 100px -40px rgba(0, 0, 0, 0.25);
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 40px 100px -30px rgba(0, 0, 0, 1);
 }
 
 @utility grain {
@@ -144,7 +152,7 @@ body {
 }
 
 @utility skeleton {
-    background: linear-gradient(90deg, rgba(0,0,0,.05) 25%, rgba(0,0,0,.09) 50%, rgba(0,0,0,.05) 75%);
+    background: linear-gradient(90deg, rgba(255,255,255,.04) 25%, rgba(255,255,255,.08) 50%, rgba(255,255,255,.04) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.8s linear infinite;
 }
@@ -155,4 +163,86 @@ body {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-ink-3);
+}
+
+/* Silver headline gradient, like Apple's dark keynote type. */
+@utility text-silver {
+    background-image: linear-gradient(180deg, #ffffff 20%, #a1a1a6 120%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Cursor-following sheen for cards; --mx/--my are set from JS (see lib/useSpotlight). */
+@utility spotlight {
+    position: relative;
+    isolation: isolate;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        z-index: 0;
+        opacity: var(--spot, 0);
+        transition: opacity .4s var(--ease-apple);
+        background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.08), transparent 45%);
+    }
+}
+
+/* ───────────────────────── Hero ───────────────────────── */
+/* The photo has a pure black backdrop; masking its edges lets it dissolve into the page. */
+.hero-photo {
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 30%);
+    mask-image: linear-gradient(to top, transparent 0%, #000 30%);
+}
+@media (min-width: 1024px) {
+    .hero-photo {
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%), linear-gradient(to top, transparent 0%, #000 14%);
+        -webkit-mask-composite: source-in;
+        mask-image: linear-gradient(to right, transparent 0%, #000 26%), linear-gradient(to top, transparent 0%, #000 14%);
+        mask-composite: intersect;
+    }
+}
+
+/* Cool screen light playing on the face, irregular like a changing display. */
+.screen-light {
+    background: radial-gradient(closest-side, rgba(170, 200, 255, 0.22), transparent 75%);
+    mix-blend-mode: screen;
+    animation: screen-flicker 9s steps(1, end) infinite, screen-drift 9s ease-in-out infinite;
+}
+@keyframes screen-flicker {
+    0%   { opacity: .55; } 11% { opacity: .8; }  19% { opacity: .5; }  34% { opacity: .9; }
+    47%  { opacity: .6; } 58% { opacity: .75; } 71% { opacity: .45; } 86% { opacity: .85; }
+}
+@keyframes screen-drift {
+    0%, 100% { scale: 1; }
+    50% { scale: 1.08; }
+}
+
+/* The glowing logo on the lid breathes slowly. */
+.apple-glow {
+    background: radial-gradient(closest-side, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.08) 55%, transparent 80%);
+    mix-blend-mode: screen;
+    animation: apple-breathe 5.5s ease-in-out infinite;
+}
+@keyframes apple-breathe {
+    0%, 100% { opacity: .35; scale: .9; }
+    50% { opacity: .85; scale: 1.15; }
+}
+
+/* ───────────────────────── Photography ───────────────────────── */
+/* One "pro" grade for every photo: deeper blacks, calmer colour, a touch more contrast. */
+.photo-pro {
+    filter: brightness(0.68) contrast(1.14) saturate(0.72);
+}
+/* Vignette that pulls the edges into the dark UI. Sits over the image, under captions. */
+.photo-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+        radial-gradient(115% 85% at 50% 35%, transparent 40%, rgba(0, 0, 0, 0.7) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 45%);
 }

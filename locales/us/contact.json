@@ -3,9 +3,9 @@
   "lastname": "Last name",
   "mail": "Email",
   "message": "Message",
-  "write": "write",
-  "error.text.1": "Please fill  in the",
-  "error.text.2": "Fields",
-  "error.text.3": "",
-  "hint": "First name, email and message are enough."
+  "write": "Send",
+  "error.text.1": "Please fill in all",
+  "error.text.2": "required fields",
+  "error.text.3": "to send your message.",
+  "hint": "Just your first name, email and message."
 }

@@ -23,7 +23,7 @@ export default function LocaleMenu({dark = false, align = "bottom end"}) {
         <Menu>
             <MenuButton
                 className={`group inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[13px] font-medium transition sm:px-3 sm:text-sm
-                ${dark ? "text-white/80 hover:bg-white/10 hover:text-white" : "text-ink hover:bg-black/5"}`}
+                ${dark ? "text-white/80 hover:bg-white/10 hover:text-white" : "text-ink/80 hover:bg-white/10 hover:text-ink"}`}
                 aria-label="Language"
             >
                 <IoGlobeOutline className="h-4 w-4 opacity-70 transition group-hover:opacity-100"/>
@@ -39,7 +39,7 @@ export default function LocaleMenu({dark = false, align = "bottom end"}) {
                         <button
                             type="button"
                             onClick={() => switchLocale(l.code)}
-                            className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm text-ink data-[focus]:bg-black/5"
+                            className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm text-ink data-[focus]:bg-white/10"
                         >
                             <span>{l.label}</span>
                             {l.code === current.code && <HiCheck className="h-4 w-4 text-coral"/>}

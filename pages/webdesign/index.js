@@ -56,7 +56,7 @@ export default function WebdesignHub() {
                 <div className="mx-auto max-w-7xl px-6">
                     <nav aria-label="Breadcrumb" className="mb-8 text-sm text-ink-3">
                         <ol className="flex flex-wrap items-center gap-2">
-                            <li><Link className="transition hover:text-ink" href="/">{t("breadcrumb.home")}</Link></li>
+                            <li><Link className="transition hover:text-white" href="/">{t("breadcrumb.home")}</Link></li>
                             <li aria-hidden="true">/</li>
                             <li aria-current="page" className="text-ink">{t("breadcrumb.hub")}</li>
                         </ol>
@@ -86,7 +86,7 @@ export default function WebdesignHub() {
                 </div>
             </section>
 
-            <section className="bg-white py-20 sm:py-24">
+            <section className="bg-surface py-20 sm:py-24">
                 <div className="mx-auto max-w-7xl px-6">
                     <Reveal>
                         <p className="eyebrow">{t("hub.states")}</p>
@@ -94,13 +94,13 @@ export default function WebdesignHub() {
                     <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" step={0.04}>
                         {groups.map((g) => (
                             <Item key={g.code} className="h-full">
-                                <div className="h-full rounded-[2rem] bg-paper p-6 hairline sm:p-7">
+                                <div className="spotlight h-full rounded-[2rem] bg-elevated p-6 hairline sm:p-7">
                                     <h2 className="text-lg font-semibold tracking-tight">{g.name}</h2>
                                     <ul className="mt-4 flex flex-wrap gap-2">
                                         {g.cities.map((c) => (
                                             <li key={c.slug}>
                                                 <Link href={`/webdesign/${c.slug}`}
-                                                      className="inline-block rounded-full bg-white px-3.5 py-1.5 text-sm font-medium hairline transition hover:bg-ink hover:text-white">
+                                                      className="inline-block rounded-full bg-white/[0.06] px-3.5 py-1.5 text-sm font-medium hairline transition hover:bg-ink hover:text-black">
                                                     {c.name}
                                                 </Link>
                                             </li>
@@ -110,9 +110,9 @@ export default function WebdesignHub() {
                             </Item>
                         ))}
                     </Stagger>
-                    <Reveal delay={0.1} className="mt-12 flex flex-col items-start gap-4 rounded-[2rem] bg-ink p-8 text-white sm:flex-row sm:items-center sm:justify-between">
+                    <Reveal delay={0.1} className="mt-12 flex flex-col items-start gap-4 rounded-[2rem] bg-paper bg-[radial-gradient(120%_140%_at_100%_0%,rgba(255,90,60,0.22),transparent_60%)] p-8 text-white hairline sm:flex-row sm:items-center sm:justify-between">
                         <p className="text-xl font-semibold tracking-tight">{t("hub.cta")}</p>
-                        <Link href="/work#contact" className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-ink transition hover:bg-paper">
+                        <Link href="/work#contact" className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:bg-white/90">
                             {t("cta.contact")}
                             <BsArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
                         </Link>

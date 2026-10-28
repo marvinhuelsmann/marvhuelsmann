@@ -5,7 +5,6 @@ import Layout from "../components/layout/Layout";
 import Hero from "../components/home/Hero";
 import About from "../components/home/About";
 import Projects from "../components/home/Projects";
-import CTA from "../components/home/CTA";
 import {graph, personSchema, businessSchema, websiteSchema} from "../lib/schema";
 
 export async function getStaticProps({locale}) {
@@ -31,7 +30,6 @@ export default function Home() {
             <Hero/>
             <About/>
             <Projects/>
-            <CTA/>
         </Layout>
     )
 }
