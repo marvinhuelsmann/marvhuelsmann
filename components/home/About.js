@@ -1,5 +1,4 @@
 import Image from "next/image";
-import {useEffect, useState} from "react";
 import {useTranslation} from "next-i18next";
 import {BsApple} from "react-icons/bs";
 import Emoji from "../Emoji";
@@ -15,18 +14,6 @@ import {APP_STORE_COUNT} from "./projects.data";
 
 const BIRTHDAY = "2005-09-11";
 const getAge = (birthDate) => Math.floor((Date.now() - new Date(birthDate).getTime()) / 3.15576e10);
-
-function BerlinClock() {
-    const [time, setTime] = useState("");
-    useEffect(() => {
-        const fmt = new Intl.DateTimeFormat("de-DE", {hour: "2-digit", minute: "2-digit", timeZone: "Europe/Berlin"});
-        const tick = () => setTime(fmt.format(new Date()));
-        tick();
-        const id = setInterval(tick, 10_000);
-        return () => clearInterval(id);
-    }, []);
-    return <span className="tabular-nums">{time || "--:--"}</span>;
-}
 
 const tile = "spotlight relative h-full overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] card-shadow transition-[translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1";
 
@@ -67,7 +54,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="relative bg-paper py-24 sm:py-32 md:py-40">
+        <section id="about" className="relative z-10 -mt-10 rounded-t-[2.25rem] border-t border-white/[0.09] bg-paper py-24 shadow-[0_-40px_80px_-20px_rgba(0,0,0,0.9)] sm:-mt-14 sm:rounded-t-[3rem] sm:py-32 md:py-40">
             <div className="mx-auto max-w-7xl px-6">
                 {/* one statement – who, what, where */}
                 <Reveal>
@@ -127,14 +114,14 @@ export default function About() {
                     </Tile>
 
                     {/* Hobbies */}
-                    <Tile span="col-span-2 min-h-[10rem]" className="bg-surface">
-                        <div className="flex h-full flex-col justify-between p-5 sm:p-6">
+                    <Tile span="col-span-2 min-h-[10rem] md:col-span-3" className="bg-surface">
+                        <div className="flex h-full flex-col justify-between gap-5 p-5 sm:p-6">
                             <p className="eyebrow">{t("bento.hobbies")}</p>
-                            <ul className="mt-4 grid grid-cols-4 gap-2">
+                            <ul className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                                 {hobbies.map((h) => (
-                                    <li key={h.label} className="flex flex-col items-center gap-2 rounded-2xl bg-white/[0.04] px-2 py-3 text-center hairline">
-                                        <Emoji src={h.icon} className="h-8 sm:h-9"/>
-                                        <span className="text-xs font-medium text-ink-2 sm:text-sm">{h.label}</span>
+                                    <li key={h.label} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white/[0.05] py-2 pl-2.5 pr-4 text-sm font-medium text-ink hairline sm:text-[15px]">
+                                        <Emoji src={h.icon} className="h-5 sm:h-6"/>
+                                        {h.label}
                                     </li>
                                 ))}
                             </ul>
@@ -151,21 +138,6 @@ export default function About() {
                         </div>
                     </Tile>
 
-                    {/* Clock */}
-                    <Tile span="col-span-2 min-h-[10rem] md:col-span-1" className="bg-surface">
-                        <div className="flex h-full flex-col justify-between p-5 sm:p-6">
-                            <p className="eyebrow">{t("bento.time")}</p>
-                            <div>
-                                <p className="font-semibold leading-none tracking-display text-[clamp(2.2rem,3.6vw,3rem)]">
-                                    <BerlinClock/>
-                                </p>
-                                <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-2">
-                                    <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse-soft"/>
-                                    Berlin
-                                </p>
-                            </div>
-                        </div>
-                    </Tile>
                 </Stagger>
             </div>
         </section>

@@ -246,10 +246,3 @@ body {
         radial-gradient(115% 85% at 50% 35%, transparent 40%, rgba(0, 0, 0, 0.7) 100%),
         linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 45%);
 }
-
-/* Touch devices: a gentle proximity snap from the hero into About (see lib/useHeroSnap). */
-@media (pointer: coarse) {
-    html.hero-snap { scroll-snap-type: y proximity; }
-    html.hero-snap #hero,
-    html.hero-snap #about { scroll-snap-align: start; }
-}

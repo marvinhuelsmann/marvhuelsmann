@@ -60,7 +60,10 @@ export default function Hero() {
     const textY = useTransform(scrollYProgress, [0, 1], [0, -120]);
     const fade = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
     const photoScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-    const photoDim = useTransform(scrollYProgress, [0, 0.8], [1, 0.25]);
+    // the whole stage stays behind while About slides over it like a card
+    const stageY = useTransform(scrollYProgress, [0, 1], ["0%", "55%"]);
+    const stageScale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+    const stageOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
     // pointer: the photo drifts a few pixels in depth
     const px = useMotionValue(0);
@@ -91,9 +94,9 @@ export default function Hero() {
             ref={ref}
             className="relative isolate h-[100svh] min-h-[44rem] overflow-hidden bg-black text-ink select-none"
         >
+            <motion.div style={{y: stageY, scale: stageScale, opacity: stageOpacity}} className="absolute inset-0 origin-top will-change-transform">
             {/* ── the photo ─────────────────────────────────────────── */}
-            <motion.div
-                style={{opacity: photoDim}}
+            <div
                 className="hero-photo absolute left-1/2 top-0 h-[64%] w-full -translate-x-1/2
                            sm:h-[70%] lg:left-auto lg:right-[-3%] lg:top-auto lg:bottom-0 lg:h-[96%] lg:w-auto lg:translate-x-0 lg:aspect-[1433/1098]"
             >
@@ -119,7 +122,7 @@ export default function Hero() {
                         <div aria-hidden="true" className="apple-glow absolute left-[48.6%] top-[78%] h-[13%] w-[10%] -translate-x-1/2 -translate-y-1/2 rounded-full"/>
                     </motion.div>
                 </motion.div>
-            </motion.div>
+            </div>
 
             {/* ── light field, in front of the photo like dust in the room ── */}
             <LightField onRipple={onRipple} className="pointer-events-none absolute inset-0 z-10"/>
@@ -223,6 +226,7 @@ export default function Hero() {
                 {t("hero.scroll")}
                 <BsArrowDown className="h-4 w-4 animate-bounce"/>
             </motion.a>
+            </motion.div>
         </section>
     )
 }
