@@ -46,11 +46,11 @@ export const FEATURED = [
 export const APP_STORE_COUNT = FEATURED.filter((p) => p.store).length;
 
 export const PLATFORM_STYLE = {
-    ios: {gradient: "from-[#0a84ff] to-[#5ac8fa]", label: "platform.ios"},
-    watch: {gradient: "from-[#ff2d55] to-[#ff9f0a]", label: "platform.watch"},
-    vision: {gradient: "from-[#bf5af2] to-[#5e5ce6]", label: "platform.vision"},
-    web: {gradient: "from-[#30d158] to-[#64d2ff]", label: "platform.web"},
-    business: {gradient: "from-[#ff5a3c] to-[#ffb340]", label: "platform.business"},
+    ios: {gradient: "from-[#0a84ff] to-[#5ac8fa]", glow: "10,132,255", label: "platform.ios"},
+    watch: {gradient: "from-[#ff2d55] to-[#ff9f0a]", glow: "255,45,85", label: "platform.watch"},
+    vision: {gradient: "from-[#bf5af2] to-[#5e5ce6]", glow: "191,90,242", label: "platform.vision"},
+    web: {gradient: "from-[#30d158] to-[#64d2ff]", glow: "48,209,88", label: "platform.web"},
+    business: {gradient: "from-[#ff5a3c] to-[#ffb340]", glow: "255,90,60", label: "platform.business"},
 };
 
 export const LANGUAGE_COLOR = {

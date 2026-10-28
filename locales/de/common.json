@@ -115,5 +115,10 @@
   "meta.privacy.title": "Datenschutz – DoThis & Procto",
   "meta.privacy.description": "Datenschutzerklärung für die Apps DoThis und Procto von Marvin Hülsmann.",
   "contact.mail.placeholder": "E-Mail anzeigen",
-  "contact.phone.placeholder": "Telefon anzeigen"
+  "contact.phone.placeholder": "Telefon anzeigen",
+  "hero.status": "Offen für neue Projekte",
+  "hero.now": "Jetzt",
+  "projects.repos.count": "{{count}} öffentliche Repositories",
+  "projects.repos.cta": "Repositories ansehen",
+  "projects.close": "Schließen"
 }

@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useRef, useState} from "react";
-import {AnimatePresence, motion, useScroll, useTransform} from "framer-motion";
+import dynamic from "next/dynamic";
+import {useCallback, useEffect, useRef, useState} from "react";
+import {AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransform} from "framer-motion";
 import {useTranslation} from "next-i18next";
 import {BsArrowRight, BsArrowDown} from "react-icons/bs";
-import HeroImage from "../../public/StandUpMarvin2.jpeg";
+import HeroImage from "../../public/MarvinLaptop.jpg";
+import {APP_STORE_COUNT} from "./projects.data";
+
+// WebGL only runs in the browser and never blocks the first paint.
+const LightField = dynamic(() => import("./LightField"), {ssr: false});
 
 const HELLO = ["Guten Tag", "Hi", "Bonjour", "Hej", "Ciao", "Tach", "Hăo", "Moinsen", "こんにちは", "Hello", "Salut", "Olá", "Merhaba", "Shalom", "გამარჯობა"];
 const EASE = [0.22, 1, 0.36, 1];
@@ -20,9 +25,9 @@ function HelloWord() {
             <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                     key={HELLO[i]}
-                    initial={{y: "100%", opacity: 0}}
-                    animate={{y: 0, opacity: 1}}
-                    exit={{y: "-100%", opacity: 0}}
+                    initial={{y: "100%", opacity: 0, filter: "blur(6px)"}}
+                    animate={{y: 0, opacity: 1, filter: "blur(0px)"}}
+                    exit={{y: "-100%", opacity: 0, filter: "blur(6px)"}}
                     transition={{duration: 0.5, ease: EASE}}
                     className="inline-block font-serif italic text-accent"
                 >
@@ -33,43 +38,163 @@ function HelloWord() {
     )
 }
 
+/** Live Berlin time with seconds, ticking on the second boundary. */
+function BerlinTime() {
+    const [time, setTime] = useState("");
+    useEffect(() => {
+        const fmt = new Intl.DateTimeFormat("de-DE", {hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "Europe/Berlin"});
+        let id;
+        const tick = () => {
+            setTime(fmt.format(new Date()));
+            id = setTimeout(tick, 1000 - (Date.now() % 1000));
+        };
+        tick();
+        return () => clearTimeout(id);
+    }, []);
+    return <span className="tabular-nums">{time || "--:--:--"}</span>;
+}
+
+/** Thin rings that bloom where the visitor clicks, on top of the WebGL shockwave. */
+function useClickRings() {
+    const [rings, setRings] = useState([]);
+    const add = useCallback((x, y) => {
+        const id = Math.random().toString(36).slice(2);
+        setRings((r) => [...r.slice(-3), {id, x, y}]);
+        setTimeout(() => setRings((r) => r.filter((ring) => ring.id !== id)), 1400);
+    }, []);
+    return [rings, add];
+}
+
+const glassWidget = "glass rounded-[1.4rem] card-shadow";
+
 export default function Hero() {
     const {t} = useTranslation("common");
     const ref = useRef(null);
+    const [rings, addRing] = useClickRings();
+
+    // scroll: text lifts away, photo settles back into the dark
     const {scrollYProgress} = useScroll({target: ref, offset: ["start start", "end start"]});
-    const imgY = useTransform(scrollYProgress, [0, 1], [0, 120]);
-    const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-    const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-    const fade = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+    const textY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+    const fade = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+    const photoScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+    const photoDim = useTransform(scrollYProgress, [0, 0.8], [1, 0.25]);
+
+    // pointer: the photo and widgets drift a few pixels in depth
+    const px = useMotionValue(0);
+    const py = useMotionValue(0);
+    const sx = useSpring(px, {stiffness: 60, damping: 20, mass: 0.6});
+    const sy = useSpring(py, {stiffness: 60, damping: 20, mass: 0.6});
+    const photoX = useTransform(sx, (v) => v * -14);
+    const photoY = useTransform(sy, (v) => v * -10);
+    const widgetX = useTransform(sx, (v) => v * 22);
+    const widgetY = useTransform(sy, (v) => v * 16);
+
+    useEffect(() => {
+        if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+        const onMove = (e) => {
+            px.set(e.clientX / window.innerWidth - 0.5);
+            py.set(e.clientY / window.innerHeight - 0.5);
+        };
+        window.addEventListener("pointermove", onMove, {passive: true});
+        return () => window.removeEventListener("pointermove", onMove);
+    }, [px, py]);
+
+    const onRipple = useCallback((x, y) => {
+        const r = ref.current?.getBoundingClientRect();
+        if (r) addRing(x - r.left, y - r.top);
+    }, [addRing]);
 
     return (
-        <section ref={ref} className="relative overflow-hidden pt-32 pb-20 sm:pt-40 md:min-h-[100svh] md:pb-24">
-            {/* atmosphere */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-                <div className="absolute -top-64 left-[8%] h-[46rem] w-[46rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.16),transparent_70%)] animate-float-slow"/>
-                <div className="absolute -right-32 top-[20%] h-[40rem] w-[40rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,179,64,0.18),transparent_70%)] animate-float"/>
-                <div className="absolute -bottom-40 left-[30%] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(closest-side,rgba(90,200,250,0.14),transparent_70%)]"/>
+        <section
+            ref={ref}
+            className="relative isolate h-[100svh] min-h-[44rem] overflow-hidden bg-black text-ink select-none"
+        >
+            {/* ── the photo ─────────────────────────────────────────── */}
+            <motion.div
+                style={{opacity: photoDim}}
+                className="hero-photo absolute left-1/2 top-0 h-[64%] w-full -translate-x-1/2
+                           sm:h-[70%] lg:left-auto lg:right-[-3%] lg:top-auto lg:bottom-0 lg:h-[96%] lg:w-auto lg:translate-x-0 lg:aspect-[1433/1098]"
+            >
+                <motion.div
+                    initial={{opacity: 0, scale: 1.06}}
+                    animate={{opacity: 1, scale: 1}}
+                    transition={{duration: 1.8, ease: EASE}}
+                    className="absolute inset-0"
+                >
+                    <motion.div style={{x: photoX, y: photoY, scale: photoScale}} className="absolute inset-0 will-change-transform">
+                        <Image
+                            src={HeroImage}
+                            alt="Marvin Hülsmann am MacBook"
+                            fill
+                            priority
+                            placeholder="blur"
+                            sizes="(min-width: 1024px) 70vw, 100vw"
+                            className="object-cover object-[53%_35%] lg:object-contain lg:object-bottom"
+                        />
+                        {/* screen light flickering on the face */}
+                        <div aria-hidden="true" className="screen-light absolute left-[53%] top-[40%] h-[34%] w-[26%] -translate-x-1/2 -translate-y-1/2 rounded-full"/>
+                        {/* the logo on the lid breathes */}
+                        <div aria-hidden="true" className="apple-glow absolute left-[48.6%] top-[78%] h-[13%] w-[10%] -translate-x-1/2 -translate-y-1/2 rounded-full"/>
+                    </motion.div>
+                </motion.div>
+            </motion.div>
+
+            {/* ── light field, in front of the photo like dust in the room ── */}
+            <LightField onRipple={onRipple} className="pointer-events-none absolute inset-0 z-10 mix-blend-screen"/>
+
+            {/* click rings */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
+                <AnimatePresence>
+                    {rings.map((r) => (
+                        <motion.span
+                            key={r.id}
+                            initial={{scale: 0, opacity: 0.55}}
+                            animate={{scale: 1, opacity: 0}}
+                            exit={{opacity: 0}}
+                            transition={{duration: 1.3, ease: [0.16, 1, 0.3, 1]}}
+                            style={{left: r.x, top: r.y}}
+                            className="absolute -ml-[22rem] -mt-[22rem] h-[44rem] w-[44rem] rounded-full border border-white/40 shadow-[0_0_60px_rgba(255,255,255,0.12),inset_0_0_60px_rgba(255,255,255,0.08)]"
+                        />
+                    ))}
+                </AnimatePresence>
             </div>
 
-            <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-12 lg:gap-8">
-                <motion.div style={{y: textY, opacity: fade}} className="will-change-transform lg:col-span-7">
+            {/* ── top meta line, Berlin coordinates + live clock ───── */}
+            <motion.div
+                style={{opacity: fade}}
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 1, delay: 1}}
+                className="absolute inset-x-0 top-[5.25rem] z-20 hidden sm:block"
+            >
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-6 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-3">
+                    <span>52.5200° N · 13.4050° E — Berlin</span>
+                    <span className="flex items-center gap-2">
+                        <span className="text-ink-2"><BerlinTime/></span> CET
+                    </span>
+                </div>
+            </motion.div>
+
+            {/* ── copy ──────────────────────────────────────────────── */}
+            <div className="relative z-20 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-[max(2.75rem,env(safe-area-inset-bottom))] lg:justify-center lg:pb-0">
+                <motion.div style={{y: textY, opacity: fade}} className="max-w-[40rem] will-change-transform">
                     <motion.p
                         initial={{opacity: 0, y: 16}}
                         animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.8, ease: EASE, delay: 0.2}}
-                        className="text-2xl text-ink-2 sm:text-3xl"
+                        transition={{duration: 0.8, ease: EASE, delay: 0.5}}
+                        className="text-xl text-ink-2 sm:text-3xl"
                     >
                         <HelloWord/>
                     </motion.p>
 
-                    <h1 className="mt-3 font-semibold leading-[0.92] tracking-display text-[clamp(3.4rem,11vw,9.75rem)]">
+                    <h1 className="mt-2 font-semibold leading-[0.9] tracking-display text-[clamp(3.4rem,8.6vw,8.25rem)]">
                         {["Marvin", "Hülsmann"].map((w, idx) => (
-                            <span key={w} className="block overflow-hidden">
+                            <span key={w} className="block overflow-hidden pb-[0.06em]">
                                 <motion.span
                                     initial={{y: "105%"}}
                                     animate={{y: 0}}
-                                    transition={{duration: 1, ease: EASE, delay: 0.3 + idx * 0.1}}
-                                    className="block"
+                                    transition={{duration: 1.1, ease: EASE, delay: 0.6 + idx * 0.1}}
+                                    className="block text-silver"
                                 >
                                     {w}{idx === 1 && <span className="text-accent">.</span>}
                                 </motion.span>
@@ -78,10 +203,10 @@ export default function Hero() {
                     </h1>
 
                     <motion.p
-                        initial={{opacity: 0, y: 20}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.9, ease: EASE, delay: 0.6}}
-                        className="mt-8 max-w-xl text-xl leading-snug text-ink-2 sm:text-2xl"
+                        initial={{opacity: 0, y: 20, filter: "blur(8px)"}}
+                        animate={{opacity: 1, y: 0, filter: "blur(0px)"}}
+                        transition={{duration: 1, ease: EASE, delay: 0.95}}
+                        className="mt-6 max-w-md text-lg leading-snug text-ink-2 sm:mt-8 sm:text-xl"
                     >
                         {t("hero.tagline")}
                     </motion.p>
@@ -89,58 +214,66 @@ export default function Hero() {
                     <motion.div
                         initial={{opacity: 0, y: 20}}
                         animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.9, ease: EASE, delay: 0.75}}
-                        className="mt-10 flex flex-wrap items-center gap-3"
+                        transition={{duration: 0.9, ease: EASE, delay: 1.1}}
+                        className="mt-8 flex flex-wrap items-center gap-3 sm:mt-10"
                     >
                         <Link
                             href="/work"
-                            className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-white transition hover:bg-black hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.5)]"
+                            className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-black transition hover:bg-white hover:shadow-[0_0_40px_-6px_rgba(255,255,255,0.45)]"
                         >
                             {t("hero.cta.work")}
                             <BsArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
                         </Link>
                         <a
                             href="#projects"
-                            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-ink hairline transition hover:bg-white/70 hover:card-shadow"
+                            className="inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 text-base font-medium text-ink transition hover:bg-white/10"
                         >
                             {t("hero.cta.projects")}
                         </a>
                     </motion.div>
                 </motion.div>
-
-                <div className="relative lg:col-span-5">
-                    <motion.div
-                        initial={{opacity: 0, scale: 0.94, y: 30}}
-                        animate={{opacity: 1, scale: 1, y: 0}}
-                        transition={{duration: 1.2, ease: EASE, delay: 0.35}}
-                        className="relative mx-auto w-full max-w-md lg:max-w-none"
-                    >
-                        <motion.div
-                            style={{y: imgY}}
-                            className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] card-shadow-lg will-change-transform"
-                        >
-                            <motion.div style={{scale: imgScale}} className="absolute inset-0 will-change-transform">
-                                <Image
-                                    src={HeroImage}
-                                    alt="Marvin Hülsmann im Apple Park, WWDC24"
-                                    fill
-                                    priority
-                                    placeholder="blur"
-                                    sizes="(min-width: 1024px) 40vw, (min-width: 640px) 60vw, 92vw"
-                                    className="object-cover object-[50%_20%]"
-                                />
-                            </motion.div>
-                            <div className="pointer-events-none absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-black/10"/>
-                        </motion.div>
-
-                    </motion.div>
-                </div>
             </div>
 
+            {/* ── floating glass widgets (desktop) ─────────────────── */}
+            <motion.div style={{x: widgetX, y: widgetY, opacity: fade}} className="pointer-events-none absolute inset-0 z-20 hidden lg:block">
+                <motion.div
+                    initial={{opacity: 0, y: 24, scale: 0.96}}
+                    animate={{opacity: 1, y: 0, scale: 1}}
+                    transition={{duration: 1, ease: EASE, delay: 1.4}}
+                    className={`${glassWidget} pointer-events-auto absolute right-[5%] top-[26%] w-56 p-4`}
+                >
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">{t("hero.now")}</p>
+                    <p className="mt-2 flex items-center gap-2 text-[15px] font-medium leading-tight">
+                        <span className="relative flex h-2 w-2 shrink-0">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70"/>
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"/>
+                        </span>
+                        {t("hero.status")}
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{opacity: 0, y: 24, scale: 0.96}}
+                    animate={{opacity: 1, y: 0, scale: 1}}
+                    transition={{duration: 1, ease: EASE, delay: 1.55}}
+                    className={`${glassWidget} pointer-events-auto absolute bottom-[12%] right-[7%] flex w-[17rem] items-center gap-4 p-4`}
+                >
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[0.9rem] bg-gradient-to-br from-[#ff5a3c] via-[#ff2d55] to-[#ffb340] text-2xl font-semibold text-white shadow-[0_8px_24px_-8px_rgba(255,45,85,0.7)]">
+                        {APP_STORE_COUNT}
+                    </span>
+                    <span>
+                        <span className="block text-[15px] font-medium leading-tight">{t("bento.apps")}</span>
+                        <span className="mt-0.5 block text-xs text-ink-3">{t("bento.apps.sub")}</span>
+                    </span>
+                </motion.div>
+            </motion.div>
+
+            {/* bottom fade into the page + scroll cue */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-black to-transparent"/>
             <motion.a
                 href="#about"
                 style={{opacity: fade}}
-                className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-sm text-ink-3 md:flex"
+                className="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-2 text-sm text-ink-3 transition hover:text-ink md:flex lg:left-auto lg:right-6 lg:translate-x-0"
             >
                 {t("hero.scroll")}
                 <BsArrowDown className="h-4 w-4 animate-bounce"/>

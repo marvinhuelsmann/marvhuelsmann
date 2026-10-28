@@ -73,13 +73,13 @@ export default function FinancyTracking() {
                     <Reveal delay={0.1} className="mt-8 flex flex-wrap gap-2">
                         {APPS.map((app) => app.href ? (
                             <a key={app.name} href={app.href} target="_blank" rel="noreferrer"
-                               className="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium hairline transition hover:card-shadow">
+                               className="group inline-flex items-center gap-2 rounded-full bg-elevated px-4 py-2 text-sm font-medium text-ink hairline transition hover:bg-[#2c2c2e]">
                                 {app.name}
                                 <span className="text-xs text-ink-3">{app.tag}</span>
-                                <BsArrowUpRight className="h-3.5 w-3.5 text-ink-3 transition group-hover:text-ink"/>
+                                <BsArrowUpRight className="h-3.5 w-3.5 text-ink-3 transition group-hover:text-white"/>
                             </a>
                         ) : (
-                            <span key={app.name} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium hairline">
+                            <span key={app.name} className="inline-flex items-center gap-2 rounded-full bg-elevated px-4 py-2 text-sm font-medium text-ink hairline">
                                 {app.name}
                                 <span className="text-xs text-ink-3">{app.tag}</span>
                             </span>
@@ -88,12 +88,12 @@ export default function FinancyTracking() {
                 </div>
             </section>
 
-            <section className="bg-white py-20 sm:py-24">
+            <section className="bg-surface py-20 sm:py-24">
                 <div className="mx-auto max-w-5xl px-6">
                     <Stagger className="grid gap-4 md:grid-cols-3">
                         {SECTIONS.map((s) => (
                             <Item key={s.title} className="h-full">
-                                <div className="h-full rounded-[2rem] bg-paper p-7 hairline transition duration-500 hover:-translate-y-1 hover:card-shadow sm:p-8">
+                                <div className="spotlight h-full rounded-[2rem] bg-elevated p-7 hairline transition duration-500 hover:-translate-y-1 hover:card-shadow sm:p-8">
                                     <Emoji src={s.icon} className="h-10"/>
                                     <h2 className="mt-5 text-xl font-semibold tracking-tight">{s.title}</h2>
                                     <p className="mt-2 leading-relaxed text-ink-2">{s.text}</p>
@@ -102,7 +102,7 @@ export default function FinancyTracking() {
                         ))}
                     </Stagger>
 
-                    <Reveal delay={0.1} className="mt-4 rounded-[2rem] bg-ink p-7 text-white grain sm:p-10">
+                    <Reveal delay={0.1} className="mt-4 rounded-[2rem] bg-paper bg-[radial-gradient(120%_140%_at_0%_0%,rgba(90,200,250,0.16),transparent_60%)] p-7 text-white hairline grain sm:p-10">
                         <div className="relative grid gap-8 md:grid-cols-12 md:items-end">
                             <div className="md:col-span-8">
                                 <p className="eyebrow !text-white/50">In one sentence</p>

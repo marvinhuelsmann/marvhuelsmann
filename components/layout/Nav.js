@@ -93,14 +93,14 @@ export default function Nav() {
                 >
                     <Link
                         href="/"
-                        className="mr-0.5 flex h-9 items-center gap-2 rounded-full px-2.5 text-ink transition hover:bg-black/5 sm:mr-1 sm:px-3"
+                        className="mr-0.5 flex h-9 items-center gap-2 rounded-full px-2.5 text-ink transition hover:bg-white/10 sm:mr-1 sm:px-3"
                         aria-label="Marvin Hülsmann – Home"
                     >
                         <Logo className="h-[18px] w-auto"/>
                         <span className="hidden text-sm font-semibold tracking-tight sm:inline">Marvin Hülsmann</span>
                     </Link>
 
-                    <div className="mx-0.5 hidden h-5 w-px bg-black/10 sm:block"/>
+                    <div className="mx-0.5 hidden h-5 w-px bg-white/10 sm:block"/>
 
                     {links.map((l) => (
                         <Link
@@ -108,13 +108,13 @@ export default function Nav() {
                             href={l.href}
                             className={`relative rounded-full px-2.5 py-1.5 text-[13px] font-medium transition sm:px-3 sm:text-sm
                             ${l.hideOnMobile ? "hidden sm:inline-block" : ""}
-                            ${l.active ? "bg-ink text-white" : "text-ink hover:bg-black/5"}`}
+                            ${l.active ? "bg-ink text-black" : "text-ink/80 hover:bg-white/10 hover:text-ink"}`}
                         >
                             {l.label}
                         </Link>
                     ))}
 
-                    <div className="mx-0.5 h-5 w-px bg-black/10"/>
+                    <div className="mx-0.5 h-5 w-px bg-white/10"/>
                     <LocaleMenu align={docked ? "top end" : "bottom end"}/>
                 </nav>
             </motion.header>

@@ -11,7 +11,7 @@ import {SOCIALS} from "../Footer";
 import {ProtectedMail} from "../Protected";
 import {getContactMail} from "../../lib/contact";
 
-const field = "mt-1.5 block w-full rounded-2xl bg-paper px-4 py-3.5 text-lg text-ink outline-none ring-1 ring-black/[0.06] transition placeholder:text-ink-3 focus:bg-white focus:ring-2 focus:ring-ink";
+const field = "mt-1.5 block w-full rounded-2xl bg-elevated px-4 py-3.5 text-lg text-ink outline-none ring-1 ring-white/10 transition placeholder:text-ink-3 focus:bg-[#2c2c2e] focus:ring-2 focus:ring-coral/70";
 const label = "block text-sm font-medium text-ink-2";
 
 function ContactForm() {
@@ -35,7 +35,7 @@ function ContactForm() {
     };
 
     return (
-        <form onSubmit={submit} noValidate className="rounded-[2rem] bg-white p-6 hairline card-shadow sm:p-8">
+        <form onSubmit={submit} noValidate className="rounded-[2rem] bg-surface p-6 hairline card-shadow sm:p-8">
             <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                     <label htmlFor="first-name" className={label}>{t("firstname")}</label>
@@ -69,7 +69,7 @@ function ContactForm() {
                 </p>
                 <button
                     type="submit"
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-white transition hover:bg-black"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-black transition hover:bg-white"
                 >
                     <Emoji src={EmailEmoji} className="h-5"/> {t("write")}
                     <BsArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
@@ -85,7 +85,7 @@ export default function Contact() {
     const channels = [
         {label: t("work.contact.meeting"), value: "cal.com/marvin", href: "https://cal.com/marvin-hulsmann-rjtji3/30min", icon: MemoEmoji, external: true},
     ];
-    const channelClass = "group flex items-center gap-4 rounded-[1.5rem] p-4 transition hover:bg-paper";
+    const channelClass = "group flex items-center gap-4 rounded-[1.5rem] p-4 transition hover:bg-elevated";
 
     return (
         <section id="contact" className="scroll-mt-20 bg-paper py-24 sm:py-32 md:py-40">
@@ -112,18 +112,18 @@ export default function Contact() {
                                    sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover"/>
                         </Reveal>
 
-                        <Reveal delay={0.15} className="rounded-[2rem] bg-white p-2 hairline">
+                        <Reveal delay={0.15} className="rounded-[2rem] bg-surface p-2 hairline">
                             <ProtectedMail placeholder={t("contact.mail.placeholder")} className={`${channelClass} cursor-pointer`}>
                                 {(value) => (
                                     <>
-                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-paper group-hover:bg-white">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-elevated group-hover:bg-[#2c2c2e]">
                                             <Emoji src={EmailEmoji} className="h-7"/>
                                         </span>
                                         <span className="min-w-0 flex-1">
                                             <span className="block text-sm text-ink-3">{t("work.contact.mail")}</span>
                                             <span className="block truncate font-medium">{value ?? t("contact.mail.placeholder")}</span>
                                         </span>
-                                        <BsArrowUpRight className="h-4 w-4 text-ink-3 transition group-hover:text-ink"/>
+                                        <BsArrowUpRight className="h-4 w-4 text-ink-3 transition group-hover:text-white"/>
                                     </>
                                 )}
                             </ProtectedMail>
@@ -135,14 +135,14 @@ export default function Contact() {
                                     rel={c.external ? "noreferrer" : undefined}
                                     className={channelClass}
                                 >
-                                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-paper group-hover:bg-white">
+                                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-elevated group-hover:bg-[#2c2c2e]">
                                         <Emoji src={c.icon} className="h-7"/>
                                     </span>
                                     <span className="min-w-0 flex-1">
                                         <span className="block text-sm text-ink-3">{c.label}</span>
                                         <span className="block truncate font-medium">{c.value}</span>
                                     </span>
-                                    <BsArrowUpRight className="h-4 w-4 text-ink-3 transition group-hover:text-ink"/>
+                                    <BsArrowUpRight className="h-4 w-4 text-ink-3 transition group-hover:text-white"/>
                                 </a>
                             ))}
                             <div className="flex items-center justify-between gap-4 p-4">
@@ -150,7 +150,7 @@ export default function Contact() {
                                 <div className="flex gap-2">
                                     {SOCIALS.map(({name, href, Icon}) => (
                                         <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name}
-                                           className="flex h-10 w-10 items-center justify-center rounded-full bg-paper text-ink transition hover:bg-ink hover:text-white">
+                                           className="flex h-10 w-10 items-center justify-center rounded-full bg-elevated text-ink transition hover:bg-ink hover:text-black">
                                             <Icon className="h-5 w-5"/>
                                         </a>
                                     ))}

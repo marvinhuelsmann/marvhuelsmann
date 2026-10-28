@@ -79,12 +79,12 @@ export default function Work() {
                         className="mt-10 flex flex-wrap gap-3"
                     >
                         <a href="#contact"
-                           className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-white transition hover:bg-black">
+                           className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-base font-medium text-black transition hover:bg-white">
                             {t("work.form.eyebrow")}
                             <BsArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5"/>
                         </a>
                         <a href="https://cal.com/marvin-hulsmann-rjtji3/30min" target="_blank" rel="noreferrer"
-                           className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-ink hairline transition hover:card-shadow">
+                           className="inline-flex items-center gap-2 rounded-full bg-elevated px-6 py-3.5 text-base font-medium text-ink hairline transition hover:bg-[#2c2c2e]">
                             {t("cta.meeting")}
                         </a>
                     </motion.div>

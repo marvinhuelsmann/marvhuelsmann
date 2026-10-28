@@ -19,7 +19,7 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="border-t border-black/5 bg-paper">
+        <footer className="border-t border-white/[0.06] bg-surface">
             <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
                 <div className="grid gap-12 md:grid-cols-12">
                     <div className="md:col-span-5">
@@ -36,7 +36,7 @@ export default function Footer() {
                                     target="_blank"
                                     rel="noreferrer me"
                                     aria-label={name}
-                                    className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink hairline transition hover:-translate-y-0.5 hover:card-shadow"
+                                    className="flex h-10 w-10 items-center justify-center rounded-full bg-elevated text-ink hairline transition hover:-translate-y-0.5 hover:bg-[#2c2c2e]"
                                 >
                                     <Icon className="h-5 w-5"/>
                                 </a>
@@ -85,7 +85,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-14 flex flex-col gap-4 border-t border-black/5 pt-6 text-sm text-ink-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mt-14 flex flex-col gap-4 border-t border-white/[0.06] pt-6 text-sm text-ink-3 sm:flex-row sm:items-center sm:justify-between">
                     <p>© {year} Marvin Hülsmann</p>
                     <div className="flex items-center gap-2">
                         <span>{t("footer.language")}</span>

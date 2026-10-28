@@ -10,7 +10,7 @@ import MemoEmoji from "../../style/icons/MemoEmoji.png";
 export default function CTA() {
     const {t} = useTranslation("common");
     return (
-        <section className="relative overflow-hidden bg-ink text-white grain">
+        <section className="relative overflow-hidden bg-paper text-white grain">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                 <div className="absolute left-1/2 top-1/2 h-[50rem] w-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.28),transparent_70%)] animate-float-slow"/>
                 <div className="absolute -right-40 bottom-0 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(closest-side,rgba(255,179,64,0.22),transparent_70%)]"/>
@@ -30,7 +30,7 @@ export default function CTA() {
                 <Reveal delay={0.15} className="mt-12 flex flex-wrap items-center justify-center gap-3">
                     <Link
                         href="/work"
-                        className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-ink transition hover:bg-paper"
+                        className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-base font-medium text-black transition hover:bg-white/90 hover:shadow-[0_0_40px_-6px_rgba(255,255,255,0.45)]"
                     >
                         {t("cta.work")}
                         <BsArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>

@@ -27,7 +27,7 @@ function BerlinClock() {
     return <span className="tabular-nums">{time || "--:--"}</span>;
 }
 
-const tile = "relative h-full overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] hairline transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:card-shadow";
+const tile = "relative h-full overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] hairline transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:card-shadow spotlight";
 
 /** Motion wrapper stays transition-free so framer-motion owns its transform; the inner tile handles hover. */
 function Tile({className = "", span = "", children}) {
@@ -50,7 +50,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="relative bg-white py-24 sm:py-32 md:py-40">
+        <section id="about" className="relative bg-paper py-24 sm:py-32 md:py-40">
             <div className="mx-auto max-w-7xl px-6">
                 <Reveal>
                     <p className="eyebrow">{t("about.eyebrow")}</p>
@@ -65,8 +65,8 @@ export default function About() {
 
                 <Stagger className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 md:mt-20 md:grid-cols-4 md:auto-rows-[11.5rem]">
                     {/* Story */}
-                    <Tile span="col-span-2 row-span-2" className="bg-ink text-white grain hairline-light">
-                        <div aria-hidden="true" className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.35),transparent_70%)]"/>
+                    <Tile span="col-span-2 row-span-2" className="bg-surface text-white grain">
+                        <div aria-hidden="true" className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.3),transparent_70%)]"/>
                         <div className="relative flex h-full flex-col justify-between p-6 sm:p-8">
                             <p className="text-[clamp(1.15rem,2.1vw,1.75rem)] leading-snug tracking-tight">
                                 {t("person.text.1")}
@@ -81,13 +81,13 @@ export default function About() {
                     </Tile>
 
                     {/* San Francisco photo */}
-                    <Tile span="col-span-2 row-span-2 md:col-span-1 min-h-[22rem] md:min-h-0" className="bg-white">
+                    <Tile span="col-span-2 row-span-2 md:col-span-1 min-h-[22rem] md:min-h-0" className="bg-surface">
                         <Image src={SFImage} alt="Marvin in San Francisco" fill placeholder="blur"
                                sizes="(min-width: 768px) 25vw, 100vw" className="object-cover object-[center_40%]"/>
                     </Tile>
 
                     {/* Age */}
-                    <Tile span="min-h-[10rem]" className="bg-[#fff1ec]">
+                    <Tile span="min-h-[10rem]" className="bg-[#170b08]">
                         <div aria-hidden="true" className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[radial-gradient(closest-side,rgba(255,90,60,0.35),transparent_70%)]"/>
                         <div className="relative flex h-full flex-col justify-between p-5 sm:p-6">
                             <p className="eyebrow !text-coral/80">{t("bento.age")}</p>
@@ -98,7 +98,7 @@ export default function About() {
                     </Tile>
 
                     {/* Clock */}
-                    <Tile span="min-h-[10rem]" className="bg-paper">
+                    <Tile span="min-h-[10rem]" className="bg-surface">
                         <div className="flex h-full flex-col justify-between p-5 sm:p-6">
                             <p className="eyebrow">{t("bento.time")}</p>
                             <div>
@@ -114,12 +114,12 @@ export default function About() {
                     </Tile>
 
                     {/* Hobbies */}
-                    <Tile span="col-span-2 min-h-[10rem]" className="bg-white">
+                    <Tile span="col-span-2 min-h-[10rem]" className="bg-surface">
                         <div className="flex h-full flex-col justify-between p-5 sm:p-6">
                             <p className="eyebrow">{t("bento.hobbies")}</p>
                             <ul className="mt-4 grid grid-cols-4 gap-2">
                                 {hobbies.map((h) => (
-                                    <li key={h.label} className="flex flex-col items-center gap-2 rounded-2xl bg-paper px-2 py-3 text-center">
+                                    <li key={h.label} className="flex flex-col items-center gap-2 rounded-2xl bg-elevated px-2 py-3 text-center">
                                         <Emoji src={h.icon} className="h-8 sm:h-9"/>
                                         <span className="text-xs font-medium text-ink-2 sm:text-sm">{h.label}</span>
                                     </li>
@@ -141,7 +141,7 @@ export default function About() {
                     </Tile>
 
                     {/* WWDC photo */}
-                    <Tile span="min-h-[10rem]" className="bg-white">
+                    <Tile span="min-h-[10rem]" className="bg-surface">
                         <Image src={WWDCImage} alt="Marvin auf der WWDC im Apple Park" fill placeholder="blur"
                                sizes="(min-width: 768px) 25vw, 50vw" className="object-cover object-[center_33%]"/>
                     </Tile>

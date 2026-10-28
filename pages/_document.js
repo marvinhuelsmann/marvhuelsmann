@@ -6,7 +6,7 @@ export default function Document(props) {
     const lang = LANG_TAG[locale] || "en";
 
     return (
-        <Html lang={lang}>
+        <Html lang={lang} className="bg-black">
             <Head>
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
@@ -15,7 +15,7 @@ export default function Document(props) {
                 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
                 <link rel="apple-touch-icon" href="/Logo-Extra-Big-Red.png"/>
                 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
-                <meta name="theme-color" content="#f5f5f7"/>
+                <meta name="theme-color" content="#000000"/>
                 <meta name="format-detection" content="telephone=no,email=no"/>
             </Head>
             <body>
