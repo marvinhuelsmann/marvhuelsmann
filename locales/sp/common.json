@@ -117,8 +117,6 @@
   "meta.privacy.description": "Política de privacidad de las apps DoThis y Procto de Marvin Hülsmann.",
   "contact.mail.placeholder": "Mostrar correo",
   "contact.phone.placeholder": "Mostrar teléfono",
-  "hero.status": "Disponible para nuevos proyectos",
-  "hero.now": "Ahora",
   "projects.repos.count": "{{count}} repositorios públicos",
   "projects.repos.cta": "Ver repositorios",
   "projects.close": "Cerrar"

@@ -117,8 +117,6 @@
   "meta.privacy.description": "Privacy policy for the DoThis and Procto apps by Marvin Hülsmann.",
   "contact.mail.placeholder": "Show email",
   "contact.phone.placeholder": "Show phone",
-  "hero.status": "Open for new projects",
-  "hero.now": "Now",
   "projects.repos.count": "{{count}} public repositories",
   "projects.repos.cta": "Browse repositories",
   "projects.close": "Close"

@@ -6,7 +6,6 @@ import {AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransf
 import {useTranslation} from "next-i18next";
 import {BsArrowRight, BsArrowDown} from "react-icons/bs";
 import HeroImage from "../../public/MarvinLaptop.jpg";
-import {APP_STORE_COUNT} from "./projects.data";
 
 // WebGL only runs in the browser and never blocks the first paint.
 const LightField = dynamic(() => import("./LightField"), {ssr: false});
@@ -65,8 +64,6 @@ function useClickRings() {
     return [rings, add];
 }
 
-const glassWidget = "glass rounded-[1.4rem] card-shadow";
-
 export default function Hero() {
     const {t} = useTranslation("common");
     const ref = useRef(null);
@@ -79,15 +76,13 @@ export default function Hero() {
     const photoScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
     const photoDim = useTransform(scrollYProgress, [0, 0.8], [1, 0.25]);
 
-    // pointer: the photo and widgets drift a few pixels in depth
+    // pointer: the photo drifts a few pixels in depth
     const px = useMotionValue(0);
     const py = useMotionValue(0);
     const sx = useSpring(px, {stiffness: 60, damping: 20, mass: 0.6});
     const sy = useSpring(py, {stiffness: 60, damping: 20, mass: 0.6});
     const photoX = useTransform(sx, (v) => v * -14);
     const photoY = useTransform(sy, (v) => v * -10);
-    const widgetX = useTransform(sx, (v) => v * 22);
-    const widgetY = useTransform(sy, (v) => v * 16);
 
     useEffect(() => {
         if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
@@ -233,40 +228,6 @@ export default function Hero() {
                     </motion.div>
                 </motion.div>
             </div>
-
-            {/* ── floating glass widgets (desktop) ─────────────────── */}
-            <motion.div style={{x: widgetX, y: widgetY, opacity: fade}} className="pointer-events-none absolute inset-0 z-20 hidden lg:block">
-                <motion.div
-                    initial={{opacity: 0, y: 24, scale: 0.96}}
-                    animate={{opacity: 1, y: 0, scale: 1}}
-                    transition={{duration: 1, ease: EASE, delay: 1.4}}
-                    className={`${glassWidget} pointer-events-auto absolute right-[5%] top-[26%] w-56 p-4`}
-                >
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">{t("hero.now")}</p>
-                    <p className="mt-2 flex items-center gap-2 text-[15px] font-medium leading-tight">
-                        <span className="relative flex h-2 w-2 shrink-0">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70"/>
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"/>
-                        </span>
-                        {t("hero.status")}
-                    </p>
-                </motion.div>
-
-                <motion.div
-                    initial={{opacity: 0, y: 24, scale: 0.96}}
-                    animate={{opacity: 1, y: 0, scale: 1}}
-                    transition={{duration: 1, ease: EASE, delay: 1.55}}
-                    className={`${glassWidget} pointer-events-auto absolute bottom-[12%] right-[7%] flex w-[17rem] items-center gap-4 p-4`}
-                >
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[0.9rem] bg-gradient-to-br from-[#ff5a3c] via-[#ff2d55] to-[#ffb340] text-2xl font-semibold text-white shadow-[0_8px_24px_-8px_rgba(255,45,85,0.7)]">
-                        {APP_STORE_COUNT}
-                    </span>
-                    <span>
-                        <span className="block text-[15px] font-medium leading-tight">{t("bento.apps")}</span>
-                        <span className="mt-0.5 block text-xs text-ink-3">{t("bento.apps.sub")}</span>
-                    </span>
-                </motion.div>
-            </motion.div>
 
             {/* bottom fade into the page + scroll cue */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-black to-transparent"/>
