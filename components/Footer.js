@@ -70,7 +70,7 @@ export default function Footer() {
                         <p className="eyebrow">{t("footer.legal")}</p>
                         <address className="mt-4 not-italic text-ink-2 leading-relaxed">
                             Wöhlertstraße 21<br/>
-                            10115 Berlin, Germany<br/>
+                            10115 Berlin<br/>
                             <span className="text-ink-3">{t("vatid")}: DE 353408902</span>
                         </address>
                         <a
