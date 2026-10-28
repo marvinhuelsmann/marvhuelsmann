@@ -2,6 +2,7 @@ import Image from "next/image";
 import {useTranslation} from "next-i18next";
 import {BsApple} from "react-icons/bs";
 import Emoji from "../Emoji";
+import AppleText from "../AppleText";
 import Reveal, {Stagger, Item} from "../motion/Reveal";
 import StudentEmoji from "../../style/icons/StudentEmoji.png";
 import DeveloperEmoji from "../../style/icons/DeveloperEmoji.png";
@@ -60,7 +61,7 @@ export default function About() {
                 <Reveal>
                     <p className="eyebrow">{t("about.eyebrow")}</p>
                     <h2 className="mt-5 max-w-5xl font-semibold leading-[1.06] tracking-display text-[clamp(1.9rem,4.4vw,4.2rem)]">
-                        {t("about.lead.1")} <Emoji src={StudentEmoji}/> {t("about.lead.2")} <Emoji src={DeveloperEmoji}/>{" "}
+                        {t("about.lead.1")} <Emoji src={StudentEmoji}/> <AppleText>{t("about.lead.2")}</AppleText> <Emoji src={DeveloperEmoji}/>{" "}
                         <span className="text-ink-3">{t("about.lead.3", {age})}</span>
                     </h2>
                 </Reveal>

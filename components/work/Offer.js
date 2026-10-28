@@ -1,6 +1,7 @@
 import {useTranslation} from "next-i18next";
 import {BsGlobe2, BsPhone, BsVectorPen, BsArrowRight} from "react-icons/bs";
 import Reveal, {Stagger, Item} from "../motion/Reveal";
+import AppleText from "../AppleText";
 import {APP_STORE_COUNT} from "../home/projects.data";
 
 /**
@@ -44,7 +45,7 @@ export function Build() {
                                 <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.06] hairline">
                                     <Icon className="h-5 w-5 text-ink"/>
                                 </span>
-                                <h3 className="relative mt-8 text-2xl font-semibold tracking-tight">{t(`work.build.${key}.title`)}</h3>
+                                <h3 className="relative mt-8 text-2xl font-semibold tracking-tight"><AppleText>{t(`work.build.${key}.title`)}</AppleText></h3>
                                 <p className="relative mt-3 leading-relaxed text-ink-2">{t(`work.build.${key}.text`)}</p>
                             </div>
                         </Item>
