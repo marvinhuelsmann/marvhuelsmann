@@ -224,10 +224,32 @@ body {
 .apple-glow {
     background: radial-gradient(closest-side, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.08) 55%, transparent 80%);
     mix-blend-mode: screen;
-    filter: blur(6px);
     animation: apple-breathe 5.5s ease-in-out infinite;
 }
 @keyframes apple-breathe {
     0%, 100% { opacity: .35; scale: .9; }
     50% { opacity: .85; scale: 1.15; }
+}
+
+/* ───────────────────────── Photography ───────────────────────── */
+/* One "pro" grade for every photo: deeper blacks, calmer colour, a touch more contrast. */
+.photo-pro {
+    filter: brightness(0.68) contrast(1.14) saturate(0.72);
+}
+/* Vignette that pulls the edges into the dark UI. Sits over the image, under captions. */
+.photo-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+        radial-gradient(115% 85% at 50% 35%, transparent 40%, rgba(0, 0, 0, 0.7) 100%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 45%);
+}
+
+/* Touch devices: a gentle proximity snap from the hero into About (see lib/useHeroSnap). */
+@media (pointer: coarse) {
+    html.hero-snap { scroll-snap-type: y proximity; }
+    html.hero-snap #hero,
+    html.hero-snap #about { scroll-snap-align: start; }
 }

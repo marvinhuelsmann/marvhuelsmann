@@ -6,6 +6,7 @@ import {AnimatePresence, motion, useMotionValue, useScroll, useSpring, useTransf
 import {useTranslation} from "next-i18next";
 import {BsArrowRight, BsArrowDown} from "react-icons/bs";
 import HeroImage from "../../public/MarvinLaptop.jpg";
+import useHeroSnap from "../../lib/useHeroSnap";
 
 // WebGL only runs in the browser and never blocks the first paint.
 const LightField = dynamic(() => import("./LightField"), {ssr: false});
@@ -24,9 +25,9 @@ function HelloWord() {
             <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                     key={HELLO[i]}
-                    initial={{y: "100%", opacity: 0, filter: "blur(6px)"}}
-                    animate={{y: 0, opacity: 1, filter: "blur(0px)"}}
-                    exit={{y: "-100%", opacity: 0, filter: "blur(6px)"}}
+                    initial={{y: "100%", opacity: 0}}
+                    animate={{y: 0, opacity: 1}}
+                    exit={{y: "-100%", opacity: 0}}
                     transition={{duration: 0.5, ease: EASE}}
                     className="inline-block font-serif italic text-accent"
                 >
@@ -52,6 +53,7 @@ export default function Hero() {
     const {t} = useTranslation("common");
     const ref = useRef(null);
     const [rings, addRing] = useClickRings();
+    useHeroSnap("about");
 
     // scroll: text lifts away, photo settles back into the dark
     const {scrollYProgress} = useScroll({target: ref, offset: ["start start", "end start"]});
@@ -85,6 +87,7 @@ export default function Hero() {
 
     return (
         <section
+            id="hero"
             ref={ref}
             className="relative isolate h-[100svh] min-h-[44rem] overflow-hidden bg-black text-ink select-none"
         >
@@ -108,7 +111,7 @@ export default function Hero() {
                             priority
                             placeholder="blur"
                             sizes="(min-width: 1024px) 70vw, 100vw"
-                            className="object-cover object-[53%_35%] lg:object-contain lg:object-bottom"
+                            className="object-cover object-[53%_35%] brightness-[0.88] contrast-[1.08] lg:object-contain lg:object-bottom"
                         />
                         {/* screen light flickering on the face */}
                         <div aria-hidden="true" className="screen-light absolute left-[53%] top-[40%] h-[34%] w-[26%] -translate-x-1/2 -translate-y-1/2 rounded-full"/>
@@ -119,7 +122,7 @@ export default function Hero() {
             </motion.div>
 
             {/* ── light field, in front of the photo like dust in the room ── */}
-            <LightField onRipple={onRipple} className="pointer-events-none absolute inset-0 z-10 mix-blend-screen"/>
+            <LightField onRipple={onRipple} className="pointer-events-none absolute inset-0 z-10"/>
 
             {/* click rings */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
@@ -179,8 +182,8 @@ export default function Hero() {
                     </h1>
 
                     <motion.p
-                        initial={{opacity: 0, y: 20, filter: "blur(8px)"}}
-                        animate={{opacity: 1, y: 0, filter: "blur(0px)"}}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
                         transition={{duration: 1, ease: EASE, delay: 0.95}}
                         className="mt-6 max-w-md text-lg leading-snug text-ink-2 sm:mt-8 sm:text-xl"
                     >

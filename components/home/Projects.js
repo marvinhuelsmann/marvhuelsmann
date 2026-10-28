@@ -55,7 +55,7 @@ function ProjectCard({project, index, t}) {
             >
                 {/* platform light */}
                 <div aria-hidden="true"
-                     className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full opacity-40 blur-3xl transition-all duration-700 group-hover:scale-125 group-hover:opacity-80"
+                     className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full opacity-40 transition-[opacity,scale] duration-700 group-hover:scale-125 group-hover:opacity-80"
                      style={{background: `radial-gradient(closest-side, rgba(${style.glow},0.55), transparent)`}}/>
                 {/* oversized platform glyph */}
                 <Icon aria-hidden="true"

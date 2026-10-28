@@ -101,15 +101,13 @@ export default function Contact() {
                 <div className="mt-14 grid gap-6 lg:grid-cols-12 lg:gap-8">
                     <Reveal className="lg:col-span-7" delay={0.05}>
                         <ContactForm/>
-                        <p className="mt-6 text-lg leading-relaxed text-ink-2">
-                            {t("work.info.text.1")} <span className="font-semibold text-ink">{t("work.info.text.2")}</span> {t("work.info.text.3")}
-                        </p>
                     </Reveal>
 
                     <div className="flex flex-col gap-4 lg:col-span-5">
                         <Reveal delay={0.1} className="relative aspect-[4/5] overflow-hidden rounded-[2rem] card-shadow sm:aspect-[5/4] lg:aspect-[4/5]">
                             <Image src={Photo} alt="Marvin in den Alpen" fill placeholder="blur"
-                                   sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover"/>
+                                   sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover photo-pro"/>
+                            <div aria-hidden="true" className="photo-vignette"/>
                         </Reveal>
 
                         <Reveal delay={0.15} className="rounded-[2rem] bg-surface p-2 hairline">

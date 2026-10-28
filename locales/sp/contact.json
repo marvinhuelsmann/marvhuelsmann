@@ -1,11 +1,11 @@
 {
-  "firstname": "nombre",
+  "firstname": "Nombre",
   "lastname": "Apellido",
-  "mail": "correo electrónico",
+  "mail": "Correo electrónico",
   "message": "Mensaje",
-  "write": "escribe",
-  "error.text.1": "Por favor complete el",
-  "error.text.2": "Campos",
-  "error.text.3": "",
-  "hint": "Nombre, correo y mensaje son suficientes."
+  "write": "Enviar",
+  "error.text.1": "Completa todos los",
+  "error.text.2": "campos obligatorios",
+  "error.text.3": "para enviar tu mensaje.",
+  "hint": "Basta con tu nombre, correo y mensaje."
 }

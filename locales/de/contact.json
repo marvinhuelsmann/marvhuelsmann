@@ -3,9 +3,9 @@
   "lastname": "Nachname",
   "mail": "E-Mail",
   "message": "Nachricht",
-  "write": "schreiben",
-  "error.text.1": "Bitte fülle die",
-  "error.text.2": "Felder",
-  "error.text.3": "aus",
+  "write": "Senden",
+  "error.text.1": "Bitte fülle alle",
+  "error.text.2": "Pflichtfelder",
+  "error.text.3": "aus, um deine Nachricht zu senden.",
   "hint": "Vorname, E-Mail und Nachricht genügen."
 }

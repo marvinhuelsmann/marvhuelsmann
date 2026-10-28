@@ -1,11 +1,11 @@
 {
   "firstname": "Prénom",
-  "lastname": "Nom de famille",
+  "lastname": "Nom",
   "mail": "E-mail",
   "message": "Message",
-  "write": "écrire",
-  "error.text.1": "Veuillez remplir le",
-  "error.text.2": "Champs",
-  "error.text.3": "",
+  "write": "Envoyer",
+  "error.text.1": "Veuillez remplir tous les",
+  "error.text.2": "champs obligatoires",
+  "error.text.3": "pour envoyer votre message.",
   "hint": "Prénom, e-mail et message suffisent."
 }

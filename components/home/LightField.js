@@ -131,7 +131,7 @@ export default function LightField({className = "", onRipple}) {
 
         const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const small = window.matchMedia("(max-width: 767px)").matches;
-        const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
 
         renderer.setPixelRatio(dpr);
         renderer.setClearColor(0x000000, 0);
@@ -140,12 +140,16 @@ export default function LightField({className = "", onRipple}) {
         renderer.domElement.style.display = "block";
         el.appendChild(renderer.domElement);
 
+        // a lost GPU context (sleep, driver reset) just stops the effect instead of throwing
+        const onLost = (e) => { e.preventDefault(); stop(); };
+        renderer.domElement.addEventListener("webglcontextlost", onLost);
+
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 60);
         camera.position.set(0, 0, 10);
 
         const HEIGHT = 12;
-        const geo = buildGeometry(small ? 650 : 1400, 16, HEIGHT);
+        const geo = buildGeometry(small ? 450 : 1100, 16, HEIGHT);
         const uniforms = {
             uTime: {value: 0},
             uPixelRatio: {value: dpr},
